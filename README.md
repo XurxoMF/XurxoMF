@@ -1,5 +1,5 @@
 <h1 align="center">Hola 👋, me presento, mi nombre es Xurxo</h1>
-<h3 align="center">Soy un gallego loco por la programación</h3>
+<p align="center">Soy un gallego común, pero un poco "loco" por la programación</p>
 
 <hr>
 
@@ -9,6 +9,8 @@
 <a href="https://instagram.com/xurxo_martinez_ferreira" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="xurxo_martinez_ferreira" height="30" width="40" /></a>
 <a href="https://discord.gg/ZvB55s4" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/discord.svg" alt="ZvB55s4" height="30" width="40" /></a>
 </p>
+
+<h3 align="center">Mi Spotify</h3>
 <div align="center">
   <a href="https://open.spotify.com/user/prbo3g78pqe2ea0162jryhojs">
     <img src="https://spotify-github-profile.vercel.app/api/view?uid=prbo3g78pqe2ea0162jryhojs&cover_image=true&theme=novatorem&bar_color=53b14f&bar_color_cover=true">
@@ -23,10 +25,17 @@
 <hr>
 
 <h3 align="center">Stats GitHub:</h3>
-<br/>
 <p align="center">
   <a href="https://github.com/XurxoMF">
-  <img width="50%" src="https://github-readme-stats.vercel.app/api?username=XurxoMF&show_icons=true&theme=jolly&count_private=true&hide_border=true" />
+  <img width="49%" src="https://github-readme-stats.vercel.app/api?username=XurxoMF&show_icons=true&theme=jolly&count_private=true&hide_border=true" />
   </a>
 </p>
-<br>
+
+<p align="center">
+  <a href="https://github.com/XurxoMF">
+  <img width="49%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=XurxoMF&theme=jolly&count_private=true&hide_border=true" />
+  </a>
+</p>
+
+<hr>
+
