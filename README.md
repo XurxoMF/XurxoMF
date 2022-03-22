@@ -24,7 +24,7 @@
 <br/>
 <p align="center">
   <a href="https://github.com/XurxoMF">
-  <img width="50%" src="https://github-readme-stats.vercel.app/api?username=XurxoMF&show_icons=true&theme=jolly&count_private=true" />
+  <img width="50%" src="https://github-readme-stats.vercel.app/api?username=XurxoMF&show_icons=true&theme=jolly&count_private=true&hide_border=true" />
   </a>
 </p>
 <br>
