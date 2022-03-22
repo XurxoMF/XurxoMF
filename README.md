@@ -1,7 +1,7 @@
 <h1 align="center">Hola 👋, me presento, mi nombre es Xurxo</h1>
 <p align="center">Soy un gallego común un poco "loco" por la programación. Estoy principalmente interesado en el desarrollo de frontend pero también tengo algo de conocimiento en backend y en algunos lenguajes relacionados con otros campos</p>
 
- <img src="https://dobusinesslikeawoman.com/wp-content/uploads/2017/04/Julie-Divider.png">
+<img src="https://dobusinesslikeawoman.com/wp-content/uploads/2017/04/Julie-Divider.png">
 
 <p align="center">🧑🏼‍💻 Actualmente estoy estudiando un ciclo superior de desarrollo de aplicaciones web</p>
 <p align="center">📒 También estoy estudiando por mi cuenta, usando google y youtube, React, Node.js y MongoDB</p>
