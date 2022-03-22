@@ -10,7 +10,7 @@
 <a href="https://discord.gg/ZvB55s4" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/discord.svg" alt="ZvB55s4" height="30" width="40" /></a>
 </p>
 
-[![Alt text](https://spotify-recently-played-readme.vercel.app/api?user=prbo3g78pqe2ea0162jryhojs&count={count})](https://open.spotify.com/user/prbo3g78pqe2ea0162jryhojs)
+[![Alt text](https://spotify-recently-played-readme.vercel.app/api?user=prbo3g78pqe2ea0162jryhojs)](https://open.spotify.com/user/prbo3g78pqe2ea0162jryhojs)
 
 <hr>
 
