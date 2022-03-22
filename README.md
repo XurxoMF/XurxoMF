@@ -9,9 +9,9 @@
 <a href="https://instagram.com/xurxo_martinez_ferreira" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="xurxo_martinez_ferreira" height="30" width="40" /></a>
 <a href="https://discord.gg/ZvB55s4" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/discord.svg" alt="ZvB55s4" height="30" width="40" /></a>
 </p>
-<div>
+<div align="center">
   <a href="https://open.spotify.com/user/prbo3g78pqe2ea0162jryhojs">
-    <img src="https://spotify-recently-played-readme.vercel.app/api?user=prbo3g78pqe2ea0162jryhojs">
+    <img src="https://spotify-recently-played-readme.vercel.app/api?user=prbo3g78pqe2ea0162jryhojs&count=1">
   </a>
 </div>
 
