@@ -10,12 +10,15 @@
 <a href="https://discord.gg/ZvB55s4" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/discord.svg" alt="ZvB55s4" height="30" width="40" /></a>
 </p>
 
+<hr>
+
 <h3 align="center">Mi Spotify</h3>
 <div align="center">
   <a href="https://open.spotify.com/user/prbo3g78pqe2ea0162jryhojs">
     <img src="https://spotify-github-profile.vercel.app/api/view?uid=prbo3g78pqe2ea0162jryhojs&cover_image=true&theme=novatorem&bar_color=53b14f&bar_color_cover=true">
   </a>
 </div>
+<iframe src="https://open.spotify.com/embed/playlist/5TaMR78sOpY0rJvZB95KLB?utm_source=generator" width="50%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
 
 <hr>
 
