@@ -18,7 +18,6 @@
     <img src="https://spotify-github-profile.vercel.app/api/view?uid=prbo3g78pqe2ea0162jryhojs&cover_image=true&theme=novatorem&bar_color=53b14f&bar_color_cover=true">
   </a>
 </div>
-<img src="https://open.spotify.com/embed/playlist/5TaMR78sOpY0rJvZB95KLB?utm_source=generator" width="150" height="380" >
 
 <hr>
 
