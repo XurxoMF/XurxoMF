@@ -11,7 +11,7 @@
 </p>
 <div align="center">
   <a href="https://open.spotify.com/user/prbo3g78pqe2ea0162jryhojs">
-    <img src="https://spotify-recently-played-readme.vercel.app/api?user=prbo3g78pqe2ea0162jryhojs&count=10">
+    <img src="https://spotify-github-profile.vercel.app/api/view?uid=prbo3g78pqe2ea0162jryhojs&cover_image=true&theme=novatorem&bar_color=53b14f&bar_color_cover=true">
   </a>
 </div>
 
