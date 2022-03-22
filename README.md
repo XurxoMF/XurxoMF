@@ -1,7 +1,7 @@
 <h1 align="center">Hola 👋, me presento, mi nombre es Xurxo</h1>
 <h3 align="center">Soy un gallego loco por la programación</h3>
 
-- 💼 Actualmente estoy estudiando en el **ciclo superior de desarrollo de aplicaciones web**
+- 💼 Actualmente estoy estudiando un **ciclo superior de desarrollo de aplicaciones web**
 
 - 🌱 A parte del ciclo estoy estudiando **React y MongoDB**
 
