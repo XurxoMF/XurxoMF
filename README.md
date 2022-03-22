@@ -21,3 +21,4 @@
 
 <h3 align="left">Stats GitHub:</h3>
 ![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=XurxoMF&count_private=true&show_icons=true&theme=jolly)
+[![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=anuraghazra&repo=github-readme-stats)](https://github.com/anuraghazra/github-readme-stats)
