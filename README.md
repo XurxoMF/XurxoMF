@@ -3,7 +3,7 @@
 
 <hr>
 
-<h3 align="center" style="color: #DE3DEB">Sígueme en mis redes sociales</h3>
+<h3 align="center">Sígueme en mis redes sociales</h3>
 <p align="center">
 <a href="https://twitter.com/xurxomf" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="xurxomf" height="30" width="40" /></a>
 <a href="https://instagram.com/xurxo_martinez_ferreira" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="xurxo_martinez_ferreira" height="30" width="40" /></a>
