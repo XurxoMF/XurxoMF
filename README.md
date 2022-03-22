@@ -25,13 +25,13 @@
 <hr>
 
 <h3 align="center">Stats GitHub:</h3>
-<p align="center">
+<p align="left">
   <a href="https://github.com/XurxoMF">
   <img width="49%" src="https://github-readme-stats.vercel.app/api?username=XurxoMF&show_icons=true&theme=jolly&count_private=true&hide_border=true" />
   </a>
 </p>
 
-<p align="center">
+<p align="right">
   <a href="https://github.com/XurxoMF">
   <img width="49%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=XurxoMF&theme=jolly&count_private=true&hide_border=true" />
   </a>
