@@ -1,7 +1,7 @@
 <h1 align="center">Hola 👋, me presento, mi nombre es Xurxo</h1>
 <h3 align="center">Soy un gallego loco por la programación</h3>
 
-<hr>
+<hr color="#DE3DEB">
 
 <h3 align="center">Sígueme en mis redes sociales</h3>
 <p align="center">
