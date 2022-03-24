@@ -5,7 +5,7 @@
 
 <p align="center">🧑🏼‍💻 Actualmente estoy estudiando un ciclo superior de desarrollo de aplicaciones web</p>
 <p align="center">📒 También estoy estudiando por mi cuenta, usando google y youtube, React, Node.js y MongoDB</p>
-<p align="center">😢 Por el momento no cuento con demasiada esperiencia trabajado como programador, pero esper que al terminar el ciclo superior pueda adquirirla</p>
+<p align="center">😢 Por el momento no cuento con demasiada experiencia trabajado como programador, pero espero que al terminar el ciclo superior pueda adquirirla</p>
 <p align="center">❓ Si tienes alguna pregunta que hacerme puedes contactarme por gmail, xurxolaxe@gmail.com</p>
 
 <img src="https://dobusinesslikeawoman.com/wp-content/uploads/2017/04/Julie-Divider.png">
@@ -28,7 +28,7 @@
 
 <img src="https://dobusinesslikeawoman.com/wp-content/uploads/2017/04/Julie-Divider.png">
 
-<h3 align="center">Lenguajes y utilidades</h3>
+<h3 align="center">Lenguajes y otros conocimientos</h3>
 <p align="center"> 
   <a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a>
   <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a>
@@ -45,11 +45,11 @@
 <h3 align="center">Stats GitHub</h3>
 <p align="center">
   <a href="https://github.com/XurxoMF">
-  <img width="48%" src="https://github-readme-stats.vercel.app/api?username=XurxoMF&show_icons=true&theme=jolly&count_private=true&hide_border=true" />
+  <img width="80%" src="https://github-readme-stats.vercel.app/api?username=XurxoMF&show_icons=true&theme=jolly&count_private=true&hide_border=true" />
   </a>
 </p>
 <p align="center">
   <a href="https://github.com/XurxoMF">
-  <img width="48%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=XurxoMF&theme=jolly&count_private=true&hide_border=true&layout=compact" />
+  <img width="80%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=XurxoMF&theme=jolly&count_private=true&hide_border=true&layout=compact" />
   </a>
 </p>
