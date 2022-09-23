@@ -10,15 +10,6 @@
 
 <img src="https://dobusinesslikeawoman.com/wp-content/uploads/2017/04/Julie-Divider.png">
 
-<h3 align="center">Sígueme en mis redes sociales</h3>
-<p align="center">
-<a href="https://twitter.com/xurxomf" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="xurxomf" height="30" width="40" /></a>
-<a href="https://instagram.com/xurxo_martinez_ferreira" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="xurxo_martinez_ferreira" height="30" width="40" /></a>
-<a href="https://discord.gg/ZvB55s4" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/discord.svg" alt="ZvB55s4" height="30" width="40" /></a>
-</p>
-
-<img src="https://dobusinesslikeawoman.com/wp-content/uploads/2017/04/Julie-Divider.png">
-
 <h3 align="center">Mi Spotify</h3>
 <div align="center">
   <a href="https://open.spotify.com/user/prbo3g78pqe2ea0162jryhojs">
