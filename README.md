@@ -10,15 +10,6 @@
 
 <img src="https://dobusinesslikeawoman.com/wp-content/uploads/2017/04/Julie-Divider.png">
 
-<h3 align="center">Mi Spotify</h3>
-<div align="center">
-  <a href="https://open.spotify.com/user/prbo3g78pqe2ea0162jryhojs">
-    <img src="https://spotify-github-profile.vercel.app/api/view?uid=prbo3g78pqe2ea0162jryhojs&cover_image=true&theme=novatorem&bar_color=53b14f&bar_color_cover=true">
-  </a>
-</div>
-
-<img src="https://dobusinesslikeawoman.com/wp-content/uploads/2017/04/Julie-Divider.png">
-
 <h3 align="center">Lenguajes y otros conocimientos</h3>
 <p align="center"> 
   <a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a>
@@ -31,6 +22,15 @@
   <a href="https://www.sqlite.org/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/sqlite/sqlite-icon.svg" alt="sqlite" width="40" height="40"/> </a>
   <a href="https://pugjs.org" target="_blank" rel="noreferrer"> <img src="https://cdn.worldvectorlogo.com/logos/pug.svg" alt="pug" width="40" height="40"/> </a>
 </p>
+
+<img src="https://dobusinesslikeawoman.com/wp-content/uploads/2017/04/Julie-Divider.png">
+
+<h3 align="center">Mi Spotify</h3>
+<div align="center">
+  <a href="https://open.spotify.com/user/prbo3g78pqe2ea0162jryhojs">
+    <img src="https://spotify-github-profile.vercel.app/api/view?uid=prbo3g78pqe2ea0162jryhojs&cover_image=true&theme=novatorem&bar_color=53b14f&bar_color_cover=true">
+  </a>
+</div>
 
 <img src="https://dobusinesslikeawoman.com/wp-content/uploads/2017/04/Julie-Divider.png">
 
