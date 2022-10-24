@@ -4,7 +4,7 @@
 <img src="https://dobusinesslikeawoman.com/wp-content/uploads/2017/04/Julie-Divider.png">
 
 <p align="center">🧑🏼‍💻 Actualmente estoy estudiando un ciclo superior de desarrollo de aplicaciones web</p>
-<p align="center">📒 También estoy estudiando por mi cuenta, usando google y youtube, React, Node.js y MongoDB</p>
+<p align="center">📒 También estoy estudiando por mi cuenta, usando google y youtube, Node.js y MongoDB</p>
 <p align="center">😢 Por el momento no cuento con demasiada experiencia trabajado como programador, pero espero que al terminar el ciclo superior pueda adquirirla</p>
 <p align="center">❓ Si tienes alguna pregunta que hacerme puedes contactarme por gmail, xurxolaxe@gmail.com</p>
 
