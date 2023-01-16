@@ -28,17 +28,3 @@
   <a href="https://mongoosejs.com" target="_blank"> <img src="https://mongoosejs.com/docs/images/mongoose5_62x30_transparent.png" alt="monogoose" width="40" height="40"/> </a>
   <a href="https://www.mongodb.com" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg" alt="monogodb" width="40" height="40"/> </a>
 </p>
-
-<img src="https://dobusinesslikeawoman.com/wp-content/uploads/2017/04/Julie-Divider.png">
-
-<h3 align="center">Stats GitHub</h3>
-<p align="center">
-  <a href="https://github.com/XurxoMF">
-  <img width="80%" src="https://github-readme-stats.vercel.app/api?username=XurxoMF&show_icons=true&theme=jolly&count_private=true&hide_border=true" />
-  </a>
-</p>
-<p align="center">
-  <a href="https://github.com/XurxoMF">
-  <img width="80%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=XurxoMF&theme=jolly&count_private=true&hide_border=true&layout=compact" />
-  </a>
-</p>
