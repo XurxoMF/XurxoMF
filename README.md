@@ -31,15 +31,6 @@
 
 <img src="https://dobusinesslikeawoman.com/wp-content/uploads/2017/04/Julie-Divider.png">
 
-<h3 align="center">Mi Spotify</h3>
-<div align="center">
-  <a href="https://open.spotify.com/user/prbo3g78pqe2ea0162jryhojs">
-    <img src="https://spotify-github-profile.vercel.app/api/view?uid=prbo3g78pqe2ea0162jryhojs&cover_image=true&theme=novatorem&bar_color=53b14f&bar_color_cover=true">
-  </a>
-</div>
-
-<img src="https://dobusinesslikeawoman.com/wp-content/uploads/2017/04/Julie-Divider.png">
-
 <h3 align="center">Stats GitHub</h3>
 <p align="center">
   <a href="https://github.com/XurxoMF">
