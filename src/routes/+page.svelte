@@ -119,26 +119,36 @@
 
 		<div class="space-y-2">
 			<P>
-				I'm a {age} years old Spanish developer, mainly focused on Full Stack Web and Desktop/Mobile Developent,
-				with a passion for technology and a strong commitment to learning new things.
+				I'm Xurxo Martínez Ferreira, a {age} years old Spanish Developer and Computer Scientist, mainly
+				focused on Full Stack and Desktop/Mobile Developent.
+			</P>
+
+			<P>I love learning new things and I'm always eager to improve my skills.</P>
+
+			<P>
+				My main stack is
+				<A href="#frameworks" target="_self" color="secondary">SvelteKit</A>
+				for websites,
+				<A href="#frameworks" target="_self" color="secondary">TailwindCSS</A>
+				for styling,
+				<A href="#frameworks" target="_self" color="secondary">Electron</A>
+				or
+				<A href="#frameworks" target="_self" color="secondary">Tauri</A>
+				for the desktop/mobile apps and
+				<A href="#tools" target="_self" color="secondary">Docker</A>
+				to deploy everything.
 			</P>
 
 			<P>
-				I've studied Computer Science at
-				<A href="https://www.edu.xunta.gal/centros/iespazomerce/" color="secondary">
-					IES Pazo da Mercé
-				</A>
-				from September 2019 to June 2021.
+				I've a server with
+				<A href="#apps" target="_self" color="secondary">Coolify</A>
+				at home. There is where I host all of my
+				<A href="#projects" target="_self" color="secondary">projects</A>
+				and also some APPs like my Mail Server, Jellyfin, Roundcube...
 			</P>
 
 			<P>
-				After that, I studied Web Development at the same institution from September 2021 to June
-				2023.
-			</P>
-
-			<P>
-				While I was studying there, and after that over the past years, I've been working and
-				studying many more things like new languages, frameworks and technologies.
+				On my free time I like to play video games, listen to music, drive my car and go fishing.
 			</P>
 
 			<P>If you want to know more about me, keep scrolling!</P>
@@ -753,10 +763,10 @@
 			</P>
 
 			<P>
-				Both APIs are hosted on my home server, I'll talk about this one later on, and check for new
-				game versions every few minutes using a .json file provided by Anego. Then it downloads the
+				Both APIs are hosted on my home server and they check if there are game versions available
+				every few minutes using a .json file provided by Anego Studios. Then it downloads the
 				required files for each operating system, extracts them using some tools like inno-extract
-				and then compreses the files as zip and generates a SHA256 checksum for each file. All this
+				and then compressess the files as zip and generates a SHA256 checksum for each one. All this
 				while reporting the progress to a Discord channel.
 			</P>
 

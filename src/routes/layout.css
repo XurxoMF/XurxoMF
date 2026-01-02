@@ -20,8 +20,12 @@
 }
 
 @layer base {
+	html {
+		@apply scroll-smooth;
+	}
+
 	body {
-		@apply scroll-smooth bg-zinc-50 font-ubuntu text-zinc-950 dark:bg-zinc-950 dark:text-zinc-50;
+		@apply bg-zinc-50 font-ubuntu text-zinc-950 dark:bg-zinc-950 dark:text-zinc-50;
 	}
 
 	* {
