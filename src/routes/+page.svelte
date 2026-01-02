@@ -316,6 +316,11 @@
 					level: 4
 				})}
 				{@render skillItem({
+					icon: SIViteIcon,
+					link: 'https://vitejs.dev/',
+					level: 4
+				})}
+				{@render skillItem({
 					icon: SIGitHubActionsIcon,
 					link: 'https://github.com/features/actions',
 					level: 3
@@ -333,11 +338,6 @@
 				{@render skillItem({
 					icon: SISassIcon,
 					link: 'https://sass-lang.com/',
-					level: 2
-				})}
-				{@render skillItem({
-					icon: SIViteIcon,
-					link: 'https://vitejs.dev/',
 					level: 2
 				})}
 			</div>
