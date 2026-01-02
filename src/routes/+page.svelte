@@ -105,7 +105,7 @@
 			<img
 				src={self}
 				alt="XurxoMF"
-				class="w-full max-w-60 shrink-0 rounded-full border-4 border-pink-500 outline-4 outline-offset-4 outline-pink-500 transition-transform duration-200 hover:scale-105 lg:max-w-80"
+				class="aspect-square w-full max-w-60 shrink-0 rounded-full border-4 border-pink-500 outline-4 outline-offset-4 outline-pink-500 transition-transform duration-200 hover:scale-105 lg:max-w-80"
 			/>
 		</div>
 
