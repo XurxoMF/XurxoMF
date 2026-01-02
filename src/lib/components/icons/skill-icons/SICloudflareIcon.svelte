@@ -1,9 +1,9 @@
 <script lang="ts">
-	import type { WithoutChildren } from 'bits-ui';
+	import type { Without } from '$lib/utils';
 
 	import BaseIcon, { type BaseIconProps } from '../BaseIcon.svelte';
 
-	let { ...restProps }: WithoutChildren<BaseIconProps> = $props();
+	let { ...restProps }: Without<BaseIconProps, 'children'> = $props();
 </script>
 
 <BaseIcon {...restProps}>

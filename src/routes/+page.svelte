@@ -91,7 +91,7 @@
 			<div class="w-full space-y-8 md:w-4/5 xl:w-2/3">
 				<H1>Hi! I'm <Span color="secondary">XurxoMF</Span></H1>
 
-				<H2>Software Developer & Computer Scientist</H2>
+				<H2>Software Developer & Computer Technician</H2>
 
 				<H4>Activelylooking for a job!</H4>
 
@@ -110,7 +110,9 @@
 		</div>
 
 		<div class="flex items-center justify-center">
-			<PHCaretDownBold class="animate-bounce text-6xl text-pink-500" />
+			<A href="#about" target="_self">
+				<PHCaretDownBold class="animate-bounce text-6xl text-pink-500" />
+			</A>
 		</div>
 	</div>
 
@@ -119,11 +121,11 @@
 
 		<div class="space-y-2">
 			<P>
-				I'm Xurxo Martínez Ferreira, a {age} years old Spanish Developer and Computer Scientist, mainly
-				focused on Full Stack and Desktop/Mobile Developent.
+				I'm <Span color="secondary">Xurxo Martínez Ferreira</Span>, a <Span color="secondary"
+					>{age} years old</Span
+				> Developer and Computer Technician from <Span color="secondary">Galicia, Spain</Span>,
+				mainly focused on Full Stack and Desktop/Mobile Developent.
 			</P>
-
-			<P>I love learning new things and I'm always eager to improve my skills.</P>
 
 			<P>
 				My main stack is
@@ -132,7 +134,7 @@
 				<A href="#frameworks" target="_self" color="secondary">TailwindCSS</A>
 				for styling,
 				<A href="#frameworks" target="_self" color="secondary">Electron</A>
-				or
+				and
 				<A href="#frameworks" target="_self" color="secondary">Tauri</A>
 				for the desktop/mobile apps and
 				<A href="#tools" target="_self" color="secondary">Docker</A>
@@ -157,6 +159,10 @@
 
 	<div class="w-full space-y-8 px-8 md:w-4/5 xl:w-2/3">
 		<H2 id="skills" class="scroll-mt-20" color="secondary">Skills</H2>
+
+		<P color="muted">
+			Here you can see a list of every language, framework, software... I know and use.
+		</P>
 
 		<ul class="text-sm text-zinc-500">
 			<li>⭐ - Studied but never used</li>
@@ -199,6 +205,11 @@
 					icon: SIRustIcon,
 					link: 'https://www.rust-lang.org/',
 					level: 3
+				})}
+				{@render skillItem({
+					icon: SIPHPIcon,
+					link: 'https://php.net/',
+					level: 2
 				})}
 				{@render skillItem({
 					icon: SIJavaIcon,
@@ -277,6 +288,11 @@
 				{@render skillItem({
 					icon: SIBunIcon,
 					link: 'https://bun.sh/',
+					level: 5
+				})}
+				{@render skillItem({
+					icon: SIGitIcon,
+					link: 'https://git-scm.com/',
 					level: 5
 				})}
 				{@render skillItem({
@@ -459,14 +475,20 @@
 	<div class="w-full space-y-8 px-8 md:w-4/5 xl:w-2/3">
 		<H2 id="career" class="scroll-mt-20" color="secondary">Career</H2>
 
+		<P color="muted">
+			Over the years I've studied and worked for different companies and here is the resume of all
+			of that.
+		</P>
+
 		<div class="space-y-2 border-l-2 border-l-pink-500 pl-4">
-			<H3>Intermediate Vocational Training</H3>
+			<H4 color="secondary" id="ies-pazo-da-merce-ivt" class="scroll-mt-20">
+				<A href="https://www.edu.xunta.gal/centros/iespazomerce/">IES Pazo da Mercé</A>
+			</H4>
+
+			<H3 id="ivt" class="scroll-mt-20">Intermediate Vocational Training</H3>
 
 			<div class="flex flex-wrap gap-1">
 				<Badge>Study</Badge>
-				<LinkBadge href="https://www.edu.xunta.gal/centros/iespazomerce/">
-					IES Pazo da Mercé
-				</LinkBadge>
 				<Badge>September 2019 - June 2021</Badge>
 				<LinkBadge href="#operating-systems" target="_self">Windows</LinkBadge>
 				<LinkBadge href="#operating-systems" target="_self">Linux</LinkBadge>
@@ -475,7 +497,7 @@
 			</div>
 
 			<P>
-				Here I got the Computer Scientist degree, specifically the Technician in Microcomputer
+				Here I got the Computer Technician degree, specifically the Technician in Microcomputer
 				Systems and Networks degree.
 			</P>
 
@@ -486,13 +508,14 @@
 		</div>
 
 		<div class="space-y-2 border-l-2 border-l-pink-500 pl-4">
-			<H3>Higher Vocational Training</H3>
+			<H4 color="secondary" id="ies-pazo-da-merce-hvt" class="scroll-mt-20">
+				<A href="https://www.edu.xunta.gal/centros/iespazomerce/">IES Pazo da Mercé</A>
+			</H4>
+
+			<H3 id="hvt" class="scroll-mt-20">Higher Vocational Training</H3>
 
 			<div class="flex flex-wrap gap-1">
 				<Badge>Study</Badge>
-				<LinkBadge href="https://www.edu.xunta.gal/centros/iespazomerce/">
-					IES Pazo da Mercé
-				</LinkBadge>
 				<Badge>September 2021 - June 2023</Badge>
 				<LinkBadge href="#languages" target="_self">Java</LinkBadge>
 				<LinkBadge href="#languages" target="_self">PHP</LinkBadge>
@@ -518,12 +541,15 @@
 		</div>
 
 		<div class="space-y-2 border-l-2 border-l-pink-500 pl-4">
-			<H3>Computer Scientist and Web Developer</H3>
+			<H4 color="secondary" id="atlantic-ac2-job-1" class="scroll-mt-20">
+				<A href="https://ac2.es">Atlantic C&C - AC2</A>
+			</H4>
+
+			<H3 id="job-1" class="scroll-mt-20">Computer Technician and Web Developer</H3>
 
 			<div class="flex flex-wrap gap-1">
 				<Badge>Job</Badge>
-				<LinkBadge href="https://ac2.es">Atlantic C&C | AC2</LinkBadge>
-				<Badge>December 2023 - December 2025</Badge>
+				<Badge>December 2023 - January 2025</Badge>
 				<LinkBadge href="#apps" target="_self">WordPress</LinkBadge>
 				<LinkBadge href="#languages" target="_self">PHP</LinkBadge>
 				<LinkBadge href="#languages" target="_self">JavaScript</LinkBadge>
@@ -555,6 +581,11 @@
 
 	<div class="w-full space-y-8 px-8 md:w-4/5 xl:w-2/3">
 		<H2 id="projects" class="scroll-mt-20" color="secondary">Projects</H2>
+
+		<P color="muted">
+			On my free time I like to work on some personal projects to share with the community and here
+			is the list of those ones.
+		</P>
 
 		<div class="space-y-2 border-l-2 border-l-pink-500 pl-4">
 			<H3 id="vs-launcher" class="scroll-mt-20">
@@ -590,26 +621,10 @@
 				<A href="https://electronjs.org" color="secondary">Electron</A>
 				and
 				<A href="https://react.dev" color="secondary">React</A> and it's packed with a lot of features
-				like:
-			</P>
-
-			<ul class="list-inside list-disc">
-				<li>Download and manage multiple version of the game</li>
-				<li>Create, manage and play multiple instances of the game</li>
-				<li>Download and manage mods</li>
-				<li>Create and manage game backups</li>
-				<li>Etc.</li>
-			</ul>
-
-			<P>It also have some cool secondary features like:</P>
-
-			<ul class="list-inside list-disc">
-				<li>Automatic updates</li>
-				<li>Localization with multiple languages</li>
-				<li>UI Scaling</li>
-				<li>Logging</li>
-				<li>Etc.</li>
-			</ul>
+				like downloading, managing and playing multiple versions and instances of the game, mods, backups...
+				and also some cool secondary features like automatic updates, localization with multiple languages,
+				UI scaling config, logging system, etc..</P
+			>
 
 			<P>
 				If you want to see some images of the launcher, try it or learn more about it, there is a
@@ -617,16 +632,6 @@
 				and the code is on
 				<A href="https://github.com/XurxoMF/vs-launcher" color="secondary">GitHub</A>.
 			</P>
-
-			<P>
-				I'm not working on VS Launcher anymore because I'm working on a new improved version of it
-				called Rustory. I'll talk about this project next so keep scrolling!
-			</P>
-
-			<P color="muted" class="text-sm"
-				>I still give supoprt for VS Launcher and will launch patches for new Vintage Story versions
-				but I'll not add new features.</P
-			>
 		</div>
 
 		<div class="space-y-2 border-l-2 border-l-pink-500 pl-4">
@@ -660,21 +665,9 @@
 				After a few months working on VS Launcher I realized how big the project could be because it
 				got
 				<Span color="secondary">~5.000 downloads</Span>
-				on a single release in just a month.
-			</P>
-
-			<P>
-				I kept improving VS Launcher for a few more months but I found a problem. The UI was not
-				polished, the performance was very poor and the code was nor very clear becasuse the plan
-				was to make a tool for myself, not for the community, so I made it in no time without any
-				strict and planned organization.
-			</P>
-
-			<P>
-				After a few more months, VS Launcher reached
+				in just a month and after a few more months it reached
 				<Span color="secondary">~10.000 downloads</Span>
-				on a single version and I knew it was time to make a big change. I decided to start a new launcher
-				from scratch but now with a really good UI, better performance and more features...
+				on a single release so I knew it was time to make big changes and make an even better launcher.
 			</P>
 
 			<P>
@@ -689,23 +682,14 @@
 			</P>
 
 			<P>
-				A few months have passed and I've made a loot of progress on the Electron version of
-				Rustory, you can find the code on
+				A few months have passed and I've made a lot of progress on the Electron version of Rustory,
+				you can find the code on
 				<A href="https://github.com/XurxoMF/rustory" color="secondary">GitHub</A>. I've not added
-				new features yet, and most of the old features are not donw yet, but I've made a really good
-				set of components for the UI and added a few secondary features like:
+				new main features and most of the old ones are not done yet but I've made a really good set
+				of components for the UI and added a few secondary features like automatic updates,
+				localization with multiple languages, UI scaling and theme configs, improved logging, tray
+				icon, commands, hotkeys...
 			</P>
-
-			<ul class="list-inside list-disc">
-				<li>Automatic updates</li>
-				<li>Localization with multiple languages</li>
-				<li>UI Scaling</li>
-				<li>Themes</li>
-				<li>Improved logging</li>
-				<li>Tray icon</li>
-				<li>Commands</li>
-				<li>Hotkeys</li>
-			</ul>
 
 			<P>
 				If you want to see some images of the new launcher, try it or learn more about it, you can
@@ -715,9 +699,9 @@
 				<A href="https://github.com/XurxoMF/rustory" color="secondary">GitHub</A>.
 			</P>
 
-			<P>
+			<P color="muted" class="text-sm">
 				I had some free time a month ago and I studied
-				<A href="https://www.rust-lang.org">rust</A>
+				<A href="https://www.rust-lang.org">Rust</A>
 				using
 				<A href="https://doc.rust-lang.org/book/">The Rust Book</A>
 				so I'll probably switch to Tauri again in the next months now that I've the knowledge needed.
@@ -758,16 +742,8 @@
 			</P>
 
 			<P>
-				The solution was simple. A simple Rest API to serve game files and a Discord bot to report
-				import progress and a few utility commands.
-			</P>
-
-			<P>
-				Both APIs are hosted on my home server and they check if there are game versions available
-				every few minutes using a .json file provided by Anego Studios. Then it downloads the
-				required files for each operating system, extracts them using some tools like inno-extract
-				and then compressess the files as zip and generates a SHA256 checksum for each one. All this
-				while reporting the progress to a Discord channel.
+				The solution was simple. A simple Rest API to serve game files, a Discord bot to report
+				import progress of the new game versions and a few utility commands.
 			</P>
 
 			<P>
@@ -799,7 +775,7 @@
 
 			<P>
 				I made it using Discord.js v11 and then updated it to v12, v13 and now v14. I also
-				refactores the whole bot whan I ported it to v13 so the GitHub repository starts on a latter
+				refactored the whole bot when I ported it to v13 so the GitHub repository starts on a latter
 				date.
 			</P>
 
@@ -872,6 +848,55 @@
 				<A href="https://mods.vintagestory.at/undergroundmines" color="secondary">ModDB</A>
 				and on
 				<A href="https://hub.docker.com/r/xurxomf/UndergroundMines" color="secondary">GitHub</A>.
+			</P>
+		</div>
+	</div>
+
+	<div class="w-full space-y-8 px-8 md:w-4/5 xl:w-2/3">
+		<H2 id="jobs" class="scroll-mt-20" color="secondary">Jobs</H2>
+
+		<P color="muted">
+			While working on the companies I've mentioned
+			<A href="#career" target="_self" color="secondary">above</A>
+			I made and worked on a lot of websites, tools and apps so I'll list the best ones here, I'm allowed
+			to.
+		</P>
+
+		<div class="space-y-2 border-l-2 border-l-pink-500 pl-4">
+			<H4 color="secondary" id="atlantic-ac2" class="scroll-mt-20">
+				<A href="#atlantic-ac2-job-1" target="_self">Atlantic C&C - AC2</A>
+			</H4>
+
+			<H3 id="liporca" class="scroll-mt-20">
+				<A href="https://liporca.com">Liporca</A>
+			</H3>
+
+			<div class="flex flex-wrap gap-1">
+				<Badge>Website & Online Shop</Badge>
+				<Badge>2023</Badge>
+				<LinkBadge href="#apps" target="_self">Wordpress</LinkBadge>
+				<LinkBadge href="#languages" target="_self">HTML5</LinkBadge>
+				<LinkBadge href="#languages" target="_self">CSS3</LinkBadge>
+				<LinkBadge href="#languages" target="_self">JavaScript</LinkBadge>
+			</div>
+
+			<P>
+				<A href="https://liporca.com" color="secondary">Liporca</A> is a liquor brand from Galicia, Spain
+				and I was resposible for developing their website and online shop.
+			</P>
+
+			<P>
+				The design was made by
+				<A href="https://wtflow.gal/" color="secondary">WHAT THE FLOW!</A>, a design and marketing
+				agency from Galicia too. They designed the website and made every image used on the in and
+				then I made it real using Wordpress and WooCommerce with a custom theme and some custom
+				JavaScript to make some things work as expected.
+			</P>
+
+			<P>
+				If you want to check the website or buy some products, thing that I recommend as they are
+				extremely good, you can find them on this
+				<A href="https://liporca.com" color="secondary">link</A>!
 			</P>
 		</div>
 	</div>

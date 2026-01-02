@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { fly } from 'svelte/transition';
+
 	import './layout.css';
 	import favicon from '$lib/assets/favicon.png';
 
@@ -11,7 +13,6 @@
 		PHYouTubeLogoBold
 	} from '$lib/components/icons';
 	import { A, H1, H2, P, Span } from '$lib/components/typography';
-	import { fade, fly } from 'svelte/transition';
 
 	let { children } = $props();
 
@@ -33,7 +34,7 @@
 		>
 			<H1>Hi! I'm <Span color="secondary">XurxoMF</Span></H1>
 
-			<H2>Software Developer & Computer Scientist</H2>
+			<H2>Software Developer & Computer Technician</H2>
 		</div>
 	</div>
 {:else}
@@ -46,6 +47,7 @@
 				<A href="#skills" target="_self" class="p-1">Skills</A>
 				<A href="#career" target="_self" class="p-1">Career</A>
 				<A href="#projects" target="_self" class="p-1">Projects</A>
+				<A href="#jobs" target="_self" class="p-1">Jobs</A>
 			</nav>
 
 			<button

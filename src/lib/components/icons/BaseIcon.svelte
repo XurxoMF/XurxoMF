@@ -1,10 +1,10 @@
 <script lang="ts">
-	import type { WithoutChildren } from 'bits-ui';
+	import type { Without } from '$lib/utils';
 	import type { HTMLAttributes } from 'svelte/elements';
 
 	export type BaseIconProps = HTMLAttributes<HTMLSpanElement>;
 
-	export type IconProps = WithoutChildren<BaseIconProps>;
+	export type IconProps = Without<BaseIconProps, 'children'>;
 
 	let { class: className = '', children, ...restProps }: BaseIconProps = $props();
 </script>
@@ -21,7 +21,7 @@
 
   import BaseIcon, { type BaseIconProps } from '../BaseIcon.svelte'
 
-  let { ...restProps }: WithoutChildren<BaseIconProps> = $props()
+  let { ...restProps }: Without<BaseIconProps, "children"> = $props()
 </script>
 
 <BaseIcon {...restProps}>

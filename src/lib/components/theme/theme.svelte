@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { untrack } from 'svelte';
-	import { setTheme, THEME_KEY, toggleTheme } from './store.svelte';
+	import { setTheme, THEME_KEY } from './store.svelte';
 
 	$effect(() => {
 		untrack(() => {
