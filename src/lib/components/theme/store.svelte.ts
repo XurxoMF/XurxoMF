@@ -1,6 +1,8 @@
+import { SvelteDate } from 'svelte/reactivity';
+
 export type Themes = 'light' | 'dark';
 
-export const THEME_KEY = 'theme';
+export const THEME_COOKIE = 'theme';
 
 let theme: Themes = $state('light');
 
@@ -18,7 +20,7 @@ export function toggleTheme() {
 export function setTheme(newTheme: Themes) {
 	theme = newTheme;
 	document.documentElement.dataset.theme = theme;
-	localStorage.setItem(THEME_KEY, theme);
+	setCookie(THEME_COOKIE, theme);
 }
 
 /**
@@ -27,4 +29,25 @@ export function setTheme(newTheme: Themes) {
  */
 export function getTheme(): Themes {
 	return theme;
+}
+
+/**
+ * Gets a cookie value by its name.
+ * @param name The name of the cookie
+ * @returns The value of the cookie, or null if it doesn't exist
+ */
+export function getCookie(name: string) {
+	const value = document.cookie.split('; ').find((row) => row.startsWith(name + '='));
+	return value ? decodeURIComponent(value.split('=')[1]) : null;
+}
+
+/**
+ * Sets a cookie with the given name, value and expiration date.
+ * @param name The name of the cookie.
+ * @param value The value of the cookie.
+ * @param days The number of days until the cookie expires.
+ */
+export function setCookie(name: string, value: string, days = 365): void {
+	const expires = new SvelteDate(Date.now() + days * 864e5).toUTCString();
+	document.cookie = `${name}=${encodeURIComponent(value)}; expires=${expires}; path=/; SameSite=Lax`;
 }

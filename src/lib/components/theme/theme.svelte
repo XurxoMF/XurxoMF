@@ -1,13 +1,13 @@
 <script lang="ts">
 	import { untrack } from 'svelte';
-	import { setTheme, THEME_KEY } from './store.svelte';
+	import { getCookie, setTheme, THEME_COOKIE, type Themes } from './store.svelte';
 
 	$effect(() => {
 		untrack(() => {
-			const oldTheme = localStorage.getItem(THEME_KEY);
+			const oldTheme = getCookie(THEME_COOKIE);
 
-			if (oldTheme && (oldTheme == 'dark' || oldTheme == 'light')) {
-				setTheme(oldTheme);
+			if (oldTheme && (oldTheme === 'dark' || oldTheme === 'light')) {
+				setTheme(oldTheme as Themes);
 			} else {
 				const newTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
 					? 'dark'
