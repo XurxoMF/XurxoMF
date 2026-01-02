@@ -10,56 +10,76 @@
 		PHXLogoBold,
 		PHYouTubeLogoBold
 	} from '$lib/components/icons';
+	import { A, H1, H2, P, Span } from '$lib/components/typography';
+	import { fade, fly } from 'svelte/transition';
 
 	let { children } = $props();
+
+	let loaderVisible = $state(true);
+	setTimeout(() => (loaderVisible = false), 3_000);
 </script>
 
 <svelte:head><link rel="icon" href={favicon} /></svelte:head>
 
 <Theme />
 
-<header class="top-0 z-1 flex min-h-14 w-full items-center justify-between gap-4 p-4">
-	<nav class="flex h-full items-center justify-center gap-2">
-		<a href="#info" class="p-2">Home</a>
-	</nav>
-
-	<button type="button" onclick={() => toggleTheme()} class="relative flex cursor-pointer text-xl">
-		<PHSunBold class="scale-100 rotate-0 transition-all! dark:scale-0 dark:-rotate-90" />
-		<PHMoonBold
-			class="absolute inset-0 scale-0 rotate-90 transition-all! dark:scale-100 dark:rotate-0"
-		/>
-	</button>
-</header>
-
-{@render children()}
-
-<footer class="flex min-h-14 w-full flex-col items-center gap-4 p-4 md:flex-row">
-	<div class="flex flex-1 items-center justify-start">
-		<a
-			href="mailto:xurxomf@xurxomf.xyz"
-			title="Contact me (xurxomf@xuromf.xyz)"
-			target="_blank"
-			class="flex p-1"
+{#if loaderVisible}
+	<div
+		class="absolute top-0 left-0 z-1000 grid h-screen w-screen place-items-center overflow-hidden"
+	>
+		<div
+			class="flex h-full w-full animate-in flex-col items-center justify-center space-y-8 bg-zinc-50 text-center duration-1000 select-none slide-in-from-bottom-30 dark:bg-zinc-950"
+			out:fly={{ y: -500, duration: 1_000 }}
 		>
-			Contact Me!
-		</a>
-	</div>
+			<H1>Hi! I'm <Span color="secondary">XurxoMF</Span></H1>
 
-	<div class="flex flex-1 items-center justify-center">
-		<p class="text-sm text-zinc-500">
-			&copy; Xurxo Martínez Ferreira {new Date().getFullYear()}
-		</p>
+			<H2>Software Developer & Computer Scientist</H2>
+		</div>
 	</div>
+{:else}
+	<div in:fly={{ y: 500, duration: 1_000 }}>
+		<header
+			class="sticky top-0 z-1 flex min-h-14 w-full items-center justify-between gap-4 p-4 backdrop-blur-sm lg:h-14"
+		>
+			<nav class="flex h-full items-center justify-center gap-2">
+				<A href="#about" target="_self" class="p-1">About</A>
+				<A href="#skills" target="_self" class="p-1">Skills</A>
+				<A href="#career" target="_self" class="p-1">Career</A>
+				<A href="#projects" target="_self" class="p-1">Projects</A>
+			</nav>
 
-	<div class="flex flex-1 items-center justify-end gap-2 text-xl">
-		<a href="https://github.com/XurxoMF" title="GitHub" target="_blank" class="flex p-1">
-			<PHGitHubLogoBold />
-		</a>
-		<a href="https://www.youtube.com/@xurxomf" title="YouTube" target="_blank" class="flex p-1">
-			<PHYouTubeLogoBold />
-		</a>
-		<a href="https://x.com/XurxoMF" title="X" target="_blank" class="flex p-1">
-			<PHXLogoBold />
-		</a>
+			<button
+				type="button"
+				onclick={() => toggleTheme()}
+				class="relative flex cursor-pointer items-center justify-center p-1 text-xl"
+			>
+				<PHSunBold class="scale-100 rotate-0 transition-all! dark:scale-0 dark:-rotate-90" />
+				<PHMoonBold
+					class="absolute inset-1 scale-0 rotate-90 transition-all! dark:scale-100 dark:rotate-0"
+				/>
+			</button>
+		</header>
+
+		{@render children()}
+
+		<footer class="flex min-h-14 w-full flex-col items-center gap-4 p-4 md:flex-row lg:h-14">
+			<div class="flex flex-1 items-center justify-start">
+				<A href="mailto:xurxomf@xurxomf.xyz" color="secondary" class="p-1">Contact Me!</A>
+			</div>
+
+			<div class="flex flex-1 items-center justify-center">
+				<P color="muted" class="text-sm"
+					>&copy; Xurxo Martínez Ferreira {new Date().getFullYear()}</P
+				>
+			</div>
+
+			<div class="flex flex-1 items-center justify-end gap-2 text-xl">
+				<A href="https://github.com/XurxoMF" color="secondary" class="p-1"><PHGitHubLogoBold /></A>
+				<A href="https://www.youtube.com/@xurxomf" color="secondary" class="p-1">
+					<PHYouTubeLogoBold />
+				</A>
+				<A href="https://x.com/XurxoMF" color="secondary" class="p-1"><PHXLogoBold /></A>
+			</div>
+		</footer>
 	</div>
-</footer>
+{/if}
