@@ -573,8 +573,8 @@
 			</P>
 
 			<P>
-				I worked there for 2 years and a month and then I left the company to look for a full-time
-				Web/Desktop/Mobile Developer position.
+				I worked there part-time for 2 years and a month and then I left the company to look for a
+				full-time Web/Desktop/Mobile Developer position.
 			</P>
 		</div>
 	</div>
@@ -858,8 +858,8 @@
 		<P color="muted">
 			While working on the companies I've mentioned
 			<A href="#career" target="_self" color="secondary">above</A>
-			I made and worked on a lot of websites, tools and apps so I'll list the best ones here, I'm allowed
-			to.
+			I made and worked on a lot of websites, tools and apps so I'll list the best ones I'm allowed to
+			show here to.
 		</P>
 
 		<div class="space-y-2 border-l-2 border-l-pink-500 pl-4">

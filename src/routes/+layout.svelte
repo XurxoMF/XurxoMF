@@ -20,7 +20,33 @@
 	setTimeout(() => (loaderVisible = false), 3_000);
 </script>
 
-<svelte:head><link rel="icon" href={favicon} /></svelte:head>
+<svelte:head>
+	<link rel="icon" href={favicon} />
+	<title>XurxoMF - Software Developer & Computer Technician</title>
+	<meta
+		name="description"
+		content="Hi! I'm XurxoMF! Software Developer & Computer Technician. Here you'll find all my projects, career and more!"
+	/>
+
+	<!-- Open Graph -->
+	<meta property="og:title" content="XurxoMF - Software Developer & Computer Technician" />
+	<meta
+		property="og:description"
+		content="Hi! I'm XurxoMF! Software Developer & Computer Technician. Here you'll find all my projects, career and more!"
+	/>
+	<meta property="og:image" content="https://xurxomf.xyz/banner.png" />
+	<meta property="og:url" content="https://xurxomf.xyz" />
+	<meta property="og:type" content="website" />
+
+	<!-- Twitter -->
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="XurxoMF - Software Developer & Computer Technician" />
+	<meta
+		name="twitter:description"
+		content="Hi! I'm XurxoMF! Software Developer & Computer Technician. Here you'll find all my projects, career and more!"
+	/>
+	<meta name="twitter:image" content="https://xurxomf.xyz/banner.png" />
+</svelte:head>
 
 <Theme />
 
