@@ -50,21 +50,23 @@
 
 <Theme />
 
-{#if loaderVisible}
+<div
+	class="group relative h-screen w-screen overflow-hidden scroll-smooth data-[loader-visible=false]:overflow-y-scroll"
+	data-loader-visible={loaderVisible}
+>
 	<div
-		class="absolute top-0 left-0 z-1000 grid h-screen w-screen place-items-center overflow-hidden"
+		class="absolute top-0 left-0 z-1000 grid h-screen w-screen place-items-center overflow-hidden bg-zinc-50 duration-1000 fill-mode-forwards group-data-[loader-visible=false]:pointer-events-none group-data-[loader-visible=false]:animate-out group-data-[loader-visible=false]:fade-out-0 dark:bg-zinc-950"
 	>
 		<div
-			class="flex h-full w-full animate-in flex-col items-center justify-center space-y-8 bg-zinc-50 text-center duration-1000 select-none slide-in-from-bottom-30 dark:bg-zinc-950"
-			out:fly={{ y: -500, duration: 1_000 }}
+			class="flex h-full w-full flex-col items-center justify-center space-y-8 text-center duration-1000 select-none group-data-[loader-visible=false]:animate-out group-data-[loader-visible=false]:slide-out-to-top-[20rem] group-data-[loader-visible=true]:animate-in group-data-[loader-visible=true]:slide-in-from-bottom-[20rem]"
 		>
 			<H1>Hi! I'm <Span color="secondary">XurxoMF</Span></H1>
 
 			<H2>Software Developer & Computer Technician</H2>
 		</div>
 	</div>
-{:else}
-	<div in:fly={{ y: 500, duration: 1_000 }}>
+
+	<div>
 		<header
 			class="sticky top-0 z-1 flex min-h-14 w-full items-center justify-between gap-4 p-4 backdrop-blur-sm lg:h-14"
 		>
@@ -110,4 +112,4 @@
 			</div>
 		</footer>
 	</div>
-{/if}
+</div>
