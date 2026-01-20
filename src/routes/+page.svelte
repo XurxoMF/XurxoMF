@@ -56,7 +56,8 @@
 		DBeszelIcon,
 		DCloudreveIcon,
 		DRoundcubeIcon,
-		DUptimeKumaIcon
+		DUptimeKumaIcon,
+		Dn8nIcon
 	} from '$lib/components/icons';
 
 	const dateNew = Date.now();
@@ -324,6 +325,11 @@
 				{@render skillItem({
 					icon: SIGitHubActionsIcon,
 					link: 'https://github.com/features/actions',
+					level: 3
+				})}
+				{@render skillItem({
+					icon: Dn8nIcon,
+					link: 'https://n8n.io/',
 					level: 3
 				})}
 				{@render skillItem({
