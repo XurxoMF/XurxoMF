@@ -94,7 +94,7 @@
 
 				<H2>Software Developer & Computer Technician</H2>
 
-				<H4>Activelylooking for a job!</H4>
+				<H4>Actively looking for a job!</H4>
 
 				<A
 					href="mailto:xurxomf@xurxomf.xyz"
