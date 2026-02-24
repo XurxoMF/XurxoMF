@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { Component } from 'svelte';
 
-	import self from '$lib/assets/slef.webp';
+	// import self from '$lib/assets/slef.webp';
 
 	import { H1, H2, P, A, Span, H3, H4 } from '$lib/components/typography';
 	import { Badge, LinkBadge } from '$lib/components/badges';
@@ -87,9 +87,9 @@
 <main class="mb-48 flex flex-col items-center gap-48">
 	<div class="grid min-h-[calc(100vh-3.5rem)] w-full grid-rows-[1fr_auto] place-items-center gap-8">
 		<div
-			class="flex w-full flex-col-reverse items-center justify-between gap-12 px-8 text-center md:w-4/5 lg:flex-row lg:text-start xl:w-2/3"
+			class="flex w-full flex-col-reverse items-center justify-center gap-12 px-8 text-center md:w-4/5 lg:flex-row lg:text-start xl:w-2/3"
 		>
-			<div class="w-full space-y-8 md:w-4/5 xl:w-2/3">
+			<div class="w-full space-y-8 text-center md:w-4/5 xl:w-2/3">
 				<H1>Hi! I'm <Span color="secondary">XurxoMF</Span></H1>
 
 				<H2>Software Developer & Computer Technician</H2>
@@ -103,12 +103,12 @@
 				>
 			</div>
 
-			<img
+			<!-- <img
 				fetchpriority="high"
 				src={self}
 				alt="XurxoMF"
 				class="aspect-square w-full max-w-60 shrink-0 rounded-full border-4 border-pink-500 outline-4 outline-offset-4 outline-pink-500 transition-transform duration-200 hover:scale-105 lg:max-w-80"
-			/>
+			/> -->
 		</div>
 
 		<div class="flex items-center justify-center">
