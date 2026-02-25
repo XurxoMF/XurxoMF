@@ -94,13 +94,25 @@
 
 				<H2>Software Developer & Computer Technician</H2>
 
-				<H4>Actively looking for a job!</H4>
+				<H4 class="print:hidden">Actively looking for a job!</H4>
 
 				<A
 					href="mailto:xurxomf@xurxomf.xyz"
 					color="secondary"
-					class="rounded-sm border-2 border-pink-500 bg-pink-500/30 p-2">Contact Me!</A
+					class="rounded-sm border-2 border-pink-500 bg-pink-500/30 p-2 print:hidden">Contact Me!</A
 				>
+
+				<H4 class="hidden print:block">Laxe 7, Cabreira, Salvaterra de Miño, 36458</H4>
+
+				<H4 class="hidden print:block">Galicia, España</H4>
+
+				<H4 class="hidden print:block">xurxomf@xurxomf.xyz</H4>
+
+				<H4 class="hidden print:block">686 57 19 21</H4>
+
+				<H4 class="hidden print:block">https://xurxomf.xyz</H4>
+
+				<H4 class="hidden print:block">31/10/2002</H4>
 			</div>
 
 			<!-- <img
@@ -174,7 +186,7 @@
 			<li>⭐⭐⭐⭐⭐ - Studied and used every day</li>
 		</ul>
 
-		<div class="space-y-2 border-l-2 border-l-pink-500 pl-4">
+		<div class="space-y-2">
 			<H3 id="languages" class="scroll-mt-20">Languages</H3>
 
 			<div class="grid grid-cols-2 gap-4 text-6xl sm:grid-cols-4 lg:grid-cols-6 2xl:grid-cols-8">
@@ -231,7 +243,7 @@
 			</div>
 		</div>
 
-		<div class="space-y-2 border-l-2 border-l-pink-500 pl-4">
+		<div class="space-y-2">
 			<H3 id="frameworks" class="scroll-mt-20">Frameworks</H3>
 
 			<div class="grid grid-cols-2 gap-4 text-6xl sm:grid-cols-4 lg:grid-cols-6 2xl:grid-cols-8">
@@ -278,7 +290,7 @@
 			</div>
 		</div>
 
-		<div class="space-y-2 border-l-2 border-l-pink-500 pl-4">
+		<div class="space-y-2">
 			<H3 id="tools" class="scroll-mt-20">Tools</H3>
 
 			<div class="grid grid-cols-2 gap-4 text-6xl sm:grid-cols-4 lg:grid-cols-6 2xl:grid-cols-8">
@@ -350,7 +362,7 @@
 			</div>
 		</div>
 
-		<div class="space-y-2 border-l-2 border-l-pink-500 pl-4">
+		<div class="space-y-2">
 			<H3 id="apps" class="scroll-mt-20">Apps</H3>
 
 			<div class="grid grid-cols-2 gap-4 text-6xl sm:grid-cols-4 lg:grid-cols-6 2xl:grid-cols-8">
@@ -407,7 +419,7 @@
 			</div>
 		</div>
 
-		<div class="space-y-2 border-l-2 border-l-pink-500 pl-4">
+		<div class="space-y-2">
 			<H3 id="operating-systems" class="scroll-mt-20">Operating Systems</H3>
 
 			<div class="grid grid-cols-2 gap-4 text-6xl sm:grid-cols-4 lg:grid-cols-6 2xl:grid-cols-8">
@@ -439,7 +451,7 @@
 			</div>
 		</div>
 
-		<div class="space-y-2 border-l-2 border-l-pink-500 pl-4">
+		<div class="space-y-2">
 			<H3 id="databases" class="scroll-mt-20">Databases</H3>
 
 			<div class="grid grid-cols-2 gap-4 text-6xl sm:grid-cols-4 lg:grid-cols-6 2xl:grid-cols-8">
@@ -466,7 +478,7 @@
 			</div>
 		</div>
 
-		<div class="space-y-2 border-l-2 border-l-pink-500 pl-4">
+		<div class="space-y-2">
 			<H3 id="others" class="scroll-mt-20">Others</H3>
 
 			<div class="grid grid-cols-2 gap-4 text-6xl sm:grid-cols-4 lg:grid-cols-6 2xl:grid-cols-8">
@@ -582,6 +594,25 @@
 			<P>
 				I worked there part-time for 2 years and a month and then I left the company to look for a
 				full-time Web/Desktop/Mobile Developer position.
+			</P>
+		</div>
+
+		<div class="space-y-2 border-l-2 border-l-pink-500 pl-4">
+			<H4 color="secondary" id="froiz-job-2" class="scroll-mt-20">
+				<A href="https://froiz.es/">Froiz</A>
+			</H4>
+
+			<H3 id="job-2" class="scroll-mt-20">Cashier - Supermarket Stocker</H3>
+
+			<div class="flex flex-wrap gap-1">
+				<Badge>Job</Badge>
+				<Badge>February 2026 - Todat</Badge>
+			</div>
+
+			<P>
+				While I don't find any devoper cor computer technician job I'm working on a Froiz
+				supermarket. This is not too relevant as experience but I still want to mention it because
+				it's experience after all.
 			</P>
 		</div>
 	</div>

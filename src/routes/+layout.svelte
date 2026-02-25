@@ -51,7 +51,7 @@
 <Theme />
 
 <div
-	class="group relative h-screen w-screen overflow-hidden scroll-smooth data-[loader-visible=false]:overflow-y-scroll"
+	class="group relative h-screen w-screen scroll-smooth not-print:overflow-hidden not-print:data-[loader-visible=false]:overflow-y-scroll"
 	data-loader-visible={loaderVisible}
 >
 	<div
@@ -68,7 +68,7 @@
 
 	<div>
 		<header
-			class="sticky top-0 z-1 flex min-h-14 w-full items-center justify-between gap-4 p-4 backdrop-blur-sm lg:h-14"
+			class="sticky top-0 z-1 flex min-h-14 w-full items-center justify-between gap-4 p-4 backdrop-blur-sm lg:h-14 print:hidden"
 		>
 			<nav class="flex h-full items-center justify-center gap-2">
 				<A href="#about" target="_self" class="p-1">About</A>
@@ -92,7 +92,9 @@
 
 		{@render children()}
 
-		<footer class="flex min-h-14 w-full flex-col items-center gap-4 p-4 md:flex-row lg:h-14">
+		<footer
+			class="flex min-h-14 w-full flex-col items-center gap-4 p-4 md:flex-row lg:h-14 print:hidden"
+		>
 			<div class="flex flex-1 items-center justify-start">
 				<A href="mailto:xurxomf@xurxomf.xyz" color="secondary" class="p-1">Contact Me!</A>
 			</div>
