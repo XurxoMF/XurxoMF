@@ -77,6 +77,7 @@
 	<a
 		href={link}
 		target="_blank"
+		rel="external"
 		class="flex w-full flex-col items-center justify-center gap-1 rounded-lg border-2 border-pink-500 bg-pink-500/50 p-2"
 	>
 		<Icon />
@@ -84,7 +85,7 @@
 	</a>
 {/snippet}
 
-<main class="mb-48 flex flex-col items-center gap-48">
+<main class="flex flex-col items-center gap-48 not-print:mb-48">
 	<div class="grid min-h-[calc(100vh-3.5rem)] w-full grid-rows-[1fr_auto] place-items-center gap-8">
 		<div
 			class="flex w-full flex-col-reverse items-center justify-center gap-12 px-8 text-center md:w-4/5 lg:flex-row lg:text-start xl:w-2/3"
@@ -594,25 +595,6 @@
 			<P>
 				I worked there part-time for 2 years and a month and then I left the company to look for a
 				full-time Web/Desktop/Mobile Developer position.
-			</P>
-		</div>
-
-		<div class="space-y-2 border-l-2 border-l-pink-500 pl-4">
-			<H4 color="secondary" id="froiz-job-2" class="scroll-mt-20">
-				<A href="https://froiz.es/">Froiz</A>
-			</H4>
-
-			<H3 id="job-2" class="scroll-mt-20">Cashier - Supermarket Stocker</H3>
-
-			<div class="flex flex-wrap gap-1">
-				<Badge>Job</Badge>
-				<Badge>February 2026 - Todat</Badge>
-			</div>
-
-			<P>
-				While I don't find any devoper cor computer technician job I'm working on a Froiz
-				supermarket. This is not too relevant as experience but I still want to mention it because
-				it's experience after all.
 			</P>
 		</div>
 	</div>
