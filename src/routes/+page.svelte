@@ -703,7 +703,7 @@
 				it but we had the same issue we had on VS Launcher... performance, weight, etc... so I studied
 				<A href="https://rust-lang.org" color="secondary">Rust</A> and I've strated over again with Tauri
 				but now I'll use shadcn-svelte for the UI and some other tools to make it better and faster as
-				I've almost no time due to may current job.
+				I've almost no time due to my current job.
 			</P>
 
 			<P>
@@ -715,9 +715,7 @@
 					Old Rustory with Electron
 				</A>
 				and finally the current
-				<A href="https://github.com/XurxoMF/rustory-electron-old" color="secondary">
-					Rustory with Tauri
-				</A>.
+				<A href="https://github.com/XurxoMF/rustory" color="secondary">Rustory with Tauri</A>.
 			</P>
 		</div>
 
