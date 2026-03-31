@@ -6,3 +6,4 @@ export { default as DCloudreveIcon } from './DCloudreveIcon.svelte';
 export { default as DRoundcubeIcon } from './DRoundcubeIcon.svelte';
 export { default as DUptimeKumaIcon } from './DUptimeKumaIcon.svelte';
 export { default as Dn8nIcon } from './Dn8nIcon.svelte';
+export { default as DHyprlandIcon } from './DHyprlandIcon.svelte';

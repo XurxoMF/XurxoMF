@@ -57,7 +57,8 @@
 		DCloudreveIcon,
 		DRoundcubeIcon,
 		DUptimeKumaIcon,
-		Dn8nIcon
+		Dn8nIcon,
+		DHyprlandIcon
 	} from '$lib/components/icons';
 
 	const dateNew = Date.now();
@@ -430,6 +431,11 @@
 					level: 5
 				})}
 				{@render skillItem({
+					icon: DHyprlandIcon,
+					link: 'https://hypr.land/',
+					level: 5
+				})}
+				{@render skillItem({
 					icon: LogosKDEIcon,
 					link: 'https://www.kde.org/',
 					level: 5
@@ -662,14 +668,12 @@
 			<div class="flex flex-wrap gap-1">
 				<Badge>Desktop App</Badge>
 				<Badge>May 2025 - Today</Badge>
-				<LinkBadge href="#frameworks" target="_self">Electron</LinkBadge>
 				<LinkBadge href="#frameworks" target="_self">Tauri</LinkBadge>
 				<LinkBadge href="#frameworks" target="_self">Svelte</LinkBadge>
 				<LinkBadge href="#frameworks" target="_self">TailwindCSS</LinkBadge>
 				<LinkBadge href="#tools" target="_self">Vite</LinkBadge>
 				<LinkBadge href="#languages" target="_self">TypeScript</LinkBadge>
 				<LinkBadge href="#languages" target="_self">Rust</LinkBadge>
-				<LinkBadge href="#tools" target="_self">NodeJS</LinkBadge>
 				<LinkBadge href="#tools" target="_self">GitHub Actions</LinkBadge>
 			</div>
 
@@ -691,40 +695,29 @@
 			</P>
 
 			<P>
-				I tried to make Rustory with
-				<A href="https://tauri.app" color="secondary">Tauri</A>
-				and
-				<A href="https://kit.svelte.dev" color="secondary">SvelteKit</A>
-				but at that time I didn't knew Rust and had no time to study it so I had to rollback to Electron
-				but keeping Svelte. I kept the new UI and ported the few features I had made to Electron. You
-				can still see the code I had on Tauri on
-				<A href="https://github.com/XurxoMF/rustory-tauri" color="secondary">GitHub</A>.
+				This project was a rollercoaster of trying and learning new things and I really learned a
+				lot. I first tried to make it with <A href="https://tauri.app/" color="secondary">Tauri</A> but
+				at that time I didn't knew <A href="https://rust-lang.org" color="secondary">Rust</A> so I had
+				to start over with Electron as I was facing a lot of problems. The second iteration was made with
+				<A href="https://electronjs.org" color="secondary">Electron</A> and I made a lot of progress on
+				it but we had the same issue we had on VS Launcher... performance, weight, etc... so I studied
+				<A href="https://rust-lang.org" color="secondary">Rust</A> and I've strated over again with Tauri
+				but now I'll use shadcn-svelte for the UI and some other tools to make it better and faster as
+				I've almost no time due to may current job.
 			</P>
 
 			<P>
-				A few months have passed and I've made a lot of progress on the Electron version of Rustory,
-				you can find the code on
-				<A href="https://github.com/XurxoMF/rustory" color="secondary">GitHub</A>. I've not added
-				new main features and most of the old ones are not done yet but I've made a really good set
-				of components for the UI and added a few secondary features like automatic updates,
-				localization with multiple languages, UI scaling and theme configs, improved logging, tray
-				icon, commands, hotkeys...
-			</P>
-
-			<P>
-				If you want to see some images of the new launcher, try it or learn more about it, you can
-				join our
-				<A href="https://discord.gg/RtWpYBRRUz" color="secondary">Discord</A>
-				and the code is on
-				<A href="https://github.com/XurxoMF/rustory" color="secondary">GitHub</A>.
-			</P>
-
-			<P color="muted" class="text-sm">
-				I had some free time a month ago and I studied
-				<A href="https://www.rust-lang.org">Rust</A>
-				using
-				<A href="https://doc.rust-lang.org/book/">The Rust Book</A>
-				so I'll probably switch to Tauri again in the next months now that I've the knowledge needed.
+				If you want to see the code of any of the iterations check this links:
+				<A href="https://github.com/XurxoMF/rustory-tauri-old" color="secondary">
+					Old Rustory with Tauri
+				</A>,
+				<A href="https://github.com/XurxoMF/rustory-electron-old" color="secondary">
+					Old Rustory with Electron
+				</A>
+				and finally the current
+				<A href="https://github.com/XurxoMF/rustory-electron-old" color="secondary">
+					Rustory with Tauri
+				</A>.
 			</P>
 		</div>
 
