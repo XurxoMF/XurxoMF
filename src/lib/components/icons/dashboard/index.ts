@@ -1,3 +1,4 @@
+export { default as DAmazonIcon } from './DAmazonIcon.svelte';
 export { default as DStalwartMailServerIcon } from './DStalwartMailServerIcon.svelte';
 export { default as DCoolifyIcon } from './DCoolifyIcon.svelte';
 export { default as DJellyfinIcons } from './DJellyfinIcons.svelte';

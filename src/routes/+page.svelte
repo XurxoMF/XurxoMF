@@ -58,7 +58,8 @@
 		DRoundcubeIcon,
 		DUptimeKumaIcon,
 		Dn8nIcon,
-		DHyprlandIcon
+		DHyprlandIcon,
+		DAmazonIcon
 	} from '$lib/components/icons';
 
 	const dateNew = Date.now();
@@ -418,6 +419,11 @@
 					link: 'https://wordpress.org/',
 					level: 4
 				})}
+				{@render skillItem({
+					icon: DAmazonIcon,
+					link: 'https://www.amazon.com/',
+					level: 4
+				})}
 			</div>
 		</div>
 
@@ -602,6 +608,64 @@
 				I worked there part-time for 2 years and a month and then I left the company to look for a
 				full-time Web/Desktop/Mobile Developer position.
 			</P>
+		</div>
+
+		<div class="space-y-2 border-l-2 border-l-pink-500 pl-4">
+			<H4 color="secondary" id="froiz-job-2" class="scroll-mt-20">
+				<A href="https://froiz.es/">Supermercados Froiz</A>
+			</H4>
+
+			<H3 id="job-1" class="scroll-mt-20">Cashier, stocker and delivery driver</H3>
+
+			<div class="flex flex-wrap gap-1">
+				<Badge>Job</Badge>
+				<Badge>February 2026 - June 2026</Badge>
+			</div>
+
+			<P>
+				When I left the previous company I joined Froiz at the Salvaterra de Miño supermarket while
+				I was looking for a full-time Web Developer, Computer Technician or similar position.
+			</P>
+
+			<P>
+				I spent 1 month working as a cashier and stocker and another 3 months working as a delivery
+				driver and stocker.
+			</P>
+
+			<P>
+				This has nothing to do with my Web Developer or Computer Technician experience but it's a
+				job and I felt like it was interesting to mention it here.
+			</P>
+		</div>
+
+		<div class="space-y-2 border-l-2 border-l-pink-500 pl-4">
+			<H4 color="secondary" id="power-natural-life-job-3" class="scroll-mt-20">
+				<A href="https://powernaturallife.com/">Power Natural Life</A>
+			</H4>
+
+			<H3 id="job-1" class="scroll-mt-20">Computer Technician, Web Developer and Amazon Seller</H3>
+
+			<div class="flex flex-wrap gap-1">
+				<Badge>Job</Badge>
+				<Badge>June 2026 - Today</Badge>
+				<LinkBadge href="#apps" target="_self">WordPress</LinkBadge>
+				<LinkBadge href="#apps" target="_self">Amazon</LinkBadge>
+				<LinkBadge href="#languages" target="_self">PHP</LinkBadge>
+				<LinkBadge href="#languages" target="_self">JavaScript</LinkBadge>
+				<LinkBadge href="#languages" target="_self">HTML5</LinkBadge>
+				<LinkBadge href="#languages" target="_self">CSS3</LinkBadge>
+				<LinkBadge href="#operating-systems" target="_self">Windows</LinkBadge>
+				<LinkBadge href="#operating-systems" target="_self">Linux</LinkBadge>
+			</div>
+
+			<P>While working on Froiz I found a job at Power Natural Life.</P>
+
+			<P>
+				My role here is to manage and maintain the company's computers, servers, website and Amazon
+				Selling Center as well as helping with other tasks like managing the warehouse and so on.
+			</P>
+
+			<P>I'm currently wotking here full-time with the amazing team of Power Natural Life.</P>
 		</div>
 	</div>
 
