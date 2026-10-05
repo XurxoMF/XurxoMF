@@ -57,7 +57,8 @@
 		DCloudreveIcon,
 		DRoundcubeIcon,
 		DUptimeKumaIcon,
-		Dn8nIcon
+		Dn8nIcon,
+		DAmazonIcon
 	} from '$lib/components/icons';
 
 	const dateNew = Date.now();
@@ -378,6 +379,11 @@
 					level: 5
 				})}
 				{@render skillItem({
+					icon: DAmazonIcon,
+					link: 'https://www.amazon.es/',
+					level: 5
+				})}
+				{@render skillItem({
 					icon: DCoolifyIcon,
 					link: 'https://coolify.io/',
 					level: 5
@@ -597,6 +603,58 @@
 				full-time Web/Desktop/Mobile Developer position.
 			</P>
 		</div>
+
+		<div class="space-y-2 border-l-2 border-l-pink-500 pl-4">
+			<H4 color="secondary" id="froiz-job-2" class="scroll-mt-20">
+				<A href="https://froiz.es">Froiz</A>
+			</H4>
+
+			<H3 id="job-1" class="scroll-mt-20">Cashier and Delivery Driver</H3>
+
+			<div class="flex flex-wrap gap-1">
+				<Badge>Job</Badge>
+				<Badge>February 2026 - June 2026</Badge>
+			</div>
+
+			<P>
+				After I left the previous company I joined Freoiz as a Cachier and Delivery Driver while I
+				looked for a job on what I studied.
+			</P>
+
+			<P>
+				I worked there full time for 5 months then I found the job I'm working on right now so I
+				moved to the new position. You can read more about that on the next section.
+			</P>
+		</div>
+
+		<div class="space-y-2 border-l-2 border-l-pink-500 pl-4">
+			<H4 color="secondary" id="atlantic-ac2-job-1" class="scroll-mt-20">
+				<A href="https://powernaturallife.com">Power Natural Life</A>
+			</H4>
+
+			<H3 id="job-1" class="scroll-mt-20">Computer Technician and Web Developer</H3>
+
+			<div class="flex flex-wrap gap-1">
+				<Badge>Job</Badge>
+				<Badge>June 2026 - Today</Badge>
+				<LinkBadge href="#apps" target="_self">Shopify</LinkBadge>
+				<LinkBadge href="#apps" target="_self">Amazon</LinkBadge>
+				<LinkBadge href="#languages" target="_self">JavaScript</LinkBadge>
+				<LinkBadge href="#languages" target="_self">HTML5</LinkBadge>
+				<LinkBadge href="#languages" target="_self">CSS3</LinkBadge>
+				<LinkBadge href="#operating-systems" target="_self">Windows</LinkBadge>
+			</div>
+
+			<P>
+				This is the company I'm working on right now. My role is was to make the new website and
+				keep it up to date. I'm also managing the Amazon Seller Central account of the company.
+			</P>
+
+			<P>
+				Now that I finished the website and Amazon is selling more than ever I'm working mostly on
+				the wharehouse creating package labels, packaging orders and a loading product for delivery.
+			</P>
+		</div>
 	</div>
 
 	<div class="w-full space-y-8 px-8 md:w-4/5 xl:w-2/3">
@@ -691,27 +749,6 @@
 			</P>
 
 			<P>
-				I tried to make Rustory with
-				<A href="https://tauri.app" color="secondary">Tauri</A>
-				and
-				<A href="https://kit.svelte.dev" color="secondary">SvelteKit</A>
-				but at that time I didn't knew Rust and had no time to study it so I had to rollback to Electron
-				but keeping Svelte. I kept the new UI and ported the few features I had made to Electron. You
-				can still see the code I had on Tauri on
-				<A href="https://github.com/XurxoMF/rustory-tauri" color="secondary">GitHub</A>.
-			</P>
-
-			<P>
-				A few months have passed and I've made a lot of progress on the Electron version of Rustory,
-				you can find the code on
-				<A href="https://github.com/XurxoMF/rustory" color="secondary">GitHub</A>. I've not added
-				new main features and most of the old ones are not done yet but I've made a really good set
-				of components for the UI and added a few secondary features like automatic updates,
-				localization with multiple languages, UI scaling and theme configs, improved logging, tray
-				icon, commands, hotkeys...
-			</P>
-
-			<P>
 				If you want to see some images of the new launcher, try it or learn more about it, you can
 				join our
 				<A href="https://discord.gg/RtWpYBRRUz" color="secondary">Discord</A>
@@ -720,11 +757,11 @@
 			</P>
 
 			<P color="muted" class="text-sm">
-				I had some free time a month ago and I studied
-				<A href="https://www.rust-lang.org">Rust</A>
-				using
-				<A href="https://doc.rust-lang.org/book/">The Rust Book</A>
-				so I'll probably switch to Tauri again in the next months now that I've the knowledge needed.
+				The project will be really big so I need to make sure the performance is as good as possible
+				so I'm making it with
+				<A href="https://tauri.app/">Tauri</A>
+				and
+				<A href="https://svelte.dev/">Svelte</A>
 			</P>
 		</div>
 
@@ -789,8 +826,8 @@
 			</div>
 
 			<P>
-				Modereta was a private Discord bor I made for a server of mine. It was a simple bot with a
-				level system, reactions, moderation...
+				Modereta is a private Discord bor I made for a server of mine. It's a simple bot with a few
+				features we needed for a game bot... nothing crazy.
 			</P>
 
 			<P>
@@ -801,8 +838,7 @@
 
 			<P>
 				If you want to see the code you can find it on
-				<A href="https://github.com/XurxoMF/Modereta" color="secondary">GitHub</A> but it's not in use
-				anymore and it was left abandoned.
+				<A href="https://github.com/XurxoMF/Modereta" color="secondary">GitHub</A>.
 			</P>
 		</div>
 
