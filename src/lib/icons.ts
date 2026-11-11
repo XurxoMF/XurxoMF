@@ -23,6 +23,7 @@ export { default as FolderOpenIcon } from "@tabler/icons-svelte/icons/folder-ope
 export { default as LiveIcon } from "@tabler/icons-svelte/icons/radio";
 export { default as LoaderIcon } from "@tabler/icons-svelte/icons/loader";
 export { default as MinusIcon } from "@tabler/icons-svelte/icons/minus";
+export { default as MoonIcon } from "@tabler/icons-svelte/icons/moon";
 export { default as PauseIcon } from "@tabler/icons-svelte/icons/player-pause";
 export { default as PlaybackSpeedIcon } from "@tabler/icons-svelte/icons/gauge";
 export { default as PlayIcon } from "@tabler/icons-svelte/icons/player-play";
@@ -40,6 +41,7 @@ export { default as ShuffleIcon } from "@tabler/icons-svelte/icons/arrows-shuffl
 export { default as SidebarIcon } from "@tabler/icons-svelte/icons/layout-sidebar";
 export { default as StarHalfIcon } from "@tabler/icons-svelte/icons/star-half";
 export { default as StarIcon } from "@tabler/icons-svelte/icons/star";
+export { default as SunIcon } from "@tabler/icons-svelte/icons/sun";
 export { default as SkipBackIcon } from "@tabler/icons-svelte/icons/player-track-prev";
 export { default as SkipForwardIcon } from "@tabler/icons-svelte/icons/player-track-next";
 export { default as TrackIcon } from "@tabler/icons-svelte/icons/music";
