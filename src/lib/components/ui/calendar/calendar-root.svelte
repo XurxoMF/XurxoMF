@@ -1,0 +1,130 @@
+<script lang="ts" module>
+	import { Calendar as CalendarPrimitive } from "bits-ui";
+
+	import type { Snippet } from "svelte";
+	import type { DateValue } from "@internationalized/date";
+	import type { WithoutChildrenOrChild } from "$lib/utils";
+
+	import * as Button from "$lib/components/ui/button";
+
+	export type RootProps = WithoutChildrenOrChild<CalendarPrimitive.RootProps> & {
+		buttonVariant?: Button.RootVariants | undefined;
+		captionLayout?: "dropdown" | "dropdown-months" | "dropdown-years" | "label" | undefined;
+		months?: CalendarPrimitive.MonthSelectProps["months"] | undefined;
+		years?: CalendarPrimitive.YearSelectProps["years"] | undefined;
+		monthFormat?: CalendarPrimitive.MonthSelectProps["monthFormat"] | undefined;
+		yearFormat?: CalendarPrimitive.YearSelectProps["yearFormat"] | undefined;
+		day?: Snippet<[{ day: DateValue; outsideMonth: boolean }]> | undefined;
+	};
+</script>
+
+<script lang="ts">
+	import { isEqualMonth } from "@internationalized/date";
+
+	import * as Calendar from ".";
+
+	import { getLocale } from "$lib/paraglide/runtime";
+
+	import { cn } from "$lib/utils";
+
+	let {
+		ref = $bindable(null),
+		value = $bindable(),
+		placeholder = $bindable(),
+		class: className,
+		weekdayFormat = "short",
+		buttonVariant = "ghost",
+		captionLayout = "label",
+		locale = getLocale(),
+		months: monthsProp,
+		years,
+		monthFormat: monthFormatProp,
+		yearFormat = "numeric",
+		day,
+		disableDaysOutsideMonth = false,
+		...restProps
+	}: RootProps = $props();
+
+	// Dropdown captions stay compact unless the consumer explicitly selects another format.
+	const monthFormat = $derived.by(() => {
+		if (monthFormatProp) return monthFormatProp;
+		if (captionLayout.startsWith("dropdown")) return "short";
+		return "long";
+	});
+</script>
+
+<!--
+Discriminated Unions + Destructing (required for bindable) do not
+get along, so we shut typescript up by casting `value` to `never`.
+-->
+<CalendarPrimitive.Root
+	bind:value={value as never}
+	bind:ref
+	bind:placeholder
+	data-slot="calendar"
+	{weekdayFormat}
+	{disableDaysOutsideMonth}
+	class={cn(
+		"group/calendar w-fit max-w-full bg-background p-2 [--cell-radius:var(--radius-md)] [--cell-size:--spacing(7)] in-data-[slot=card-content]:bg-transparent in-data-[slot=popover-content]:bg-transparent",
+		className
+	)}
+	{locale}
+	{monthFormat}
+	{yearFormat}
+	{...restProps}
+>
+	{#snippet children({ months, weekdays })}
+		<Calendar.Months>
+			<Calendar.Nav>
+				<Calendar.PrevButton variant={buttonVariant} />
+				<Calendar.NextButton variant={buttonVariant} />
+			</Calendar.Nav>
+			{#each months as month, monthIndex (month)}
+				<Calendar.Month>
+					<Calendar.Header>
+						<Calendar.Caption
+							{captionLayout}
+							months={monthsProp}
+							{monthFormat}
+							{years}
+							{yearFormat}
+							month={month.value}
+							bind:placeholder
+							{locale}
+							{monthIndex}
+						/>
+					</Calendar.Header>
+					<Calendar.Grid>
+						<Calendar.GridHead>
+							<Calendar.GridRow class="select-none">
+								{#each weekdays as weekday (weekday)}
+									<Calendar.HeadCell>
+										{weekday.slice(0, 2)}
+									</Calendar.HeadCell>
+								{/each}
+							</Calendar.GridRow>
+						</Calendar.GridHead>
+						<Calendar.GridBody>
+							{#each month.weeks as weekDates (weekDates)}
+								<Calendar.GridRow>
+									{#each weekDates as date (date)}
+										<Calendar.Cell {date} month={month.value}>
+											{#if day}
+												{@render day({
+													day: date,
+													outsideMonth: !isEqualMonth(date, month.value)
+												})}
+											{:else}
+												<Calendar.Day />
+											{/if}
+										</Calendar.Cell>
+									{/each}
+								</Calendar.GridRow>
+							{/each}
+						</Calendar.GridBody>
+					</Calendar.Grid>
+				</Calendar.Month>
+			{/each}
+		</Calendar.Months>
+	{/snippet}
+</CalendarPrimitive.Root>

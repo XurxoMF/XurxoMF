@@ -1,16 +1,15 @@
 FROM oven/bun:latest
 
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends curl \
-    && rm -rf /var/lib/apt/lists/*
-
 WORKDIR /app
 
 COPY package.json bun.lock ./
+
 RUN bun install --frozen-lockfile
 
 COPY . .
+
 RUN bun run build
 
 EXPOSE 3000
-CMD ["bun", "run", "build/index.js"]
+
+CMD ["bun", "run", "preview", "--", "--host", "0.0.0.0", "--port", "3000"]

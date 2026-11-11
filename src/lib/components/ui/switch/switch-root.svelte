@@ -1,0 +1,32 @@
+<script lang="ts" module>
+	import { Switch as SwitchPrimitive } from "bits-ui";
+
+	import type { WithoutChildrenOrChild } from "$lib/utils";
+
+	export type RootProps = WithoutChildrenOrChild<SwitchPrimitive.RootProps> & {
+		size?: "sm" | "default" | undefined;
+	};
+</script>
+
+<script lang="ts">
+	import { cn } from "$lib/utils";
+
+	let { ref = $bindable(null), class: className, checked = $bindable(false), size = "default", ...restProps }: RootProps = $props();
+</script>
+
+<SwitchPrimitive.Root
+	bind:ref
+	bind:checked
+	data-slot="switch"
+	data-size={size}
+	class={cn(
+		"peer group/switch relative inline-flex shrink-0 items-center rounded-full border border-transparent transition-all after:absolute after:-inset-x-3 after:-inset-y-2 aria-invalid:border-danger aria-invalid:ring-3 aria-invalid:ring-danger/20 data-[size=default]:h-[18.4px] data-[size=default]:w-8 data-[size=sm]:h-3.5 data-[size=sm]:w-6 dark:aria-invalid:border-danger/50 dark:aria-invalid:ring-danger/40 data-checked:bg-primary data-unchecked:bg-input dark:data-unchecked:bg-input/80 data-disabled:cursor-not-allowed data-disabled:opacity-50",
+		className
+	)}
+	{...restProps}
+>
+	<SwitchPrimitive.Thumb
+		data-slot="switch-thumb"
+		class="pointer-events-none block rounded-full bg-background ring-0 transition-transform group-data-[size=default]/switch:size-4 group-data-[size=sm]/switch:size-3 rtl:data-[state=checked]:translate-x-[calc(-100%)] group-data-[size=default]/switch:data-checked:translate-x-[calc(100%-2px)] group-data-[size=sm]/switch:data-checked:translate-x-[calc(100%-2px)] dark:data-checked:bg-primary-foreground group-data-[size=default]/switch:data-unchecked:translate-x-0 group-data-[size=sm]/switch:data-unchecked:translate-x-0 dark:data-unchecked:bg-foreground"
+	/>
+</SwitchPrimitive.Root>

@@ -1,0 +1,95 @@
+<script lang="ts" module>
+	import type { Snippet } from "svelte";
+
+	export type ErrorCorrection = "L" | "M" | "Q" | "H";
+	export type RootProps = {
+		value: string;
+		size?: number | undefined;
+		color?: string | undefined;
+		backgroundColor?: string | undefined;
+		errorCorrection?: ErrorCorrection | undefined;
+		margin?: number | undefined;
+		class?: string | undefined;
+		logo?: string | Snippet | undefined;
+		logoSize?: number | undefined;
+	};
+</script>
+
+<script lang="ts">
+	import qrcode from "qrcode-generator";
+
+	import * as m from "$lib/paraglide/messages.js";
+
+	import { cn } from "$lib/utils";
+
+	let {
+		value,
+		size = 128,
+		color = "#000000",
+		backgroundColor = "#FFFFFF",
+		errorCorrection = "M",
+		margin = 2,
+		class: className,
+		logo,
+		logoSize = 0.2
+	}: RootProps = $props();
+
+	let matrix = $derived.by(() => {
+		if (!value) return [];
+		try {
+			const qr = qrcode(0, errorCorrection);
+			qr.addData(value);
+			qr.make();
+
+			const count = qr.getModuleCount();
+			const rows = [];
+			for (let r = 0; r < count; r++) {
+				const row = [];
+				for (let c = 0; c < count; c++) {
+					row.push(qr.isDark(r, c));
+				}
+				rows.push(row);
+			}
+			return rows;
+		} catch (e) {
+			console.error("QR Generation failed", e);
+			return [];
+		}
+	});
+
+	let moduleCount = $derived(matrix.length);
+	let viewBoxSize = $derived(moduleCount + margin * 2);
+</script>
+
+<div
+	class={cn("relative inline-flex shrink-0 items-center justify-center overflow-hidden", className)}
+	data-slot="qr-code"
+	style:width={`${size}px`}
+	style:height={`${size}px`}
+>
+	<svg viewBox={`0 0 ${viewBoxSize} ${viewBoxSize}`} xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges" class="h-full w-full">
+		<rect width={viewBoxSize} height={viewBoxSize} fill={backgroundColor} />
+
+		{#each matrix as row, r (r)}
+			{#each row as isDark, c (c)}
+				{#if isDark}
+					<rect x={c + margin} y={r + margin} width="1" height="1" fill={color} />
+				{/if}
+			{/each}
+		{/each}
+	</svg>
+
+	{#if logo}
+		<div
+			class="absolute top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-background p-1 shadow-sm"
+			style:width={`${size * logoSize}px`}
+			style:height={`${size * logoSize}px`}
+		>
+			{#if typeof logo === "string"}
+				<img src={logo} alt={m.quiet_falcon_logo()} class="h-full w-full object-contain" />
+			{:else}
+				{@render logo()}
+			{/if}
+		</div>
+	{/if}
+</div>

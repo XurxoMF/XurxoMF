@@ -1,21 +1,15 @@
-import type { Handle } from '@sveltejs/kit';
+import type { Handle } from "@sveltejs/kit";
 
-export const handle: Handle = async ({ event, resolve }) => {
-	let theme: typeof event.locals.theme = 'light';
+import { getTextDirection } from "$lib/paraglide/runtime";
+import { paraglideMiddleware } from "$lib/paraglide/server";
 
-	const themeCookie = event.cookies.get('theme');
-	if (themeCookie === 'dark' || themeCookie === 'light') {
-		theme = themeCookie;
-	} else {
-		const prefersDark = event.request.headers.get('sec-ch-prefers-color-scheme') === 'dark';
-		theme = prefersDark ? 'dark' : 'light';
-	}
+const handleParaglide: Handle = ({ event, resolve }) =>
+	paraglideMiddleware(event.request, ({ request, locale }) => {
+		event.request = request;
 
-	event.locals.theme = theme;
-
-	const response = await resolve(event, {
-		transformPageChunk: ({ html }) => html.replace('%theme%', theme)
+		return resolve(event, {
+			transformPageChunk: ({ html }) => html.replace("%paraglide.lang%", locale).replace("%paraglide.dir%", getTextDirection(locale))
+		});
 	});
 
-	return response;
-};
+export const handle: Handle = handleParaglide;

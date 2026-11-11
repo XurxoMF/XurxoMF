@@ -1,0 +1,26 @@
+<script lang="ts" module>
+	import type { HTMLAttributes } from "svelte/elements";
+	import type { WithElementRef } from "$lib/utils";
+
+	import * as Separator from "$lib/components/ui/separator";
+
+	export type SeparatorProps = WithElementRef<HTMLAttributes<HTMLDivElement>> & {
+		orientation?: Separator.RootProps["orientation"] | undefined;
+		decorative?: Separator.RootProps["decorative"] | undefined;
+	};
+</script>
+
+<script lang="ts">
+	import { cn } from "$lib/utils";
+
+	let { ref = $bindable(null), class: className, orientation, decorative, ...restProps }: SeparatorProps = $props();
+</script>
+
+<div
+	bind:this={ref}
+	data-slot="field-separator"
+	class={cn("relative -my-2 h-5 text-sm group-data-[variant=outline]/field-group:-mb-2", className)}
+	{...restProps}
+>
+	<Separator.Root class="absolute inset-0 top-1/2" {orientation} {decorative} />
+</div>

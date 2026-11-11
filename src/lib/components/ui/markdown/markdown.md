@@ -1,0 +1,357 @@
+# Markdown
+
+A headless renderer that turns a parsed `mdast` document into xvelte Typography, Code Block, List, Table, Alert, Checkbox, Separator, and Footnote components plus native images and raw HTML. It supports CommonMark, GitHub Flavored Markdown, GitHub blockquote alerts, stable GitHub-style heading IDs, safe URL protocols, sanitized or trusted HTML, and lazy syntax highlighting for every language bundled by Shiki.
+
+Use Markdown for documentation, component guides, release notes, and other trusted or untrusted Markdown strings that should use the application's xvelte components. Wrap it in `Typography.Prose` when the document needs automatic vertical rhythm. Images render as native responsive elements, footnotes become linked definitions at the end of the document, and raw HTML is sanitized by default.
+
+<!-- xvelte-example: overview -->
+
+## Contents
+
+- [Import](#import)
+- [Anatomy](#anatomy)
+- [Basic usage](#basic-usage)
+- [Examples](#examples)
+- [Public API](#public-api)
+- [Styling and DOM contract](#styling-and-dom-contract)
+- [Accessibility](#accessibility)
+- [Localization](#localization)
+- [Dependencies](#dependencies)
+- [File organization](#file-organization)
+
+---
+
+## Import
+
+```svelte
+<script lang="ts">
+	import { UseMarkdown, parseMarkdown } from "$lib/hooks/use-markdown.svelte";
+	import * as Markdown from "$lib/components/ui/markdown";
+</script>
+```
+
+The component's `index.ts` exports `Root`, `RootProps`, and `HtmlMode`. The hook file separately exports `UseMarkdown`, `parseMarkdown`, `MarkdownAst`, and `MarkdownAlertKind`.
+
+---
+
+## Anatomy
+
+Parse the source first, then pass the standard mdast root to the headless renderer:
+
+```svelte
+<Typography.Prose>
+	<Markdown.Root ast={markdown.current} />
+</Typography.Prose>
+```
+
+`Root` introduces no wrapper element, so the rendered blocks remain direct children of an optional `Typography.Prose`. It recursively composes the required xvelte components and appends a Footnote section when the parsed document contains referenced definitions.
+
+---
+
+## Basic usage
+
+```svelte
+<script lang="ts">
+	import { UseMarkdown } from "$lib/hooks/use-markdown.svelte";
+	import * as Markdown from "$lib/components/ui/markdown";
+	import * as Typography from "$lib/components/ui/typography";
+
+	let source = $state(`# Installation
+
+Run \`bun install\`.
+
+\`\`\`ts
+const ready: boolean = true;
+\`\`\``);
+
+	const markdown = new UseMarkdown();
+
+	$effect(() => {
+		markdown.source = source;
+	});
+</script>
+
+<Typography.Prose>
+	<Markdown.Root ast={markdown.current} />
+</Typography.Prose>
+```
+
+For a static or server-loaded string, use the pure parser directly:
+
+```svelte
+<script lang="ts">
+	const ast = parseMarkdown(source);
+</script>
+
+<Markdown.Root {ast} />
+```
+
+---
+
+## Examples
+
+### GitHub alerts
+
+```md
+> [!NOTE]
+> Additional context.
+
+> [!TIP]
+> A useful recommendation.
+
+> [!IMPORTANT]
+> Information required to complete the task.
+
+> [!WARNING]
+> Something may produce an unexpected result.
+
+> [!CAUTION]
+> This action can cause data loss.
+```
+
+The parser annotates the blockquote while keeping it a valid mdast `blockquote` node. Root maps Note to `info`, Tip to `success`, Important to `important`, Warning to `warning`, and Caution to `danger`.
+
+### Images
+
+Direct images and reference images render with the same native output:
+
+```md
+![Architecture diagram](/images/architecture.webp "Application architecture")
+
+![Deployment flow][deployment]
+
+[deployment]: https://cdn.example.com/deployment.webp "Deployment flow"
+```
+
+The Markdown alternative becomes the required native `alt` attribute, including an intentional empty alternative for decorative images. The optional title is forwarded to `title`. Relative sources and the `http` and `https` protocols are accepted; unsafe, local-file, or unresolved sources render their alternative text instead.
+
+### Footnotes
+
+Use GFM footnote references and definitions directly in the source:
+
+```md
+The renderer numbers notes by their first reference.[^source] The same note may be cited again.[^source]
+
+[^source]: The definition may appear anywhere in the document and may contain multiple blocks.
+```
+
+Definitions do not render where they occur in the source. Root collects referenced definitions, orders them by first use, and appends one semantic Footnote section. Every repeated reference receives its own return link. IDs are unique to each Markdown.Root instance, including during server rendering and hydration.
+
+### Raw HTML
+
+Complete HTML fragments render in place and are cleaned with the default GitHub-style `hast-util-sanitize` schema:
+
+```md
+<details open>
+<summary>Compatibility</summary>
+<p onclick="alert('removed')">This paragraph remains, but its event handler is removed.</p>
+<script>alert("removed")</script>
+</details>
+```
+
+The default `html="sanitize"` mode parses each mdast HTML node as a fragment, removes dangerous elements, attributes, and protocols, and serializes the safe tree. Use trusted mode only for HTML controlled completely by the app:
+
+```svelte
+<Markdown.Root {ast} html="trusted" />
+```
+
+Trusted mode inserts each raw node unchanged and can execute dangerous attributes or URLs in the reader's browser. Neither mode joins separate mdast HTML nodes: a complete fragment or void element works, but an opening tag in one node cannot wrap Markdown or another node before its closing tag. This keeps the xvelte component renderer intact instead of converting the complete document to HTML.
+
+### Manual AST rendering
+
+The parser returns standard mdast rather than renderer-specific HTML. An app may inspect or render it itself:
+
+```svelte
+{#each ast.children as node}
+	{#if node.type === "heading"}
+		<h2 id={node.data?.headingId}>Custom heading renderer</h2>
+	{:else if node.type === "code"}
+		<pre>{node.value}</pre>
+	{/if}
+{/each}
+```
+
+Use the node's documented mdast fields rather than depending on source positions. The [mdast specification](https://github.com/syntax-tree/mdast) is the source of truth for standard node formats.
+
+### Table of contents
+
+Bind the optional Prose container to `UseToc`. Markdown headings already receive stable unique IDs:
+
+```svelte
+<script lang="ts">
+	import { UseToc } from "$lib/hooks/use-toc.svelte";
+
+	const toc = new UseToc();
+	let content = $state<HTMLDivElement>();
+
+	$effect(() => {
+		toc.ref = content;
+		return () => toc.destroy();
+	});
+</script>
+
+<Typography.Prose bind:ref={content}>
+	<Markdown.Root {ast} />
+</Typography.Prose>
+```
+
+---
+
+## Public API
+
+### `Markdown.Root`
+
+| Prop                  | Type                      | Default      | Behavior                                                                                        |
+| --------------------- | ------------------------- | ------------ | ----------------------------------------------------------------------------------------------- |
+| `ast`                 | `MarkdownAst`             | Required     | Standard mdast root produced by `parseMarkdown`, `UseMarkdown`, or compatible application code. |
+| `showCopyButton`      | `boolean`                 | `true`       | Adds a keyboard-accessible `CodeBlock.CopyButton` to every fenced block.                        |
+| `leadingIntroduction` | `boolean`                 | `true`       | Uses `Typography.Leading` for the paragraph immediately following a top-level H1.               |
+| `html`                | `"sanitize" \| "trusted"` | `"sanitize"` | Cleans every raw HTML node or inserts it unchanged.                                             |
+
+Root has no `children`, `class`, or `ref` prop because it renders no element of its own. Wrap it when a layout element, styling scope, DOM reference, article semantic, or TOC observation target is required.
+
+### Parsed formats and renderer coverage
+
+Parsing follows CommonMark with the official GFM extensions supplied by `micromark-extension-gfm` and `mdast-util-gfm`. Refer to the [GitHub Flavored Markdown specification](https://github.github.com/gfm/) and [mdast node specification](https://github.com/syntax-tree/mdast) for exact parsing rules.
+
+| Markdown or mdast node                       | Root rendering                                                                                                              |
+| -------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| ATX/Setext headings                          | `Typography.H1`–`H6` with unique GitHub-style IDs.                                                                          |
+| Paragraphs                                   | `Typography.P`; the optional introductory paragraph uses `Typography.Leading`.                                              |
+| Emphasis, strong, deletion, and hard breaks  | Native `em`, `strong`, `del`, and `br` with stable slots.                                                                   |
+| Inline code and links                        | `Typography.InlineCode` and `Typography.Link`; reference links are resolved from definitions.                               |
+| Fenced and indented code                     | `CodeBlock.Root`, streaming-friendly lines, every lazy Shiki language/alias, plain-text fallback, and optional copy action. |
+| Ordered, unordered, nested, and spread lists | `List.Root` and `List.Item`; ordered-list start values are preserved.                                                       |
+| GFM task lists                               | Marker-free List items with a disabled, labelled xvelte Checkbox.                                                           |
+| Blockquotes                                  | `Typography.Blockquote` with internal block spacing.                                                                        |
+| GitHub Note/Tip/Important/Warning/Caution    | Semantic xvelte Alert variants with localized titles and icons.                                                             |
+| GFM tables and alignment                     | xvelte Table parts with header cells, body rows, and per-column text alignment.                                             |
+| Thematic breaks                              | Non-decorative `Separator.Root`.                                                                                            |
+| Autolinks, reference links, and definitions  | Safe links for relative URLs plus `http`, `https`, `mailto`, and `tel`; definitions do not render.                          |
+| Images and image references                  | Responsive native `img`; references resolve through definitions and unsafe sources retain alt text.                         |
+| Footnote references and definitions          | Numbered Footnote links, definitions ordered by first use, repeated-reference backlinks, and unique IDs.                    |
+| Raw inline or block HTML                     | Parsed and cleaned with the default GitHub-style schema, or inserted unchanged in explicit trusted mode.                    |
+
+GFM parsing also preserves source positions. Root does not render YAML frontmatter, math, Mermaid diagrams, GitHub mentions, issue references, emoji shortcodes, or repository-specific URL expansion because those are separate extensions or post-processing features rather than the configured CommonMark/GFM parser.
+
+Code fence languages are forwarded to `useHighlightedCode`, which resolves bundled Shiki names and aliases, loads their grammars lazily, caches complete streamed lines, and falls back to plain text for unknown identifiers. Markdown renders the result through `CodeBlock.Line` and owns no separate language registry.
+
+---
+
+## Styling and DOM contract
+
+Root is headless and therefore has no root slot. Rendered xvelte parts retain their own documented slots. Markdown adds these stable hooks only where it creates native or internal structure:
+
+| Slot                                | Element or purpose                                                                |
+| ----------------------------------- | --------------------------------------------------------------------------------- |
+| `markdown-strong`                   | Native `strong`.                                                                  |
+| `markdown-emphasis`                 | Native `em`.                                                                      |
+| `markdown-delete`                   | Native `del`.                                                                     |
+| `markdown-break`                    | Native `br`.                                                                      |
+| `markdown-task-list-item`           | Task checkbox and content row.                                                    |
+| `markdown-task-list-content`        | Blocks belonging to one task item.                                                |
+| `markdown-list-item-content`        | Multi-block non-task list content.                                                |
+| `markdown-unsafe-link`              | Text retained after rejecting an unsafe link destination.                         |
+| `markdown-unresolved-link`          | Text from a reference without a usable definition.                                |
+| `markdown-image`                    | Native image resolved from a direct or reference node.                            |
+| `markdown-image-fallback`           | Alternative text retained for an unusable image source.                           |
+| `markdown-unresolved-footnote`      | Literal marker retained for an unresolved reference in a compatible external AST. |
+| `markdown-footnote-content`         | Block-content wrapper inside one Footnote item.                                   |
+| `markdown-footnote-back-references` | Return-link group for every occurrence of one note.                               |
+
+Root adds structural spacing inside blockquotes, multi-block list items, and footnote definitions. The composed Footnote parts retain their documented `footnote*` slots and semantic token classes. Raw HTML is inserted without an xvelte wrapper or stable slot; its own surviving elements and attributes define its styling contract. Surrounding document rhythm belongs to `Typography.Prose` or another app wrapper.
+
+---
+
+## Accessibility
+
+Root preserves heading levels, native emphasis, links, lists, tables, quotations, and code semantics through the selected xvelte components. Keep the Markdown source's heading hierarchy meaningful and use one appropriate top-level H1 for ordinary documents.
+
+Task-list checkboxes are disabled representations of source state and receive their list item's plain text as an accessible name. Code Block copy buttons are keyboard reachable and announce successful copying. Alert icons are hidden from assistive technology while localized titles identify their type.
+
+Image alternative text is forwarded unchanged to the native `alt` attribute. Authors must provide a concise alternative that communicates the image's purpose, or `![](...)` when an image is genuinely decorative. The optional Markdown title is supplementary and does not replace alternative text. Rejected and unresolved sources retain non-empty alternative text visibly instead of creating a broken image.
+
+Footnote markers and definitions use real anchor navigation. Each definition has a return link for every inline occurrence, with localized accessible names that distinguish repeated citations. Authors should keep essential information in the main flow rather than relying on a footnote being discovered.
+
+Unsafe Markdown link protocols are rendered as non-link text. Sanitized raw HTML uses an allow-list and removes unsafe elements, attributes, and URL protocols before insertion. Sanitization happens immediately before serialization; do not mutate the resulting HTML afterward.
+
+`html="trusted"` bypasses every HTML safety check and must never receive user-authored, remotely loaded, or otherwise untrusted content. The renderer uses Svelte's `{@html}` insertion in both modes, so accessibility semantics inside raw HTML remain the author's responsibility.
+
+---
+
+## Localization
+
+Markdown includes the following reusable copy:
+
+| Message ID           | English default                                       | Purpose                                      |
+| -------------------- | ----------------------------------------------------- | -------------------------------------------- |
+| `velvet_ibis_turn`   | `Note`                                                | Note alert title.                            |
+| `solar_otter_rest`   | `Tip`                                                 | Tip alert title.                             |
+| `misty_yak_glow`     | `Important`                                           | Important alert title.                       |
+| `rapid_fern_bloom`   | `Warning`                                             | Warning alert title.                         |
+| `silent_coral_drift` | `Caution`                                             | Caution alert title.                         |
+| `hollow_cedar_dance` | `Footnotes`                                           | Footnote section's accessible name.          |
+| `ivory_badger_drift` | `Footnote {number}`                                   | Inline footnote reference's accessible name. |
+| `kind_marten_glow`   | `Back to reference {number}`                          | First backlink's accessible name.            |
+| `lucid_willow_rest`  | `Back to reference {number}, occurrence {occurrence}` | Repeated backlink's accessible name.         |
+
+Document text, code, link titles, image alternatives, task labels, and raw HTML come from the AST and are not translated by Root. The required Code Block, Checkbox, and other components retain their own localization contracts. HTML mode names and sanitizer configuration are implementation values rather than human-readable copy.
+
+---
+
+## Dependencies
+
+### Packages
+
+```sh
+# Bun
+bun add github-slugger hast-util-from-html hast-util-sanitize hast-util-to-html mdast-util-from-markdown mdast-util-gfm micromark-extension-gfm shiki bits-ui tailwind-variants @tabler/icons-svelte clsx tailwind-merge
+bun add -D tailwindcss @inlang/paraglide-js
+
+# npm
+npm install github-slugger hast-util-from-html hast-util-sanitize hast-util-to-html mdast-util-from-markdown mdast-util-gfm micromark-extension-gfm shiki bits-ui tailwind-variants @tabler/icons-svelte clsx tailwind-merge
+npm install -D tailwindcss @inlang/paraglide-js
+
+# pnpm
+pnpm add github-slugger hast-util-from-html hast-util-sanitize hast-util-to-html mdast-util-from-markdown mdast-util-gfm micromark-extension-gfm shiki bits-ui tailwind-variants @tabler/icons-svelte clsx tailwind-merge
+pnpm add -D tailwindcss @inlang/paraglide-js
+```
+
+### Required xvelte code
+
+Copy `src/lib/hooks/use-markdown.svelte.ts`, `src/lib/hooks/use-highlighted-code.svelte.ts`, both hook guides, and the complete folders below. Follow every component's `<component>.md` guide for its transitive files, theme tokens, global styles, localization, and installation details:
+
+- `alert`: `alert-action.svelte`, `alert-description.svelte`, `alert-root.svelte`, `alert-title.svelte`, `index.ts`.
+- `checkbox`: `checkbox-root.svelte`, `index.ts`.
+- `code-block`: `code-block-actions.svelte`, `code-block-content.svelte`, `code-block-copy-button.svelte`, `code-block-footer.svelte`, `code-block-header.svelte`, `code-block-line.svelte`, `code-block-root.svelte`, `code-block-title.svelte`, `code-block.md`, `index.ts`.
+- `footnote`: `footnote-back-reference.svelte`, `footnote-item.svelte`, `footnote-list.svelte`, `footnote-reference.svelte`, `footnote-root.svelte`, `index.ts`.
+- `list`: `list-item.svelte`, `list-root.svelte`, `index.ts`.
+- `separator`: `separator-root.svelte`, `index.ts`.
+- `table`: `table-body.svelte`, `table-caption.svelte`, `table-cell.svelte`, `table-footer.svelte`, `table-head.svelte`, `table-header.svelte`, `table-root.svelte`, `table-row.svelte`, `index.ts`.
+- `typography`: `typography-blockquote.svelte`, `typography-h1.svelte` through `typography-h6.svelte`, `typography-inline-code.svelte`, `typography-leading.svelte`, `typography-link.svelte`, `typography-p.svelte`, `typography-prose.svelte`, `index.ts`.
+
+Table also requires its documented Scroll Area component. Code Block, Checkbox, and Footnote require the localization setup documented in their guides. Code Block requires the shared Scroll Fade stylesheet documented in its guide.
+
+Markdown imports `AlertErrorIcon`, `AlertInfoIcon`, `AlertSuccessIcon`, and `AlertWarningIcon` from `$lib/icons`:
+
+```ts
+export { default as AlertErrorIcon } from "@tabler/icons-svelte/icons/alert-octagon";
+export { default as AlertInfoIcon } from "@tabler/icons-svelte/icons/info-circle";
+export { default as AlertSuccessIcon } from "@tabler/icons-svelte/icons/circle-check";
+export { default as AlertWarningIcon } from "@tabler/icons-svelte/icons/alert-triangle";
+```
+
+Markdown itself requires no `$lib/utils` export, context, attachment, image asset, font, CSS variable, keyframe, or additional global stylesheet rule. Its required components have their own documented utility and theme requirements.
+
+---
+
+## File organization
+
+| File                         | Responsibility                                                                                    |
+| ---------------------------- | ------------------------------------------------------------------------------------------------- |
+| `markdown-root.svelte`       | Headless recursive mdast renderer, safe links and images, alerts, footnotes, and HTML policy.     |
+| `markdown-code-block.svelte` | Private Code Block composition and lazy highlighted-line rendering for fenced or indented source. |
+| `index.ts`                   | Public component, props, and HTML-mode type exports.                                              |
+| `markdown.md`                | Supported syntax, composition, API, contracts, dependencies, and current limitations.             |
+
+The component's `index.ts`, exported types, mdast types, and `UseMarkdown` parser are the source of truth for the public API.

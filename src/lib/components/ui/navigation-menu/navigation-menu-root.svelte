@@ -1,0 +1,28 @@
+<script lang="ts" module>
+	import { NavigationMenu as NavigationMenuPrimitive } from "bits-ui";
+
+	export type RootProps = NavigationMenuPrimitive.RootProps & {
+		viewport?: boolean | undefined;
+	};
+</script>
+
+<script lang="ts">
+	import * as NavigationMenu from ".";
+
+	import { cn } from "$lib/utils";
+
+	let { ref = $bindable(null), class: className, viewport = true, children, ...restProps }: RootProps = $props();
+</script>
+
+<NavigationMenuPrimitive.Root
+	bind:ref
+	data-slot="navigation-menu"
+	data-viewport={viewport}
+	class={cn("group/navigation-menu relative flex max-w-max flex-1 items-center justify-center", className)}
+	{...restProps}
+>
+	{@render children?.()}
+	{#if viewport}
+		<NavigationMenu.Viewport />
+	{/if}
+</NavigationMenuPrimitive.Root>

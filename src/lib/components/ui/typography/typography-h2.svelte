@@ -1,0 +1,21 @@
+<script lang="ts" module>
+	import type { HTMLAttributes } from "svelte/elements";
+	import type { WithElementRef } from "$lib/utils";
+
+	export type H2Props = WithElementRef<HTMLAttributes<HTMLHeadingElement>>;
+</script>
+
+<script lang="ts">
+	import { cn } from "$lib/utils";
+
+	let { ref = $bindable(null), class: className, children, ...restProps }: H2Props = $props();
+</script>
+
+<h2
+	data-slot="typography-h2"
+	class={cn("scroll-m-20 text-3xl font-semibold tracking-tight transition-colors first:mt-0", className)}
+	bind:this={ref}
+	{...restProps}
+>
+	{@render children?.()}
+</h2>

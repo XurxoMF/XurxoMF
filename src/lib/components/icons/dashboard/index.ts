@@ -1,9 +1,0 @@
-export { default as DStalwartMailServerIcon } from './DStalwartMailServerIcon.svelte';
-export { default as DCoolifyIcon } from './DCoolifyIcon.svelte';
-export { default as DJellyfinIcons } from './DJellyfinIcons.svelte';
-export { default as DBeszelIcon } from './DBeszelIcon.svelte';
-export { default as DCloudreveIcon } from './DCloudreveIcon.svelte';
-export { default as DRoundcubeIcon } from './DRoundcubeIcon.svelte';
-export { default as DUptimeKumaIcon } from './DUptimeKumaIcon.svelte';
-export { default as Dn8nIcon } from './Dn8nIcon.svelte';
-export { default as DAmazonIcon } from './DAmazonIcon.svelte';

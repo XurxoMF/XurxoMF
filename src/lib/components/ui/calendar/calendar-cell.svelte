@@ -1,0 +1,21 @@
+<script lang="ts" module>
+	import { Calendar as CalendarPrimitive } from "bits-ui";
+
+	export type CellProps = CalendarPrimitive.CellProps;
+</script>
+
+<script lang="ts">
+	import { cn } from "$lib/utils";
+
+	let { ref = $bindable(null), class: className, ...restProps }: CellProps = $props();
+</script>
+
+<CalendarPrimitive.Cell
+	bind:ref
+	data-slot="calendar-cell"
+	class={cn(
+		"relative h-(--cell-size) w-1/7 p-0 text-center text-sm focus-within:z-20 [&:first-child[data-selected]_[data-bits-day]]:rounded-s-(--cell-radius) [&:last-child[data-selected]_[data-bits-day]]:rounded-e-(--cell-radius)",
+		className
+	)}
+	{...restProps}
+/>
