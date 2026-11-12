@@ -6,6 +6,7 @@
       "name": "xmfcn-svelte",
       "dependencies": {
         "@floating-ui/dom": "1.7.4",
+        "@fontsource/ubuntu": "^5.3.0",
         "@internationalized/date": "^3.12.4",
         "@tabler/icons-svelte": "^3.51.0",
         "@tanstack/svelte-table": "^9.3.1",
@@ -39,7 +40,6 @@
       },
       "devDependencies": {
         "@eslint/js": "^10.0.1",
-        "@fontsource-variable/inter": "^5.3.0",
         "@inlang/cli": "^3.6.0",
         "@inlang/paraglide-js": "^2.29.3",
         "@shadcn-svelte/primitives": "^0.0.1",
@@ -127,7 +127,7 @@
 
     "@floating-ui/utils": ["@floating-ui/utils@0.2.12", "", {}, "sha512-HpCo8tmWzLVad5s2d19EhAz5zqrrQ6s69qd6moPMQvkOuSwDT1YgRfWSVuc4ennqrgv3OHppiOGMQ7oC13yIww=="],
 
-    "@fontsource-variable/inter": ["@fontsource-variable/inter@5.3.0", "", {}, "sha512-OupL48va4JNofb97w6NYeF9S7W/kHNKM0Er8Dem5nqi4jeOLrVJDoE8tZEpnMJmtkvNbB1EIPPwHcdkF6b1oUA=="],
+    "@fontsource/ubuntu": ["@fontsource/ubuntu@5.3.0", "", {}, "sha512-LsjJXgE430QLs8LKfn1RIFbbdGAiZBU1gao8ASa4Z2kGNGh7lMb7Rzx09v3bLLuuK+3XA/JSLgPWTAbLD6r1fg=="],
 
     "@humanfs/core": ["@humanfs/core@0.19.2", "", { "dependencies": { "@humanfs/types": "^0.15.0" } }, "sha512-UhXNm+CFMWcbChXywFwkmhqjs3PRCmcSa/hfBgLIb7oQ5HNb1wS0icWsGtSAUNgefHeI+eBrA8I1fxmbHsGdvA=="],
 
