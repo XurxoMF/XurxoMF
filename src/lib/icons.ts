@@ -49,3 +49,10 @@ export { default as UploadIcon } from "@tabler/icons-svelte/icons/upload";
 export { default as VolumeIcon } from "@tabler/icons-svelte/icons/volume";
 export { default as VolumeLowIcon } from "@tabler/icons-svelte/icons/volume-2";
 export { default as VolumeMutedIcon } from "@tabler/icons-svelte/icons/volume-off";
+
+// Custom icons
+export { default as WhatsAppIcon } from "@tabler/icons-svelte/icons/brand-whatsapp";
+export { default as FacebookIcon } from "@tabler/icons-svelte/icons/brand-facebook";
+export { default as InstagramIcon } from "@tabler/icons-svelte/icons/brand-instagram";
+export { default as LinkedInIcon } from "@tabler/icons-svelte/icons/brand-linkedin";
+export { default as MailIcon } from "@tabler/icons-svelte/icons/mail";

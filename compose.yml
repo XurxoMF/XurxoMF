@@ -1,0 +1,9 @@
+services:
+  web:
+    image: xurxomf:local
+    pull_policy: build
+    build:
+      context: https://github.com/XurxoMF/XurxoMF.git#main
+    ports:
+      - "${PORT:-3000}:3000"
+    restart: unless-stopped

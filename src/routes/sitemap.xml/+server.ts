@@ -1,7 +1,9 @@
 import type { RequestHandler } from "./$types";
 
+import { projects } from "$lib/data/projects";
+
 const siteOrigin = "https://xurxomf.xyz";
-const paths = ["/"];
+const paths = ["/", "/proxectos", ...projects.flatMap((project) => (project.href ? [project.href] : []))];
 
 export const prerender = true;
 
