@@ -35,7 +35,7 @@ Remaining native `div` attributes are forwarded. The stable styling hook is `dat
 
 ## Routing
 
-When present, a project's `href` is typed as an existing SvelteKit route and must follow the `/proxectos/...` project convention. Project details are authored as individual static `+page.svelte` routes; this component does not use or require a dynamic `[slug]` route. Projects without an implemented detail route omit `href` and display “Ficha en preparación” instead of a broken link.
+When present, a project's `href` is typed as an existing SvelteKit route and must follow the `/proxectos/...` project convention. The destination is localized with Paraglide so it preserves the active URL locale. Project details are authored as individual static `+page.svelte` routes; this component does not use or require a dynamic `[slug]` route. Projects without an implemented detail route omit `href` and display “Ficha en preparación” instead of a broken link.
 
 ## Media
 
@@ -47,11 +47,11 @@ The title is exposed as a level-three heading for use inside a page or section h
 
 ## Localization
 
-The visible action, placeholder label, project copy, and image alternative text use Paraglide. Project content comes from `$lib/data/projects`, which is re-evaluated after the locale switch reloads the page.
+The visible action, placeholder label, project copy, image alternative text, and internal destination use Paraglide. Project content comes from `$lib/data/projects`, which is re-evaluated when navigation changes the URL locale.
 
 ## Dependencies
 
-Project Card composes the public Badge, Button, and Card units, uses SvelteKit `resolve()` for its internal destination, and merges classes with `$lib/utils`.
+Project Card composes the public Badge, Button, and Card units, resolves its Paraglide-localized internal destination with SvelteKit `resolve()`, and merges classes with `$lib/utils`.
 
 ## File organization
 

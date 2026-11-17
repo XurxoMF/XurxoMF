@@ -11,7 +11,9 @@
 
 <script lang="ts">
 	import { resolve } from "$app/paths";
+	import type { Pathname } from "$app/types";
 	import * as m from "$lib/paraglide/messages.js";
+	import { localizeHref } from "$lib/paraglide/runtime";
 
 	import { cn } from "$lib/utils";
 
@@ -57,7 +59,9 @@
 	<Card.Footer class="justify-between">
 		<span class="text-sm text-muted-foreground">{number.toString().padStart(2, "0")}</span>
 		{#if project.href}
-			<a href={resolve(project.href)} class={Button.rootVariants({ variant: "ghost", size: "sm" })}>{m.project_card_view()}</a>
+			<a href={resolve(localizeHref(project.href) as Pathname)} class={Button.rootVariants({ variant: "ghost", size: "sm" })}
+				>{m.project_card_view()}</a
+			>
 		{:else}
 			<span class={Button.rootVariants({ variant: "ghost", size: "sm", class: "pointer-events-none text-muted-foreground" })}
 				>{m.project_card_preparing()}</span

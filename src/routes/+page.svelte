@@ -1,9 +1,11 @@
 <script lang="ts">
 	import { resolve } from "$app/paths";
+	import type { Pathname } from "$app/types";
 
 	import { contact } from "$lib/data/contact";
 	import { projects } from "$lib/data/projects";
 	import * as m from "$lib/paraglide/messages.js";
+	import { localizeHref } from "$lib/paraglide/runtime";
 
 	import * as ContactBanner from "$lib/components/contact-banner";
 	import * as ProjectCard from "$lib/components/project-card";
@@ -12,6 +14,28 @@
 	import * as Card from "$lib/components/ui/card";
 	import * as Timeline from "$lib/components/ui/timeline";
 	import * as Typography from "$lib/components/ui/typography";
+
+	const serviceAreas = ["Salvaterra de Miño", "Salceda de Caselas", "Vigo", "O Porriño", "Tui", "Ponteareas", "Galicia"];
+	const professionalServiceSchema = {
+		"@context": "https://schema.org",
+		"@type": "ProfessionalService",
+		"@id": "https://xurxomf.xyz/#business",
+		name: "XurxoMF",
+		url: "https://xurxomf.xyz",
+		email: "xurxomf@xurxomf.xyz",
+		telephone: "+34686571921",
+		description: m.home_meta_description(),
+		address: {
+			"@type": "PostalAddress",
+			addressLocality: "Salvaterra de Miño",
+			addressRegion: "Galicia",
+			addressCountry: "ES"
+		},
+		areaServed: serviceAreas.map((name) => ({ "@type": name === "Galicia" ? "AdministrativeArea" : "City", name })),
+		serviceType: [m.service_web_title(), m.service_apps_title(), m.service_it_title(), m.service_bots_title(), m.service_networks_title()],
+		audience: [{ "@type": "BusinessAudience" }, { "@type": "PeopleAudience" }],
+		sameAs: [contact.socials.linkedin.href, contact.socials.instagram.href, contact.socials.facebook.href]
+	};
 </script>
 
 {#snippet heroService(number: string, title: string, detail: string)}
@@ -57,6 +81,7 @@
 <svelte:head>
 	<title>{m.home_meta_title()}</title>
 	<meta name="description" content={m.home_meta_description()} />
+	<svelte:element this={"script"} type="application/ld+json">{JSON.stringify(professionalServiceSchema)}</svelte:element>
 </svelte:head>
 
 <div class="mx-auto w-full max-w-6xl px-6">
@@ -187,6 +212,10 @@
 			{@render serviceCard("05", m.service_networks_title(), m.service_networks_description(), m.service_networks_detail())}
 			{@render serviceCard("06", m.service_maintenance_title(), m.service_maintenance_description(), m.service_maintenance_detail())}
 		</div>
+
+		<Typography.P class="mt-8 max-w-4xl text-muted-foreground">
+			{m.home_service_area()}
+		</Typography.P>
 	</section>
 
 	<section id="proxectos" class="scroll-mt-20 py-20 lg:py-28">
@@ -199,7 +228,7 @@
 				</Typography.P>
 			</div>
 
-			<a href={resolve("/proxectos")} class={Button.rootVariants({ variant: "outline" })}>{m.home_all_projects()}</a>
+			<a href={resolve(localizeHref("/proxectos") as Pathname)} class={Button.rootVariants({ variant: "outline" })}>{m.home_all_projects()}</a>
 		</div>
 
 		<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
