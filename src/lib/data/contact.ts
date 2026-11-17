@@ -17,15 +17,15 @@ export const contact = {
 		},
 		linkedin: {
 			label: "LinkedIn",
-			href: "https://www.linkedin.com"
+			href: "https://www.linkedin.com/in/xurxomf/"
 		},
 		instagram: {
 			label: "Instagram",
-			href: "https://www.instagram.com"
+			href: "https://www.instagram.com/xurxomf/"
 		},
 		facebook: {
 			label: "Facebook",
-			href: "https://www.facebook.com"
+			href: "https://www.facebook.com/xurxomf"
 		}
 	}
 } as const;
