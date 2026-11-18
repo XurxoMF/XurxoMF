@@ -773,5 +773,12 @@
 	"service_it_maintenance_faq_2_question": "Do you handle emergencies?",
 	"service_it_maintenance_faq_2_answer": "I prioritise incidents for maintenance clients according to our agreement, but I do not sell imaginary 24/7 coverage. Hours and response times are clear before the service begins.",
 	"service_it_maintenance_faq_3_question": "Do you also maintain websites and online stores?",
-	"service_it_maintenance_faq_3_answer": "Yes, but I separate that from computer maintenance because the work and risks differ. We can combine both in a clear proposal rather than hiding everything in one mysterious invoice line."
+	"service_it_maintenance_faq_3_answer": "Yes, but I separate that from computer maintenance because the work and risks differ. We can combine both in a clear proposal rather than hiding everything in one mysterious invoice line.",
+	"error_404_meta_title": "Page not found | XurxoMF",
+	"error_404_title": "Page not found",
+	"error_404_description": "The route you are looking for does not exist or has moved. It probably is not personal.",
+	"error_generic_meta_title": "Error | XurxoMF",
+	"error_generic_title": "Something did not go as planned",
+	"error_generic_description": "There was a problem loading this page. You can return home and try again.",
+	"error_back_home": "Back to home"
 }

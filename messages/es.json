@@ -773,5 +773,12 @@
 	"service_it_maintenance_faq_2_question": "¿Atiendes urgencias?",
 	"service_it_maintenance_faq_2_answer": "Priorizo las incidencias de los clientes con mantenimiento según el acuerdo establecido, pero no ofrezco una falsa cobertura 24/7. Los horarios y tiempos de respuesta quedan claros antes de contratar.",
 	"service_it_maintenance_faq_3_question": "¿También mantienes webs y tiendas online?",
-	"service_it_maintenance_faq_3_answer": "Sí, pero lo separo del mantenimiento de equipos porque las tareas y riesgos son distintos. Podemos combinar ambos servicios en una propuesta clara para no mezclarlo todo en una línea misteriosa de la factura."
+	"service_it_maintenance_faq_3_answer": "Sí, pero lo separo del mantenimiento de equipos porque las tareas y riesgos son distintos. Podemos combinar ambos servicios en una propuesta clara para no mezclarlo todo en una línea misteriosa de la factura.",
+	"error_404_meta_title": "Página no encontrada | XurxoMF",
+	"error_404_title": "Página no encontrada",
+	"error_404_description": "La ruta que buscas no existe o ha cambiado de sitio. No parece nada personal.",
+	"error_generic_meta_title": "Error | XurxoMF",
+	"error_generic_title": "Algo no ha salido como debía",
+	"error_generic_description": "Ha ocurrido un problema al cargar esta página. Puedes volver al inicio e intentarlo de nuevo.",
+	"error_back_home": "Volver al inicio"
 }

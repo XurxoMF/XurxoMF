@@ -6,12 +6,12 @@ COPY package.json bun.lock ./
 RUN bun install --frozen-lockfile
 
 COPY . .
-RUN bun run build
+RUN bun run build:web
 
 FROM nginx/nginx-unprivileged:alpine AS production
 
 COPY nginx.conf /etc/nginx/conf.d/default.conf
-COPY --from=build --chown=nginx:nginx /app/build /usr/share/nginx/html
+COPY --from=build --chown=nginx:nginx /app/build/web /usr/share/nginx/html
 
 EXPOSE 3000
 
