@@ -1,10 +1,17 @@
 import type { RequestHandler } from "./$types";
 
 import { projects } from "$lib/data/projects";
+import { services } from "$lib/data/services";
 import { baseLocale, localizeHref, locales } from "$lib/paraglide/runtime";
 
 const siteOrigin = "https://xurxomf.xyz";
-const paths = ["/", "/proxectos", ...projects.flatMap((project) => (project.href ? [project.href] : []))];
+const paths = [
+	"/",
+	"/servizos",
+	...services.map((service) => service.href),
+	"/proxectos",
+	...projects.flatMap((project) => (project.href ? [project.href] : []))
+];
 
 export const prerender = true;
 

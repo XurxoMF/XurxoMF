@@ -99,7 +99,7 @@
 					href={resolve(localizeHref("/#sobre-min") as Pathname)}
 					class={Button.rootVariants({ variant: "ghost", size: "sm", class: "rounded-full" })}>{m.nav_about()}</a
 				>
-				<a href={resolve(localizeHref("/#servizos") as Pathname)} class={Button.rootVariants({ variant: "ghost", size: "sm", class: "rounded-full" })}
+				<a href={resolve(localizeHref("/servizos") as Pathname)} class={Button.rootVariants({ variant: "ghost", size: "sm", class: "rounded-full" })}
 					>{m.nav_services()}</a
 				>
 				<a href={resolve(localizeHref("/proxectos") as Pathname)} class={Button.rootVariants({ variant: "ghost", size: "sm", class: "rounded-full" })}
@@ -141,7 +141,7 @@
 							{m.nav_about()} <span class="font-mono text-xs text-muted-foreground">01</span>
 						</a>
 						<a
-							href={resolve(localizeHref("/#servizos") as Pathname)}
+							href={resolve(localizeHref("/servizos") as Pathname)}
 							class={Button.rootVariants({ variant: "ghost", size: "lg", class: "h-auto justify-between py-3" })}
 							onclick={() => (navigationOpen = false)}
 						>
@@ -201,7 +201,7 @@
 						<a class="w-fit text-muted-foreground transition-colors hover:text-foreground" href={resolve(localizeHref("/#sobre-min") as Pathname)}
 							>{m.nav_about()}</a
 						>
-						<a class="w-fit text-muted-foreground transition-colors hover:text-foreground" href={resolve(localizeHref("/#servizos") as Pathname)}
+						<a class="w-fit text-muted-foreground transition-colors hover:text-foreground" href={resolve(localizeHref("/servizos") as Pathname)}
 							>{m.nav_services()}</a
 						>
 						<a class="w-fit text-muted-foreground transition-colors hover:text-foreground" href={resolve(localizeHref("/proxectos") as Pathname)}

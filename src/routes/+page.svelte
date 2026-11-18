@@ -4,6 +4,7 @@
 
 	import { contact } from "$lib/data/contact";
 	import { projects } from "$lib/data/projects";
+	import { services, type Service } from "$lib/data/services";
 	import * as m from "$lib/paraglide/messages.js";
 	import { localizeHref } from "$lib/paraglide/runtime";
 
@@ -16,6 +17,7 @@
 	import * as Typography from "$lib/components/ui/typography";
 
 	const serviceAreas = ["Salvaterra de Miño", "Salceda de Caselas", "Vigo", "O Porriño", "Tui", "Ponteareas", "Galicia"];
+	const featuredServices = services.filter((service) => service.featured).slice(0, 6);
 	const professionalServiceSchema = {
 		"@context": "https://schema.org",
 		"@type": "ProfessionalService",
@@ -32,7 +34,7 @@
 			addressCountry: "ES"
 		},
 		areaServed: serviceAreas.map((name) => ({ "@type": name === "Galicia" ? "AdministrativeArea" : "City", name })),
-		serviceType: [m.service_web_title(), m.service_apps_title(), m.service_it_title(), m.service_bots_title(), m.service_networks_title()],
+		serviceType: services.map((service) => service.title),
 		audience: [{ "@type": "BusinessAudience" }, { "@type": "PeopleAudience" }],
 		sameAs: [contact.socials.linkedin.href, contact.socials.instagram.href, contact.socials.facebook.href]
 	};
@@ -65,16 +67,18 @@
 	</Timeline.Item>
 {/snippet}
 
-{#snippet serviceCard(number: string, title: string, description: string, detail: string)}
+{#snippet serviceCard(number: string, service: Service)}
 	<Card.Root class="h-full">
 		<Card.Header>
 			<Card.Action><span class="font-mono text-sm text-primary">{number}</span></Card.Action>
-			<Card.Title role="heading" aria-level={3}>{title}</Card.Title>
-			<Card.Description>{description}</Card.Description>
+			<Card.Title role="heading" aria-level={3}>{service.title}</Card.Title>
+			<Card.Description>{service.shortDescription}</Card.Description>
 		</Card.Header>
-		<Card.Content class="mt-auto">
-			<p class="border-t pt-4 text-sm font-medium">{detail}</p>
-		</Card.Content>
+		<Card.Footer class="mt-auto justify-end">
+			<a href={resolve(localizeHref(service.href) as Pathname)} class={Button.rootVariants({ variant: "ghost", size: "sm" })}>
+				{m.service_card_action()}
+			</a>
+		</Card.Footer>
 	</Card.Root>
 {/snippet}
 
@@ -193,24 +197,20 @@
 	</section>
 
 	<section id="servizos" class="scroll-mt-20 py-20 lg:py-28">
-		<div class="mb-10 grid gap-5 lg:grid-cols-[0.75fr_1.25fr] lg:items-end">
-			<div>
+		<div class="mb-10 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
+			<div class="max-w-2xl">
 				<p class="text-sm font-semibold tracking-widest text-primary uppercase">{m.nav_services()}</p>
 				<Typography.H2 class="mt-4 border-0">{m.home_services_title()}</Typography.H2>
+				<Typography.P class="mt-4 text-muted-foreground">{m.home_services_description()}</Typography.P>
 			</div>
 
-			<Typography.P class="max-w-2xl text-muted-foreground lg:justify-self-end">
-				{m.home_services_description()}
-			</Typography.P>
+			<a href={resolve(localizeHref("/servizos") as Pathname)} class={Button.rootVariants({ variant: "outline" })}>{m.home_all_services()}</a>
 		</div>
 
 		<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-			{@render serviceCard("01", m.service_web_title(), m.service_web_description(), m.service_web_detail())}
-			{@render serviceCard("02", m.service_apps_title(), m.service_apps_description(), m.service_apps_detail())}
-			{@render serviceCard("03", m.service_it_title(), m.service_it_description(), m.service_it_detail())}
-			{@render serviceCard("04", m.service_bots_title(), m.service_bots_description(), m.service_bots_detail())}
-			{@render serviceCard("05", m.service_networks_title(), m.service_networks_description(), m.service_networks_detail())}
-			{@render serviceCard("06", m.service_maintenance_title(), m.service_maintenance_description(), m.service_maintenance_detail())}
+			{#each featuredServices as service, index (service.href)}
+				{@render serviceCard(String(index + 1).padStart(2, "0"), service)}
+			{/each}
 		</div>
 
 		<Typography.P class="mt-8 max-w-4xl text-muted-foreground">
