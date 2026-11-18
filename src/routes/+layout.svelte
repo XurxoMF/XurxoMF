@@ -90,7 +90,7 @@
 <div class="flex min-h-svh flex-col">
 	<header class="sticky top-0 z-40 border-b bg-background/80 backdrop-blur-xl">
 		<div class="mx-auto grid h-16 w-full max-w-6xl grid-cols-[1fr_auto] items-center gap-4 px-6 md:grid-cols-[1fr_auto_1fr]">
-			<a href={resolve(localizeHref("/#sobre-min") as Pathname)} class="text-xl font-bold tracking-tight" aria-label={m.layout_home_label()}>
+			<a href={resolve(localizeHref("/") as Pathname)} class="text-xl font-bold tracking-tight" aria-label={m.layout_home_label()}>
 				<span class="text-primary">X</span>urxo<span class="text-primary">MF</span>
 			</a>
 
