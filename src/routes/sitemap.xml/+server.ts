@@ -18,19 +18,27 @@ const paths = [
 
 export const prerender = true;
 
+function escapeXml(value: string) {
+	return value.replaceAll("&", "&amp;").replaceAll('"', "&quot;").replaceAll("'", "&apos;").replaceAll("<", "&lt;").replaceAll(">", "&gt;");
+}
+
+function absoluteUrl(path: string, locale: (typeof locales)[number]) {
+	return escapeXml(new URL(localizeHref(path, { locale }), siteOrigin).href);
+}
+
 /** Returns the public URLs as a prerendered XML sitemap. */
 export const GET: RequestHandler = () => {
 	const urls = [...new Set(paths)]
 		.flatMap((path) => {
 			const alternatives = locales
-				.map((locale) => `\t\t<xhtml:link rel="alternate" hreflang="${locale}" href="${new URL(localizeHref(path, { locale }), siteOrigin).href}" />`)
-				.concat(
-					`\t\t<xhtml:link rel="alternate" hreflang="x-default" href="${new URL(localizeHref(path, { locale: baseLocale }), siteOrigin).href}" />`
-				)
+				.map((locale) => `\t\t<xhtml:link rel="alternate" hreflang="${locale}" href="${absoluteUrl(path, locale)}" />`)
+				.concat(`\t\t<xhtml:link rel="alternate" hreflang="x-default" href="${absoluteUrl(path, baseLocale)}" />`)
 				.join("\n");
 
 			return locales.map((locale) => {
-				const location = new URL(localizeHref(path, { locale }), siteOrigin).href;
+				const location = absoluteUrl(path, locale);
+
+				// lastmod is intentionally omitted until it can be backed by a real content update date.
 				return `\t<url>\n\t\t<loc>${location}</loc>\n${alternatives}\n\t</url>`;
 			});
 		})
@@ -41,7 +49,7 @@ export const GET: RequestHandler = () => {
 		{
 			headers: {
 				"Cache-Control": "public, max-age=0, s-maxage=86400",
-				"Content-Type": "application/xml"
+				"Content-Type": "application/xml; charset=utf-8"
 			}
 		}
 	);
