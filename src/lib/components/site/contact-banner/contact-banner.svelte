@@ -8,7 +8,7 @@
 <script lang="ts">
 	import { contact } from "$lib/data/contact";
 
-	import { FacebookIcon, InstagramIcon, LinkedInIcon, MailIcon, WhatsAppIcon } from "$lib/icons";
+	import { FacebookIcon, InstagramIcon, LinkedInIcon, MailIcon, PhoneIcon, WhatsAppIcon } from "$lib/icons";
 	import * as m from "$lib/paraglide/messages.js";
 
 	import { cn } from "$lib/utils";
@@ -39,6 +39,15 @@
 						title={m.contact_email_title()}
 					>
 						<MailIcon aria-hidden="true" />
+					</a>
+					<a
+						href={contact.phone.href}
+						rel="external"
+						class={Button.rootVariants({ variant: "outline", size: "icon-lg", class: "rounded-full" })}
+						aria-label={m.contact_phone_label()}
+						title={m.contact_phone_title()}
+					>
+						<PhoneIcon aria-hidden="true" />
 					</a>
 					<a
 						href={contact.socials.whatsapp.href}

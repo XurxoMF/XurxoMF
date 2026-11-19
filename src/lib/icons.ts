@@ -56,3 +56,4 @@ export { default as FacebookIcon } from "@tabler/icons-svelte/icons/brand-facebo
 export { default as InstagramIcon } from "@tabler/icons-svelte/icons/brand-instagram";
 export { default as LinkedInIcon } from "@tabler/icons-svelte/icons/brand-linkedin";
 export { default as MailIcon } from "@tabler/icons-svelte/icons/mail";
+export { default as PhoneIcon } from "@tabler/icons-svelte/icons/phone";

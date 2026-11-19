@@ -10,7 +10,10 @@ const paths = [
 	"/servizos",
 	...services.map((service) => service.href),
 	"/proxectos",
-	...projects.flatMap((project) => (project.href ? [project.href] : []))
+	...projects.flatMap((project) => (project.href ? [project.href] : [])),
+	"/privacidade",
+	"/cookies",
+	"/aviso-legal"
 ];
 
 export const prerender = true;

@@ -34,11 +34,11 @@ The component owns no mutable state. Contact destinations and the displayed loca
 
 ## Accessibility
 
-The heading preserves the surrounding page's level-two hierarchy. Icon-only contact links include accessible names and decorative icons are hidden from assistive technology. External web destinations open in a new tab and use `rel="external noreferrer"`; email stays in the current context and uses `rel="external"`.
+The heading preserves the surrounding page's level-two hierarchy. Icon-only contact links include accessible names and decorative icons are hidden from assistive technology. The primary actions are ordered as email, telephone, and WhatsApp before the social profiles. External web destinations open in a new tab and use `rel="external noreferrer"`; email and telephone stay in the current context and use `rel="external"`.
 
 ## Localization
 
-The current visible copy is authored in Galician, matching the existing page. When the project migrates page copy to Paraglide messages, move the banner's labels, heading, description, availability, response time, and accessibility names with it. Brand names and contact destinations remain in the shared contact data.
+All visible copy and accessible names use Paraglide messages in Galician, Spanish, and English. Brand names and contact destinations remain in the shared contact data.
 
 ## Dependencies
 

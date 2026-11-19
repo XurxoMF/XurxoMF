@@ -3,6 +3,7 @@
 	import { page } from "$app/state";
 	import type { Pathname } from "$app/types";
 	import { ModeWatcher, mode, setMode } from "mode-watcher";
+	import { onMount } from "svelte";
 
 	import "./layout.css";
 
@@ -20,8 +21,10 @@
 
 	let { children } = $props();
 	let navigationOpen = $state(false);
+	let cookieNoticeOpen = $state(false);
 
 	const SITE_ORIGIN = "https://xurxomf.xyz";
+	const COOKIE_NOTICE_KEY = "xurxomf-cookie-notice";
 
 	const LOCALES: Record<(typeof locales)[number], { name: string; code: string }> = {
 		gl: { name: "Galego", code: "GL" },
@@ -30,6 +33,15 @@
 	} as const;
 
 	const currentYear = new Date().getFullYear();
+
+	onMount(() => {
+		cookieNoticeOpen = localStorage.getItem(COOKIE_NOTICE_KEY) !== "acknowledged-v1";
+	});
+
+	function acknowledgeCookieNotice() {
+		localStorage.setItem(COOKIE_NOTICE_KEY, "acknowledged-v1");
+		cookieNoticeOpen = false;
+	}
 </script>
 
 <svelte:head>
@@ -42,24 +54,8 @@
 
 <ModeWatcher />
 
-<div class="fixed right-6 bottom-0 z-50 rounded-t-lg border-x border-t bg-card p-1 shadow-lg">
-	<ButtonGroup.Root>
-		<nav class="contents" aria-label={m.layout_language_selector()}>
-			{#each locales as locale (locale)}
-				<a
-					href={resolve(localizeHref(page.url.pathname, { locale }) as Pathname)}
-					hreflang={locale}
-					lang={locale}
-					title={LOCALES[locale].name}
-					aria-current={locale === getLocale() ? "page" : undefined}
-					data-sveltekit-reload
-					class={Button.rootVariants({ variant: locale === getLocale() ? "secondary" : "ghost", size: "icon-sm" })}
-				>
-					{LOCALES[locale].code}
-				</a>
-			{/each}
-		</nav>
-
+<div class="fixed right-0 bottom-0 z-50 rounded-tl-lg border-t border-l bg-card p-1 shadow-lg">
+	<ButtonGroup.Root orientation="vertical">
 		<Button.Root
 			variant="ghost"
 			size="icon-sm"
@@ -84,6 +80,22 @@
 				)}
 			/>
 		</Button.Root>
+
+		<nav class="contents" aria-label={m.layout_language_selector()}>
+			{#each locales as locale (locale)}
+				<a
+					href={resolve(localizeHref(page.url.pathname, { locale }) as Pathname)}
+					hreflang={locale}
+					lang={locale}
+					title={LOCALES[locale].name}
+					aria-current={locale === getLocale() ? "page" : undefined}
+					data-sveltekit-reload
+					class={Button.rootVariants({ variant: locale === getLocale() ? "secondary" : "ghost", size: "icon-sm" })}
+				>
+					{LOCALES[locale].code}
+				</a>
+			{/each}
+		</nav>
 	</ButtonGroup.Root>
 </div>
 
@@ -107,15 +119,7 @@
 				>
 			</nav>
 
-			<div class="hidden items-center justify-end gap-3 md:flex">
-				<div class="hidden text-right text-xs leading-5 lg:block">
-					<a class="block text-muted-foreground transition-colors hover:text-foreground" href={contact.email.href} rel="external">
-						{contact.email.label}
-					</a>
-					<a class="block text-muted-foreground transition-colors hover:text-foreground" href={contact.phone.href} rel="external">
-						{contact.phone.label}
-					</a>
-				</div>
+			<div class="hidden items-center justify-end md:flex">
 				<a href={resolve(localizeHref("/#contacto") as Pathname)} class={Button.rootVariants({ size: "sm" })}>{m.nav_talk()}</a>
 			</div>
 
@@ -160,12 +164,6 @@
 							onclick={() => (navigationOpen = false)}>{m.nav_talk()}</a
 						>
 					</nav>
-
-					<Sheet.Footer class="mt-4 border-t text-sm text-muted-foreground">
-						<p class="font-medium text-foreground">{m.layout_direct_contact()}</p>
-						<a class="w-fit hover:text-foreground" href={contact.email.href} rel="external">{contact.email.label}</a>
-						<a class="w-fit hover:text-foreground" href={contact.phone.href} rel="external">{contact.phone.label}</a>
-					</Sheet.Footer>
 				</Sheet.Content>
 			</Sheet.Root>
 		</div>
@@ -233,14 +231,33 @@
 			</div>
 
 			<div class="flex flex-col gap-4 border-t py-6 text-sm text-muted-foreground md:flex-row md:items-center md:justify-between">
-				<p>© {currentYear} Xurxo MF. {m.layout_copyright()}</p>
+				<p>© {currentYear} XurxoMF. {m.layout_copyright()}</p>
 
 				<div class="flex flex-wrap gap-x-5 gap-y-2">
-					<span>{m.layout_privacy()}</span>
-					<span>{m.layout_cookies()}</span>
-					<span>{m.layout_legal()}</span>
+					<a class="transition-colors hover:text-foreground" href={resolve(localizeHref("/privacidade") as Pathname)}>{m.layout_privacy()}</a>
+					<a class="transition-colors hover:text-foreground" href={resolve(localizeHref("/cookies") as Pathname)}>{m.layout_cookies()}</a>
+					<a class="transition-colors hover:text-foreground" href={resolve(localizeHref("/aviso-legal") as Pathname)}>{m.layout_legal()}</a>
 				</div>
 			</div>
 		</div>
 	</footer>
 </div>
+
+<Sheet.Root bind:open={cookieNoticeOpen}>
+	<Sheet.Content side="bottom" class="mx-auto max-w-3xl rounded-t-xl" showCloseButton={false}>
+		<Sheet.Header class="pr-4 text-left">
+			<Sheet.Title>{m.cookie_notice_title()}</Sheet.Title>
+			<Sheet.Description>{m.cookie_notice_description()}</Sheet.Description>
+		</Sheet.Header>
+		<Sheet.Footer class="flex-row flex-wrap justify-end">
+			<a
+				href={resolve(localizeHref("/cookies") as Pathname)}
+				class={Button.rootVariants({ variant: "outline" })}
+				onclick={() => (cookieNoticeOpen = false)}
+			>
+				{m.cookie_notice_review()}
+			</a>
+			<Button.Root onclick={acknowledgeCookieNotice}>{m.cookie_notice_acknowledge()}</Button.Root>
+		</Sheet.Footer>
+	</Sheet.Content>
+</Sheet.Root>
