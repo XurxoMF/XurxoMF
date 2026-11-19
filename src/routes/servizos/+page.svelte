@@ -6,13 +6,13 @@
 	import * as m from "$lib/paraglide/messages.js";
 	import { localizeHref } from "$lib/paraglide/runtime";
 
-	import * as ContactBanner from "$lib/components/contact-banner";
+	import * as ContactBanner from "$lib/components/site/contact-banner";
 	import * as Button from "$lib/components/ui/button";
 	import * as Card from "$lib/components/ui/card";
 	import * as Pagination from "$lib/components/ui/pagination";
 	import * as Typography from "$lib/components/ui/typography";
 
-	const SERVICES_PER_PAGE = 6;
+	const SERVICES_PER_PAGE = 9;
 	let page = $state(1);
 	let visibleServices = $derived(services.slice((page - 1) * SERVICES_PER_PAGE, page * SERVICES_PER_PAGE));
 	let rangeStart = $derived(services.length === 0 ? 0 : (page - 1) * SERVICES_PER_PAGE + 1);
@@ -36,6 +36,7 @@
 		<div id="lista-servizos" class="mt-12 grid scroll-mt-24 gap-6 md:grid-cols-2 lg:grid-cols-3">
 			{#each visibleServices as service, index (service.href)}
 				<Card.Root class="h-full">
+					<img src={service.image} alt="" width="1672" height="941" loading="lazy" class="aspect-video w-full object-cover" />
 					<Card.Header>
 						<Card.Action
 							><span class="font-mono text-sm text-primary">{String((page - 1) * SERVICES_PER_PAGE + index + 1).padStart(2, "0")}</span></Card.Action
@@ -43,7 +44,7 @@
 						<Card.Title role="heading" aria-level={2}>{service.title}</Card.Title>
 						<Card.Description>{service.shortDescription}</Card.Description>
 					</Card.Header>
-					<Card.Footer class="justify-end">
+					<Card.Footer class="mt-auto justify-end">
 						<a href={resolve(localizeHref(service.href) as Pathname)} class={Button.rootVariants({ variant: "ghost", size: "sm" })}>
 							{m.service_card_action()}
 						</a>

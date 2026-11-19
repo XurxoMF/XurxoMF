@@ -1,34 +1,51 @@
 <script lang="ts">
-	import { resolve } from "$app/paths";
-	import type { Pathname } from "$app/types";
-
-	import { contact } from "$lib/data/contact";
-	import { projects } from "$lib/data/projects";
 	import * as m from "$lib/paraglide/messages.js";
 	import { localizeHref } from "$lib/paraglide/runtime";
 
-	import * as ContactBanner from "$lib/components/contact-banner";
-	import * as ProjectCard from "$lib/components/project-card";
+	import * as ContactBanner from "$lib/components/site/contact-banner";
+	import * as DetailHero from "$lib/components/site/detail-hero";
+	import * as DualPathSection from "$lib/components/site/dual-path-section";
+	import * as FaqSection from "$lib/components/site/faq-section";
+	import * as ProblemSection from "$lib/components/site/problem-section";
+	import * as ServiceOverview from "$lib/components/site/service-overview";
+	import * as WorkflowSection from "$lib/components/site/workflow-section";
 	import * as Badge from "$lib/components/ui/badge";
-	import * as Button from "$lib/components/ui/button";
 	import * as Card from "$lib/components/ui/card";
-	import * as Typography from "$lib/components/ui/typography";
 
-	const includes = [
-		m.service_it_maintenance_includes_1(),
-		m.service_it_maintenance_includes_2(),
-		m.service_it_maintenance_includes_3(),
-		m.service_it_maintenance_includes_4()
+	const coverageItems = [
+		{ title: m.service_it_maintenance_coverage_inventory_title(), description: m.service_it_maintenance_coverage_inventory_description() },
+		{ title: m.service_it_maintenance_coverage_systems_title(), description: m.service_it_maintenance_coverage_systems_description() },
+		{ title: m.service_it_maintenance_coverage_backups_title(), description: m.service_it_maintenance_coverage_backups_description() },
+		{ title: m.service_it_maintenance_coverage_support_title(), description: m.service_it_maintenance_coverage_support_description() }
 	];
-	const examples = [m.service_it_maintenance_example_1(), m.service_it_maintenance_example_2()];
+	const maintenancePaths = [
+		{
+			label: m.service_it_maintenance_planned_label(),
+			title: m.service_it_maintenance_planned_title(),
+			description: m.service_it_maintenance_planned_description(),
+			points: [m.service_it_maintenance_planned_point_1(), m.service_it_maintenance_planned_point_2(), m.service_it_maintenance_planned_point_3()]
+		},
+		{
+			label: m.service_it_maintenance_hours_label(),
+			title: m.service_it_maintenance_hours_title(),
+			description: m.service_it_maintenance_hours_description(),
+			points: [m.service_it_maintenance_hours_point_1(), m.service_it_maintenance_hours_point_2(), m.service_it_maintenance_hours_point_3()]
+		}
+	];
+	const steps = [
+		{ title: m.service_it_maintenance_step_1_title(), description: m.service_it_maintenance_step_1_description() },
+		{ title: m.service_it_maintenance_step_2_title(), description: m.service_it_maintenance_step_2_description() },
+		{ title: m.service_it_maintenance_step_3_title(), description: m.service_it_maintenance_step_3_description() },
+		{ title: m.service_it_maintenance_step_4_title(), description: m.service_it_maintenance_step_4_description() }
+	];
 	const faqs = [
 		{ question: m.service_it_maintenance_faq_1_question(), answer: m.service_it_maintenance_faq_1_answer() },
 		{ question: m.service_it_maintenance_faq_2_question(), answer: m.service_it_maintenance_faq_2_answer() },
-		{ question: m.service_it_maintenance_faq_3_question(), answer: m.service_it_maintenance_faq_3_answer() }
+		{ question: m.service_it_maintenance_faq_3_question(), answer: m.service_it_maintenance_faq_3_answer() },
+		{ question: m.service_it_maintenance_faq_4_question(), answer: m.service_it_maintenance_faq_4_answer() },
+		{ question: m.service_it_maintenance_faq_5_question(), answer: m.service_it_maintenance_faq_5_answer() },
+		{ question: m.service_it_maintenance_faq_6_question(), answer: m.service_it_maintenance_faq_6_answer() }
 	];
-	const relatedProjects = projects.filter((project) =>
-		["/proxectos/power-natural-life", "/proxectos/asergalicia-formacion"].includes(project.href ?? "")
-	);
 	const structuredData = {
 		"@context": "https://schema.org",
 		"@graph": [
@@ -48,6 +65,12 @@
 	};
 </script>
 
+{#snippet heroBadges()}
+	<Badge.Root variant="secondary">{m.detail_badge_service()}</Badge.Root>
+	<Badge.Root variant="secondary">{m.detail_type_support()}</Badge.Root>
+	<Badge.Root variant="success">{m.detail_status_available()}</Badge.Root>
+{/snippet}
+
 <svelte:head
 	><title>{m.service_maintenance_title()} | XurxoMF</title><meta
 		name="description"
@@ -55,86 +78,54 @@
 	/><svelte:element this={"script"} type="application/ld+json">{JSON.stringify(structuredData)}</svelte:element></svelte:head
 >
 
-<div class="mx-auto w-full max-w-6xl px-6">
-	<section class="py-20 lg:py-28" aria-labelledby="service-heading">
-		<a href={resolve(localizeHref("/servizos") as Pathname)} class={Button.rootVariants({ variant: "ghost", size: "sm", class: "mb-8 -ml-2" })}
-			>{m.service_page_back()}</a
+<div class="overflow-x-clip">
+	<DetailHero.Root
+		image="/images/services/mantemento-informatico.png"
+		title={m.service_maintenance_title()}
+		lead={m.service_it_maintenance_lead()}
+		description={m.service_it_maintenance_hero_description()}
+		badges={heroBadges}
+	/>
+	<div class="mx-auto w-full max-w-6xl px-6">
+		<ServiceOverview.Root
+			problem={m.service_it_maintenance_problem()}
+			audience={m.service_it_maintenance_audience()}
+			description={m.service_it_maintenance_overview_description()}
+		/>
+
+		<ProblemSection.Root
+			kicker={m.service_it_maintenance_coverage_kicker()}
+			title={m.service_it_maintenance_coverage_title()}
+			description={m.service_it_maintenance_coverage_description()}
 		>
-		<div class="max-w-4xl">
-			<Badge.Root variant="secondary">{m.home_badge_clients()}</Badge.Root><Typography.H1 id="service-heading" class="mt-5"
-				>{m.service_maintenance_title()}</Typography.H1
-			><Typography.Leading class="mt-5 max-w-3xl text-muted-foreground">{m.service_it_maintenance_lead()}</Typography.Leading><a
-				href={contact.email.href}
-				rel="external"
-				class={Button.rootVariants({ size: "lg", class: "mt-8" })}>{m.service_page_contact_action()}</a
-			>
-		</div>
-	</section>
-
-	<section class="py-16 lg:py-20" aria-labelledby="problem-heading">
-		<div class="grid gap-8 lg:grid-cols-[1.15fr_0.85fr]">
-			<div class="rounded-2xl border bg-muted/50 p-8">
-				<p class="text-sm font-semibold tracking-widest text-primary uppercase">{m.service_page_problem_kicker()}</p>
-				<Typography.H2 id="problem-heading" class="mt-4 border-0">{m.service_page_problem_title()}</Typography.H2><Typography.P
-					class="mt-4 text-muted-foreground">{m.service_it_maintenance_problem()}</Typography.P
-				>
+			<div class="grid gap-5 sm:grid-cols-2">
+				{#each coverageItems as item, index (item.title)}
+					<Card.Root>
+						<Card.Header>
+							<Card.Action><span class="font-mono text-sm text-primary">{String(index + 1).padStart(2, "0")}</span></Card.Action>
+							<Card.Title>{item.title}</Card.Title>
+							<Card.Description>{item.description}</Card.Description>
+						</Card.Header>
+					</Card.Root>
+				{/each}
 			</div>
-			<div class="rounded-2xl border bg-card p-8">
-				<p class="text-sm font-semibold tracking-widest text-primary uppercase">{m.service_page_audience_kicker()}</p>
-				<Typography.H2 class="mt-4 border-0">{m.service_page_audience_title()}</Typography.H2><Typography.P class="mt-4 text-muted-foreground"
-					>{m.service_it_maintenance_audience()}</Typography.P
-				>
-			</div>
-		</div>
-	</section>
+		</ProblemSection.Root>
 
-	<section class="py-16 lg:py-20" aria-labelledby="includes-heading">
-		<div class="grid gap-10 lg:grid-cols-[0.7fr_1.3fr]">
-			<div>
-				<p class="text-sm font-semibold tracking-widest text-primary uppercase">{m.service_page_includes_kicker()}</p>
-				<Typography.H2 id="includes-heading" class="mt-4 border-0">{m.service_page_includes_title()}</Typography.H2><Typography.P
-					class="mt-4 text-muted-foreground">{m.service_area_it()}</Typography.P
-				>
-			</div>
-			<div class="grid gap-4 sm:grid-cols-2">
-				{#each includes as item, index (item)}<div class="rounded-xl border bg-card p-5">
-						<span class="font-mono text-sm text-primary">{String(index + 1).padStart(2, "0")}</span>
-						<p class="mt-4 font-medium">{item}</p>
-					</div>{/each}
-			</div>
-		</div>
-	</section>
+		<DualPathSection.Root
+			kicker={m.service_it_maintenance_modes_kicker()}
+			title={m.service_it_maintenance_modes_title()}
+			description={m.service_it_maintenance_modes_description()}
+			paths={maintenancePaths}
+		/>
 
-	<section class="py-16 lg:py-20" aria-labelledby="examples-heading">
-		<p class="text-sm font-semibold tracking-widest text-primary uppercase">{m.service_page_examples_kicker()}</p>
-		<Typography.H2 id="examples-heading" class="mt-4 border-0">{m.service_page_examples_title()}</Typography.H2>
-		<div class="mt-8 grid gap-4 md:grid-cols-2">
-			{#each examples as example, index (example)}<Card.Root
-					><Card.Header
-						><Card.Action><span class="font-mono text-sm text-primary">{String(index + 1).padStart(2, "0")}</span></Card.Action><Card.Title
-							role="heading"
-							aria-level={3}>{m.service_page_example_title({ number: index + 1 })}</Card.Title
-						><Card.Description>{example}</Card.Description></Card.Header
-					></Card.Root
-				>{/each}
-		</div>
-		<Typography.H3 class="mt-14">{m.service_page_related_projects()}</Typography.H3>
-		<div class="mt-6 grid gap-6 md:grid-cols-2">
-			{#each relatedProjects as project, index (project.title)}<ProjectCard.Root {project} number={index + 1} />{/each}
-		</div>
-	</section>
+		<WorkflowSection.Root
+			kicker={m.service_page_process_kicker()}
+			title={m.service_it_maintenance_process_title()}
+			description={m.service_it_maintenance_process_description()}
+			{steps}
+		/>
 
-	<section class="grid gap-10 py-16 lg:grid-cols-[0.7fr_1.3fr] lg:py-20" aria-labelledby="faq-heading">
-		<div>
-			<p class="text-sm font-semibold tracking-widest text-primary uppercase">{m.service_page_faq_kicker()}</p>
-			<Typography.H2 id="faq-heading" class="mt-4 border-0">{m.service_page_faq_title()}</Typography.H2>
-		</div>
-		<div class="grid gap-3">
-			{#each faqs as faq (faq.question)}<details class="rounded-xl border bg-card px-5 py-4 open:pb-5">
-					<summary class="cursor-pointer font-semibold">{faq.question}</summary>
-					<p class="mt-3 leading-7 text-muted-foreground">{faq.answer}</p>
-				</details>{/each}
-		</div>
-	</section>
-	<ContactBanner.Root />
+		<FaqSection.Root {faqs} />
+		<ContactBanner.Root />
+	</div>
 </div>

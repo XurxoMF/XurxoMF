@@ -1,12 +1,12 @@
 # Project Card
 
-A reusable project preview card with optional project media, a localized placeholder fallback, description, technology badges, sequence number, and link to a statically authored project page.
+A reusable project preview card aligned with the service-card anatomy: edge-to-edge leading media, numbered header, concise description, and link to a statically authored project page. Its footer stays aligned to the bottom when neighbouring cards contain different amounts of copy.
 
 ## Import
 
 ```svelte
 <script lang="ts">
-	import * as ProjectCard from "$lib/components/project-card";
+	import * as ProjectCard from "$lib/components/site/project-card";
 </script>
 ```
 
@@ -24,12 +24,12 @@ The root accepts native `div` attributes, merges a custom `class`, and exposes a
 
 ## Public API
 
-| Prop      | Type             | Required | Description                                           |
-| --------- | ---------------- | -------- | ----------------------------------------------------- |
-| `project` | `Project`        | Yes      | Content, technologies, and optional destination path. |
-| `number`  | `number`         | Yes      | One-based sequence number displayed with two digits.  |
-| `class`   | `string`         | No       | Classes merged after the default card styles.         |
-| `ref`     | `HTMLDivElement` | No       | Bindable reference to the rendered Card root.         |
+| Prop      | Type             | Required | Description                                          |
+| --------- | ---------------- | -------- | ---------------------------------------------------- |
+| `project` | `Project`        | Yes      | Content, media, and optional destination path.       |
+| `number`  | `number`         | Yes      | One-based sequence number displayed with two digits. |
+| `class`   | `string`         | No       | Classes merged after the default card styles.        |
+| `ref`     | `HTMLDivElement` | No       | Bindable reference to the rendered Card root.        |
 
 Remaining native `div` attributes are forwarded. The stable styling hook is `data-slot="project-card"`.
 
@@ -39,7 +39,7 @@ When present, a project's `href` is typed as an existing SvelteKit route and mus
 
 ## Media
 
-Projects may provide an `image` with `src`, localized `alt`, and an optional `fit` value of `"cover"` or `"contain"`. Cover is the default and fills the card's 16:9 media area. Contain is intended for transparent artwork or cutouts that should remain fully visible. Real images and placeholders use the same inset media wrapper so their top and side spacing remain identical. When `image` is omitted, the card renders the localized placeholder.
+Projects may provide an `image` with `src`, localized `alt`, and an optional `fit` value of `"cover"` or `"contain"`. Cover is the default and fills the card's 16:9 media area. Contain is intended for transparent artwork or cutouts that should remain fully visible. Media is the direct first child of Card, so it meets the outer top edges without an inset frame, matching service cards. When `image` is omitted, the card renders an edge-to-edge localized placeholder.
 
 ## Accessibility
 
@@ -51,7 +51,7 @@ The visible action, placeholder label, project copy, image alternative text, and
 
 ## Dependencies
 
-Project Card composes the public Badge, Button, and Card units, resolves its Paraglide-localized internal destination with SvelteKit `resolve()`, and merges classes with `$lib/utils`.
+Project Card composes the public Button and Card units, resolves its Paraglide-localized internal destination with SvelteKit `resolve()`, and merges classes with `$lib/utils`.
 
 ## File organization
 

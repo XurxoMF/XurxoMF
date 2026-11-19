@@ -33,3 +33,12 @@
 - Evitar a voz corporativa, excesivamente seria ou grandilocuente, así como tópicos baleiros sobre innovación, paixón ou solucións revolucionarias.
 - Explicar con claridade que se ofrece e que problema resolve. Priorizar frases curtas e concretas.
 - Transmitir competencia sen presumir: software útil, ben feito e sen fume.
+
+## Estrutura das páxinas de servizos
+
+- Todas as fichas estáticas de servizos deben incluír banner principal, «O problema» e o banner de contacto. Tamén deben incluír «Traballo real» cando existan proxectos publicables que pertenzan realmente a ese servizo.
+- «Traballo real» debe mostrar a cabeceira centrada e, debaixo, os proxectos relacionados mediante o compoñente global `ProjectCard.Root`.
+- Soporte e asistencia informática e Mantemento informático son excepcións explícitas: non deben mostrar «Traballo real» mentres non existan casos reais e publicables deses servizos. Non se deben reutilizar proxectos de sistemas ou desenvolvemento para aparentar experiencia nesa sección.
+- O banner de contacto debe pechar a páxina.
+- As seccións intermedias non se deben repetir por obriga. Cada servizo pode ter máis ou menos bloques e escoller entre os patróns compartidos segundo o seu contido, proceso e necesidades reais.
+- Non converter as fichas nunha plantilla idéntica con textos distintos: só a estrutura común anterior e «Traballo real» cando corresponda son obrigatorias.

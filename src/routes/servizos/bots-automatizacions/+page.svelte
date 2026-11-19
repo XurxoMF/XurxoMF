@@ -1,32 +1,57 @@
 <script lang="ts">
-	import { resolve } from "$app/paths";
-	import type { Pathname } from "$app/types";
-
-	import { contact } from "$lib/data/contact";
 	import { projects } from "$lib/data/projects";
 	import * as m from "$lib/paraglide/messages.js";
 	import { localizeHref } from "$lib/paraglide/runtime";
 
-	import * as ContactBanner from "$lib/components/contact-banner";
-	import * as ProjectCard from "$lib/components/project-card";
+	import * as ContactBanner from "$lib/components/site/contact-banner";
+	import * as DetailHero from "$lib/components/site/detail-hero";
+	import * as DualPathSection from "$lib/components/site/dual-path-section";
+	import * as FaqSection from "$lib/components/site/faq-section";
+	import * as ProblemSection from "$lib/components/site/problem-section";
+	import * as ProjectCard from "$lib/components/site/project-card";
+	import * as ServiceOverview from "$lib/components/site/service-overview";
+	import * as WorkflowSection from "$lib/components/site/workflow-section";
 	import * as Badge from "$lib/components/ui/badge";
-	import * as Button from "$lib/components/ui/button";
 	import * as Card from "$lib/components/ui/card";
 	import * as Typography from "$lib/components/ui/typography";
 
-	const includes = [
-		m.service_automation_includes_1(),
-		m.service_automation_includes_2(),
-		m.service_automation_includes_3(),
-		m.service_automation_includes_4()
+	const solutionPaths = [
+		{
+			label: m.service_automation_bot_label(),
+			title: m.service_automation_bot_title(),
+			description: m.service_automation_bot_description(),
+			points: [m.service_automation_bot_point_1(), m.service_automation_bot_point_2(), m.service_automation_bot_point_3()]
+		},
+		{
+			label: m.service_automation_flow_label(),
+			title: m.service_automation_flow_title(),
+			description: m.service_automation_flow_description(),
+			points: [m.service_automation_flow_point_1(), m.service_automation_flow_point_2(), m.service_automation_flow_point_3()]
+		}
 	];
-	const examples = [m.service_automation_example_1(), m.service_automation_example_2()];
+	const reliabilityItems = [
+		{ title: m.service_automation_reliability_rules_title(), description: m.service_automation_reliability_rules_description() },
+		{ title: m.service_automation_reliability_logs_title(), description: m.service_automation_reliability_logs_description() },
+		{ title: m.service_automation_reliability_errors_title(), description: m.service_automation_reliability_errors_description() },
+		{ title: m.service_automation_reliability_operations_title(), description: m.service_automation_reliability_operations_description() }
+	];
+	const steps = [
+		{ title: m.service_automation_step_1_title(), description: m.service_automation_step_1_description() },
+		{ title: m.service_automation_step_2_title(), description: m.service_automation_step_2_description() },
+		{ title: m.service_automation_step_3_title(), description: m.service_automation_step_3_description() },
+		{ title: m.service_automation_step_4_title(), description: m.service_automation_step_4_description() }
+	];
 	const faqs = [
 		{ question: m.service_automation_faq_1_question(), answer: m.service_automation_faq_1_answer() },
 		{ question: m.service_automation_faq_2_question(), answer: m.service_automation_faq_2_answer() },
-		{ question: m.service_automation_faq_3_question(), answer: m.service_automation_faq_3_answer() }
+		{ question: m.service_automation_faq_3_question(), answer: m.service_automation_faq_3_answer() },
+		{ question: m.service_automation_faq_4_question(), answer: m.service_automation_faq_4_answer() },
+		{ question: m.service_automation_faq_5_question(), answer: m.service_automation_faq_5_answer() },
+		{ question: m.service_automation_faq_6_question(), answer: m.service_automation_faq_6_answer() }
 	];
-	const relatedProjects = projects.filter((project) => ["/proxectos/modereta", "/proxectos/vsds"].includes(project.href ?? ""));
+	const relatedProjects = projects.filter((project) =>
+		["/proxectos/modereta", "/proxectos/vsds", "/proxectos/gallaecia-dots"].includes(project.href ?? "")
+	);
 	const structuredData = {
 		"@context": "https://schema.org",
 		"@graph": [
@@ -46,6 +71,12 @@
 	};
 </script>
 
+{#snippet heroBadges()}
+	<Badge.Root variant="secondary">{m.detail_badge_service()}</Badge.Root>
+	<Badge.Root variant="secondary">{m.detail_type_bot()}</Badge.Root>
+	<Badge.Root variant="success">{m.detail_status_available()}</Badge.Root>
+{/snippet}
+
 <svelte:head
 	><title>{m.service_bots_title()} | XurxoMF</title><meta name="description" content={m.service_automation_meta_description()} /><svelte:element
 		this={"script"}
@@ -53,73 +84,69 @@
 	></svelte:head
 >
 
-<div class="mx-auto w-full max-w-6xl px-6">
-	<section class="py-20 lg:py-28" aria-labelledby="service-heading">
-		<a href={resolve(localizeHref("/servizos") as Pathname)} class={Button.rootVariants({ variant: "ghost", size: "sm", class: "mb-8 -ml-2" })}
-			>{m.service_page_back()}</a
+<div class="overflow-x-clip">
+	<DetailHero.Root
+		image="/images/services/bots-automatizacions.png"
+		title={m.service_bots_title()}
+		lead={m.service_automation_lead()}
+		description={m.service_automation_hero_description()}
+		badges={heroBadges}
+	/>
+	<div class="mx-auto w-full max-w-6xl px-6">
+		<ServiceOverview.Root
+			problem={m.service_automation_problem()}
+			audience={m.service_automation_audience()}
+			description={m.service_automation_overview_description()}
+		/>
+
+		<DualPathSection.Root
+			kicker={m.service_automation_paths_kicker()}
+			title={m.service_automation_paths_title()}
+			description={m.service_automation_paths_description()}
+			paths={solutionPaths}
+		/>
+
+		<ProblemSection.Root
+			kicker={m.service_automation_reliability_kicker()}
+			title={m.service_automation_reliability_title()}
+			description={m.service_automation_reliability_description()}
 		>
-		<div class="max-w-4xl">
-			<Badge.Root variant="secondary">Discord · Telegram · APIs · Scripts</Badge.Root><Typography.H1 id="service-heading" class="mt-5"
-				>{m.service_bots_title()}</Typography.H1
-			><Typography.Leading class="mt-5 max-w-3xl text-muted-foreground">{m.service_automation_lead()}</Typography.Leading><a
-				href={contact.email.href}
-				rel="external"
-				class={Button.rootVariants({ size: "lg", class: "mt-8" })}>{m.service_page_contact_action()}</a
-			>
-		</div>
-	</section>
-
-	<section class="py-16 lg:py-20" aria-labelledby="examples-heading">
-		<div class="grid gap-10 lg:grid-cols-[0.7fr_1.3fr]">
-			<div>
-				<p class="text-sm font-semibold tracking-widest text-primary uppercase">{m.service_page_problem_kicker()}</p>
-				<Typography.H2 id="examples-heading" class="mt-4 border-0">{m.service_page_problem_title()}</Typography.H2><Typography.P
-					class="mt-4 text-muted-foreground">{m.service_automation_problem()}</Typography.P
-				><Typography.P class="mt-4 text-muted-foreground">{m.service_automation_audience()}</Typography.P>
+			<div class="grid gap-5 sm:grid-cols-2">
+				{#each reliabilityItems as item, index (item.title)}
+					<Card.Root>
+						<Card.Header>
+							<Card.Action><span class="font-mono text-sm text-primary">{String(index + 1).padStart(2, "0")}</span></Card.Action>
+							<Card.Title>{item.title}</Card.Title>
+							<Card.Description>{item.description}</Card.Description>
+						</Card.Header>
+					</Card.Root>
+				{/each}
 			</div>
-			<div class="grid gap-4">
-				{#each examples as example, index (example)}<Card.Root
-						><Card.Header
-							><Card.Action><span class="font-mono text-sm text-primary">{String(index + 1).padStart(2, "0")}</span></Card.Action><Card.Title
-								role="heading"
-								aria-level={3}>{m.service_page_example_title({ number: index + 1 })}</Card.Title
-							><Card.Description>{example}</Card.Description></Card.Header
-						></Card.Root
-					>{/each}
+		</ProblemSection.Root>
+
+		<WorkflowSection.Root
+			kicker={m.service_page_process_kicker()}
+			title={m.service_automation_process_title()}
+			description={m.service_automation_process_description()}
+			{steps}
+		/>
+
+		<section class="py-20 lg:py-28">
+			<div class="mx-auto max-w-3xl text-center">
+				<p class="text-sm font-semibold tracking-widest text-primary uppercase">{m.service_automation_projects_kicker()}</p>
+				<Typography.H2 class="mt-4 border-0">{m.service_automation_projects_title()}</Typography.H2>
+				<Typography.P class="mx-auto mt-5 max-w-2xl text-muted-foreground">
+					{m.service_automation_projects_description()}
+				</Typography.P>
 			</div>
-		</div>
-	</section>
+			<div class="mt-12 grid gap-6 md:grid-cols-3">
+				{#each relatedProjects as project, index (project.title)}
+					<ProjectCard.Root {project} number={index + 1} />
+				{/each}
+			</div>
+		</section>
 
-	<section class="py-16 lg:py-20" aria-labelledby="includes-heading">
-		<p class="text-sm font-semibold tracking-widest text-primary uppercase">{m.service_page_includes_kicker()}</p>
-		<Typography.H2 id="includes-heading" class="mt-4 border-0">{m.service_page_includes_title()}</Typography.H2>
-		<div class="mt-10 grid gap-4 sm:grid-cols-2">
-			{#each includes as item, index (item)}<div class="grid grid-cols-[auto_1fr] gap-4 rounded-xl border bg-card p-5">
-					<span class="font-mono text-sm text-primary">{String(index + 1).padStart(2, "0")}</span>
-					<p class="font-medium">{item}</p>
-				</div>{/each}
-		</div>
-		<p class="mt-8 max-w-3xl leading-7 text-muted-foreground">{m.service_area_development()}</p>
-	</section>
-
-	<section class="py-16 lg:py-20">
-		<Typography.H2 class="border-0">{m.service_page_related_projects()}</Typography.H2>
-		<div class="mt-6 grid gap-6 md:grid-cols-2">
-			{#each relatedProjects as project, index (project.title)}<ProjectCard.Root {project} number={index + 1} />{/each}
-		</div>
-	</section>
-
-	<section class="grid gap-10 py-16 lg:grid-cols-[0.7fr_1.3fr] lg:py-20" aria-labelledby="faq-heading">
-		<div>
-			<p class="text-sm font-semibold tracking-widest text-primary uppercase">{m.service_page_faq_kicker()}</p>
-			<Typography.H2 id="faq-heading" class="mt-4 border-0">{m.service_page_faq_title()}</Typography.H2>
-		</div>
-		<div class="grid gap-3">
-			{#each faqs as faq (faq.question)}<details class="rounded-xl border bg-card px-5 py-4 open:pb-5">
-					<summary class="cursor-pointer font-semibold">{faq.question}</summary>
-					<p class="mt-3 leading-7 text-muted-foreground">{faq.answer}</p>
-				</details>{/each}
-		</div>
-	</section>
-	<ContactBanner.Root />
+		<FaqSection.Root {faqs} />
+		<ContactBanner.Root />
+	</div>
 </div>

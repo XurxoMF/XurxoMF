@@ -8,7 +8,7 @@ Import the component through its public entry point:
 
 ```svelte
 <script lang="ts">
-	import * as ContactBanner from "$lib/components/contact-banner";
+	import * as ContactBanner from "$lib/components/site/contact-banner";
 </script>
 ```
 

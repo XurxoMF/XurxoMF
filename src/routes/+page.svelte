@@ -8,8 +8,8 @@
 	import * as m from "$lib/paraglide/messages.js";
 	import { localizeHref } from "$lib/paraglide/runtime";
 
-	import * as ContactBanner from "$lib/components/contact-banner";
-	import * as ProjectCard from "$lib/components/project-card";
+	import * as ContactBanner from "$lib/components/site/contact-banner";
+	import * as ProjectCard from "$lib/components/site/project-card";
 	import * as Badge from "$lib/components/ui/badge";
 	import * as Button from "$lib/components/ui/button";
 	import * as Card from "$lib/components/ui/card";
@@ -69,6 +69,7 @@
 
 {#snippet serviceCard(number: string, service: Service)}
 	<Card.Root class="h-full">
+		<img src={service.image} alt="" width="1672" height="941" loading="lazy" class="aspect-video w-full object-cover" />
 		<Card.Header>
 			<Card.Action><span class="font-mono text-sm text-primary">{number}</span></Card.Action>
 			<Card.Title role="heading" aria-level={3}>{service.title}</Card.Title>

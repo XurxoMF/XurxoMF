@@ -1,0 +1,5 @@
+# Code Section
+
+Sección compartida para instalacións, comandos e fragmentos pequenos de código con copia integrada.
+
+Impórtase desde `$lib/components/site/code-section`. Require `kicker`, `title`, `description`, `code` e `codeTitle`; admite `footer` e `id`. Usa o Code Block público de xvelte e non executa o código mostrado.

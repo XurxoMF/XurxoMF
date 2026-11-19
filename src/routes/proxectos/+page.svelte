@@ -2,8 +2,8 @@
 	import { projects } from "$lib/data/projects";
 	import * as m from "$lib/paraglide/messages.js";
 
-	import * as ContactBanner from "$lib/components/contact-banner";
-	import * as ProjectCard from "$lib/components/project-card";
+	import * as ContactBanner from "$lib/components/site/contact-banner";
+	import * as ProjectCard from "$lib/components/site/project-card";
 	import * as Pagination from "$lib/components/ui/pagination";
 	import * as Typography from "$lib/components/ui/typography";
 

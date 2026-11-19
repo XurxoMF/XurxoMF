@@ -6,7 +6,7 @@ Banner compartido para acreditar os proxectos deseñados por What The Flow e pro
 
 ```svelte
 <script lang="ts">
-	import * as WtflowBanner from "$lib/components/wtflow-banner";
+	import * as WtflowBanner from "$lib/components/site/wtflow-banner";
 </script>
 ```
 
