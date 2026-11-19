@@ -21,7 +21,6 @@
 
 	let { children } = $props();
 	let navigationOpen = $state(false);
-	let languageMenuOpen = $state(false);
 	let cookieNoticeOpen = $state(false);
 
 	const SITE_ORIGIN = "https://xurxomf.xyz";
@@ -87,7 +86,7 @@
 				>
 
 				<div class="flex items-center rounded-lg border bg-card/90 p-1 shadow-sm backdrop-blur-xl">
-					<DropdownMenu.Root bind:open={languageMenuOpen}>
+					<DropdownMenu.Root>
 						<DropdownMenu.Trigger>
 							{#snippet child({ props })}
 								<Button.Root {...props} variant="ghost" size="sm" class="gap-1 px-2" aria-label={m.layout_language_selector()}>
@@ -98,14 +97,7 @@
 							{/snippet}
 						</DropdownMenu.Trigger>
 
-						<DropdownMenu.Content
-							forceMount
-							portalProps={{ disabled: true }}
-							align="end"
-							class="w-44"
-							aria-hidden={!languageMenuOpen}
-							inert={!languageMenuOpen}
-						>
+						<DropdownMenu.Content align="end" class="w-44">
 							{#each locales as locale (locale)}
 								<DropdownMenu.Item textValue={LOCALES[locale].name}>
 									{#snippet child({ props })}
