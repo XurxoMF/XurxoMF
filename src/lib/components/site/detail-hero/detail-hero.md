@@ -1,6 +1,6 @@
 # Detail Hero
 
-Banner principal compartido polas fichas de proxectos e servizos, cunha imaxe de fondo e todo o contido aliñado á esquerda. Usa sempre capas negras neutras: o degradado parte escuro desde a esquerda e faise transparente cara á dereita, sen tinguiduras da cor primaria.
+Banner principal compartido polas fichas de proxectos e servizos, cunha imaxe de fondo e todo o contido aliñado á esquerda. As capas son neutras e adáptanse ao tema: en modo claro, o degradado parte de branco e o texto é negro; en modo escuro, o degradado parte de negro e o texto é branco. En ambos os casos faise transparente cara á dereita e non usa tinguiduras da cor primaria.
 
 Impórtase desde `$lib/components/site/detail-hero` e úsase como `DetailHero.Root`. Require `image`, `title`, `lead` e `description`; admite `imageAlt`, `imagePosition` e os snippets opcionais `badges` e `actions`.
 
