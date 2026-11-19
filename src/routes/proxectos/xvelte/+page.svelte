@@ -1,4 +1,5 @@
 <script lang="ts">
+	import SeoHead from "$lib/seo-head.svelte";
 	import { LiveIcon } from "$lib/icons";
 	import * as m from "$lib/paraglide/messages.js";
 
@@ -37,10 +38,7 @@
 	>
 {/snippet}
 
-<svelte:head>
-	<title>{m.xvelte_meta_title()}</title>
-	<meta name="description" content={m.xvelte_meta_description()} />
-</svelte:head>
+<SeoHead title={m.xvelte_meta_title()} description={m.xvelte_meta_description()} image="/images/projects/xvelte/banner.png" />
 
 <div class="overflow-x-clip">
 	<DetailHero.Root

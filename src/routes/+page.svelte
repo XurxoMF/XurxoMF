@@ -5,6 +5,7 @@
 	import { contact } from "$lib/data/contact";
 	import { projects } from "$lib/data/projects";
 	import { services, type Service } from "$lib/data/services";
+	import SeoHead from "$lib/seo-head.svelte";
 	import * as m from "$lib/paraglide/messages.js";
 	import { localizeHref } from "$lib/paraglide/runtime";
 
@@ -83,11 +84,7 @@
 	</Card.Root>
 {/snippet}
 
-<svelte:head>
-	<title>{m.home_meta_title()}</title>
-	<meta name="description" content={m.home_meta_description()} />
-	<svelte:element this={"script"} type="application/ld+json">{JSON.stringify(professionalServiceSchema)}</svelte:element>
-</svelte:head>
+<SeoHead title={m.home_meta_title()} description={m.home_meta_description()} structuredData={professionalServiceSchema} />
 
 <div class="mx-auto w-full max-w-6xl px-6">
 	<section id="sobre-min" class="scroll-mt-20">

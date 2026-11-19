@@ -1,4 +1,5 @@
 <script lang="ts">
+	import SeoHead from "$lib/seo-head.svelte";
 	import { FileIcon, FolderIcon, PreferencesIcon } from "$lib/icons";
 	import * as m from "$lib/paraglide/messages.js";
 
@@ -25,10 +26,11 @@
 	</a>
 {/snippet}
 
-<svelte:head>
-	<title>{m.power_natural_life_meta_title()}</title>
-	<meta name="description" content={m.power_natural_life_meta_description()} />
-</svelte:head>
+<SeoHead
+	title={m.power_natural_life_meta_title()}
+	description={m.power_natural_life_meta_description()}
+	image="/images/projects/power-natural-life/hero.png"
+/>
 
 <div class="overflow-x-clip">
 	<DetailHero.Root

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import SeoHead from "$lib/seo-head.svelte";
 	import * as m from "$lib/paraglide/messages.js";
 
 	import * as ContactBanner from "$lib/components/site/contact-banner";
@@ -30,10 +31,11 @@
 	>
 {/snippet}
 
-<svelte:head>
-	<title>{m.underground_mines_meta_title()}</title>
-	<meta name="description" content={m.underground_mines_meta_description()} />
-</svelte:head>
+<SeoHead
+	title={m.underground_mines_meta_title()}
+	description={m.underground_mines_meta_description()}
+	image="/images/projects/underground-mines/hero.png"
+/>
 
 <div class="overflow-x-clip">
 	<DetailHero.Root

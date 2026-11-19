@@ -1,4 +1,5 @@
 <script lang="ts">
+	import SeoHead from "$lib/seo-head.svelte";
 	import { LiveIcon } from "$lib/icons";
 	import * as m from "$lib/paraglide/messages.js";
 
@@ -23,10 +24,7 @@
 	<a href="https://liporca.com/" target="_blank" rel="external noreferrer" class={Button.rootVariants({ size: "lg" })}>{m.liporca_action()}</a>
 {/snippet}
 
-<svelte:head>
-	<title>{m.liporca_meta_title()}</title>
-	<meta name="description" content={m.liporca_meta_description()} />
-</svelte:head>
+<SeoHead title={m.liporca_meta_title()} description={m.liporca_meta_description()} image="/images/projects/liporca/botellas.jpg" />
 
 <div class="overflow-x-clip">
 	<DetailHero.Root

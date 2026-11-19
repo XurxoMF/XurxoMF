@@ -2,6 +2,7 @@
 	import { resolve } from "$app/paths";
 	import type { Pathname } from "$app/types";
 
+	import SeoHead from "$lib/seo-head.svelte";
 	import * as m from "$lib/paraglide/messages.js";
 	import { localizeHref } from "$lib/paraglide/runtime";
 
@@ -16,10 +17,7 @@
 	const metaTitle = $derived(notFound ? m.error_404_meta_title() : m.error_generic_meta_title());
 </script>
 
-<svelte:head>
-	<title>{metaTitle}</title>
-	<meta name="robots" content="noindex, follow" />
-</svelte:head>
+<SeoHead title={metaTitle} {description} noIndex />
 
 <section class="relative isolate flex min-h-[calc(100svh-4rem)] items-center overflow-hidden px-6 py-24">
 	<div class="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">

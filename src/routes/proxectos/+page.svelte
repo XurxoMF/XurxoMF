@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { projects } from "$lib/data/projects";
+	import SeoHead from "$lib/seo-head.svelte";
 	import * as m from "$lib/paraglide/messages.js";
 
 	import * as ContactBanner from "$lib/components/site/contact-banner";
@@ -15,10 +16,7 @@
 	let rangeEnd = $derived(Math.min(page * PROJECTS_PER_PAGE, projects.length));
 </script>
 
-<svelte:head>
-	<title>{m.projects_meta_title()}</title>
-	<meta name="description" content={m.projects_meta_description()} />
-</svelte:head>
+<SeoHead title={m.projects_meta_title()} description={m.projects_meta_description()} image="/images/projects/vs-launcher/main.png" />
 
 <div class="mx-auto w-full max-w-6xl px-6">
 	<section class="py-20 lg:py-28" aria-labelledby="projects-heading">

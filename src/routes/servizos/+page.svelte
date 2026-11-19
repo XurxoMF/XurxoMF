@@ -3,6 +3,7 @@
 	import type { Pathname } from "$app/types";
 
 	import { services } from "$lib/data/services";
+	import SeoHead from "$lib/seo-head.svelte";
 	import * as m from "$lib/paraglide/messages.js";
 	import { localizeHref } from "$lib/paraglide/runtime";
 
@@ -19,10 +20,7 @@
 	let rangeEnd = $derived(Math.min(page * SERVICES_PER_PAGE, services.length));
 </script>
 
-<svelte:head>
-	<title>{m.services_meta_title()}</title>
-	<meta name="description" content={m.services_meta_description()} />
-</svelte:head>
+<SeoHead title={m.services_meta_title()} description={m.services_meta_description()} />
 
 <div class="mx-auto w-full max-w-6xl px-6">
 	<section class="py-20 lg:py-28" aria-labelledby="services-heading">

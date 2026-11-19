@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { projects } from "$lib/data/projects";
+	import SeoHead from "$lib/seo-head.svelte";
 	import * as m from "$lib/paraglide/messages.js";
 	import { localizeHref } from "$lib/paraglide/runtime";
 
@@ -77,11 +78,12 @@
 	<Badge.Root variant="success">{m.detail_status_available()}</Badge.Root>
 {/snippet}
 
-<svelte:head>
-	<title>{m.service_web_title()} | XurxoMF</title>
-	<meta name="description" content={m.service_web_meta_description()} />
-	<svelte:element this={"script"} type="application/ld+json">{JSON.stringify(structuredData)}</svelte:element>
-</svelte:head>
+<SeoHead
+	title={`${m.service_web_title()} | XurxoMF`}
+	description={m.service_web_meta_description()}
+	image="/images/services/desenvolvemento-web.png"
+	{structuredData}
+/>
 
 <div class="overflow-x-clip">
 	<DetailHero.Root

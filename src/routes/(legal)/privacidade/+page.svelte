@@ -1,11 +1,9 @@
 <script lang="ts">
+	import SeoHead from "$lib/seo-head.svelte";
 	import * as m from "$lib/paraglide/messages.js";
 </script>
 
-<svelte:head>
-	<title>{m.privacy_title()} | XurxoMF</title>
-	<meta name="description" content={m.privacy_meta_description()} />
-</svelte:head>
+<SeoHead title={`${m.privacy_title()} | XurxoMF`} description={m.privacy_meta_description()} />
 
 <article>
 	<header class="max-w-3xl border-b pb-10">

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import SeoHead from "$lib/seo-head.svelte";
 	import { LiveIcon } from "$lib/icons";
 	import * as m from "$lib/paraglide/messages.js";
 
@@ -29,10 +30,7 @@
 	<a href="#instalacion" class={Button.rootVariants({ variant: "secondary", size: "lg" })}>{m.gallaecia_action_install()}</a>
 {/snippet}
 
-<svelte:head>
-	<title>{m.gallaecia_meta_title()}</title>
-	<meta name="description" content={m.gallaecia_meta_description()} />
-</svelte:head>
+<SeoHead title={m.gallaecia_meta_title()} description={m.gallaecia_meta_description()} image="/images/projects/gallaecia-dots/claro.jpg" />
 
 <div class="overflow-x-clip">
 	<DetailHero.Root

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import SeoHead from "$lib/seo-head.svelte";
 	import { FolderIcon, LiveIcon, PreferencesIcon } from "$lib/icons";
 	import * as m from "$lib/paraglide/messages.js";
 
@@ -39,10 +40,7 @@
 	>
 {/snippet}
 
-<svelte:head>
-	<title>{m.vsds_meta_title()}</title>
-	<meta name="description" content={m.vsds_meta_description()} />
-</svelte:head>
+<SeoHead title={m.vsds_meta_title()} description={m.vsds_meta_description()} image="/images/projects/vsds/banner.png" />
 
 <div class="mx-auto w-full max-w-6xl px-6">
 	<div class="relative left-1/2 w-screen -translate-x-1/2">

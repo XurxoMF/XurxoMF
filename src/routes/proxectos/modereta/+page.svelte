@@ -1,4 +1,5 @@
 <script lang="ts">
+	import SeoHead from "$lib/seo-head.svelte";
 	import * as m from "$lib/paraglide/messages.js";
 
 	import * as ContactBanner from "$lib/components/site/contact-banner";
@@ -24,10 +25,7 @@
 	<a href="#como-funciona" class={Button.rootVariants({ variant: "secondary", size: "lg" })}>{m.modereta_action_how()}</a>
 {/snippet}
 
-<svelte:head>
-	<title>{m.modereta_meta_title()}</title>
-	<meta name="description" content={m.modereta_meta_description()} />
-</svelte:head>
+<SeoHead title={m.modereta_meta_title()} description={m.modereta_meta_description()} image="/images/projects/modereta/banner.png" />
 
 <div class="overflow-x-clip">
 	<DetailHero.Root

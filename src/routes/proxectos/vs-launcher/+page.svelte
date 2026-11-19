@@ -1,4 +1,5 @@
 <script lang="ts">
+	import SeoHead from "$lib/seo-head.svelte";
 	import { FileIcon, FolderIcon, PreferencesIcon, ResetIcon } from "$lib/icons";
 	import * as m from "$lib/paraglide/messages.js";
 
@@ -28,10 +29,7 @@
 	>
 {/snippet}
 
-<svelte:head>
-	<title>{m.vsl_meta_title()}</title>
-	<meta name="description" content={m.vsl_meta_description()} />
-</svelte:head>
+<SeoHead title={m.vsl_meta_title()} description={m.vsl_meta_description()} image="/images/projects/vs-launcher/main.png" />
 
 <div class="overflow-x-clip">
 	<DetailHero.Root
