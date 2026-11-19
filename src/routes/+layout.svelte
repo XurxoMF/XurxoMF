@@ -44,6 +44,15 @@
 	}
 </script>
 
+<!-- Used so SvelteKit generates the required pages for this locales -->
+<nav aria-hidden="true" class="hidden">
+	{#each locales as locale (locale)}
+		<a href={resolve(localizeHref(page.url.pathname, { locale }) as Pathname)} tabindex="-1">
+			{locale}
+		</a>
+	{/each}
+</nav>
+
 {#snippet languageFlag(locale: (typeof locales)[number])}
 	<span class="block h-4 w-6 shrink-0 overflow-hidden rounded-[3px] bg-white shadow-xs ring-1 ring-foreground/20 ring-inset" aria-hidden="true">
 		<img src="/images/flags/{locale}.svg" alt="" class="block size-full object-cover" />
