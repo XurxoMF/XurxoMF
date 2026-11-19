@@ -16,7 +16,7 @@
 	let rangeEnd = $derived(Math.min(page * PROJECTS_PER_PAGE, projects.length));
 </script>
 
-<SeoHead title={m.projects_meta_title()} description={m.projects_meta_description()} image="/images/projects/vs-launcher/main.png" />
+<SeoHead title={m.projects_meta_title()} description={m.projects_meta_description()} image="/images/projects/vs-launcher/main.webp" />
 
 <div class="mx-auto w-full max-w-6xl px-6">
 	<section class="py-20 lg:py-28" aria-labelledby="projects-heading">

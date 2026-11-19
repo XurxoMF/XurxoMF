@@ -28,6 +28,8 @@
 		<img
 			src={project.image.src}
 			alt={project.image.alt}
+			width={project.image.width}
+			height={project.image.height}
 			loading="lazy"
 			decoding="async"
 			class:object-contain={project.image.fit === "contain"}

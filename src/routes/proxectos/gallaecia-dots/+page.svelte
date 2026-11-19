@@ -30,11 +30,11 @@
 	<a href="#instalacion" class={Button.rootVariants({ variant: "secondary", size: "lg" })}>{m.gallaecia_action_install()}</a>
 {/snippet}
 
-<SeoHead title={m.gallaecia_meta_title()} description={m.gallaecia_meta_description()} image="/images/projects/gallaecia-dots/claro.jpg" />
+<SeoHead title={m.gallaecia_meta_title()} description={m.gallaecia_meta_description()} image="/images/projects/gallaecia-dots/claro.webp" />
 
 <div class="overflow-x-clip">
 	<DetailHero.Root
-		image="/images/projects/gallaecia-dots/claro.jpg"
+		image="/images/projects/gallaecia-dots/claro.webp"
 		title="Gallaecia Dots"
 		lead={m.gallaecia_hero_lead()}
 		description={m.gallaecia_hero_description()}
@@ -128,7 +128,7 @@
 			kicker={m.gallaecia_language_kicker()}
 			title={m.gallaecia_language_title()}
 			paragraphs={[m.gallaecia_language_description()]}
-			image="/images/projects/gallaecia-dots/escuro.jpg"
+			image="/images/projects/gallaecia-dots/escuro.webp"
 			imageAlt={m.gallaecia_gallery_dark_alt()}
 			reverse
 		/>
@@ -140,9 +140,9 @@
 			title={m.gallaecia_gallery_title()}
 			description={m.gallaecia_gallery_description()}
 			images={[
-				{ src: "/images/projects/gallaecia-dots/claro.jpg", alt: m.gallaecia_gallery_light_alt(), featured: true },
-				{ src: "/images/projects/gallaecia-dots/apps-escuro.jpg", alt: m.gallaecia_gallery_apps_alt() },
-				{ src: "/images/projects/gallaecia-dots/cores.jpg", alt: m.gallaecia_colors_alt() }
+				{ src: "/images/projects/gallaecia-dots/claro.webp", alt: m.gallaecia_gallery_light_alt(), featured: true },
+				{ src: "/images/projects/gallaecia-dots/apps-escuro.webp", alt: m.gallaecia_gallery_apps_alt() },
+				{ src: "/images/projects/gallaecia-dots/cores.webp", alt: m.gallaecia_colors_alt() }
 			]}
 		/>
 	</div>

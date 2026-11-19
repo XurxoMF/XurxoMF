@@ -29,11 +29,11 @@
 	>
 {/snippet}
 
-<SeoHead title={m.vsl_meta_title()} description={m.vsl_meta_description()} image="/images/projects/vs-launcher/main.png" />
+<SeoHead title={m.vsl_meta_title()} description={m.vsl_meta_description()} image="/images/projects/vs-launcher/main.webp" />
 
 <div class="overflow-x-clip">
 	<DetailHero.Root
-		image="/images/projects/vs-launcher/main.png"
+		image="/images/projects/vs-launcher/main.webp"
 		imageAlt={m.vsl_hero_alt()}
 		imagePosition="35% center"
 		title="VS Launcher"
@@ -109,7 +109,7 @@
 			kicker={m.vsl_technical_kicker()}
 			title={m.vsl_technical_title()}
 			description={m.vsl_technical_description()}
-			image="/images/projects/vs-launcher/main.png"
+			image="/images/projects/vs-launcher/main.webp"
 			imageAlt={m.vsl_hero_alt()}
 		>
 			<div class="flex flex-wrap gap-2" aria-label={m.vsl_technologies_label()}>

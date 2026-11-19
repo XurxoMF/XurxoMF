@@ -25,7 +25,7 @@
 			aria-label={m.wtflow_visit_label()}
 			class="grid min-h-64 place-items-center border-b border-black/15 p-8 transition-colors hover:bg-white/15 lg:border-r lg:border-b-0"
 		>
-			<img src="/images/brands/wtflow-logo.png" alt="What The Flow" width="400" height="212" class="h-auto w-full max-w-64" />
+			<img src="/images/brands/wtflow-logo.webp" alt="What The Flow" width="400" height="212" loading="lazy" class="h-auto w-full max-w-64" />
 		</a>
 
 		<div class="p-8 sm:p-10 lg:p-12">

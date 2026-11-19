@@ -29,12 +29,12 @@
 <SeoHead
 	title={m.power_natural_life_meta_title()}
 	description={m.power_natural_life_meta_description()}
-	image="/images/projects/power-natural-life/hero.png"
+	image="/images/projects/power-natural-life/hero.webp"
 />
 
 <div class="overflow-x-clip">
 	<DetailHero.Root
-		image="/images/projects/power-natural-life/hero.png"
+		image="/images/projects/power-natural-life/hero.webp"
 		imagePosition="35% center"
 		title="Power Natural Life"
 		lead={m.power_natural_life_hero_lead()}

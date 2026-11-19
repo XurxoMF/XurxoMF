@@ -38,11 +38,11 @@
 	>
 {/snippet}
 
-<SeoHead title={m.xvelte_meta_title()} description={m.xvelte_meta_description()} image="/images/projects/xvelte/banner.png" />
+<SeoHead title={m.xvelte_meta_title()} description={m.xvelte_meta_description()} image="/images/projects/xvelte/banner.webp" />
 
 <div class="overflow-x-clip">
 	<DetailHero.Root
-		image="/images/projects/xvelte/banner.png"
+		image="/images/projects/xvelte/banner.webp"
 		imagePosition="35% center"
 		title="xvelte"
 		lead={m.xvelte_hero_lead()}
@@ -112,7 +112,7 @@
 			kicker={m.xvelte_real_kicker()}
 			title={m.xvelte_real_title()}
 			paragraphs={[m.xvelte_real_description()]}
-			image="/images/projects/xvelte/banner.png"
+			image="/images/projects/xvelte/banner.webp"
 			imageAlt={m.xvelte_real_image_alt()}
 		/>
 	</div>

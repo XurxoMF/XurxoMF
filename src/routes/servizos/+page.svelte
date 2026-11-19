@@ -34,7 +34,7 @@
 		<div id="lista-servizos" class="mt-12 grid scroll-mt-24 gap-6 md:grid-cols-2 lg:grid-cols-3">
 			{#each visibleServices as service, index (service.href)}
 				<Card.Root class="h-full">
-					<img src={service.image} alt="" width="1672" height="941" loading="lazy" class="aspect-video w-full object-cover" />
+					<img src={service.image} alt="" width="1672" height="941" loading="lazy" decoding="async" class="aspect-video w-full object-cover" />
 					<Card.Header>
 						<Card.Action
 							><span class="font-mono text-sm text-primary">{String((page - 1) * SERVICES_PER_PAGE + index + 1).padStart(2, "0")}</span></Card.Action

@@ -40,12 +40,12 @@
 	>
 {/snippet}
 
-<SeoHead title={m.vsds_meta_title()} description={m.vsds_meta_description()} image="/images/projects/vsds/banner.png" />
+<SeoHead title={m.vsds_meta_title()} description={m.vsds_meta_description()} image="/images/projects/vsds/banner.webp" />
 
 <div class="mx-auto w-full max-w-6xl px-6">
 	<div class="relative left-1/2 w-screen -translate-x-1/2">
 		<DetailHero.Root
-			image="/images/projects/vsds/banner.png"
+			image="/images/projects/vsds/banner.webp"
 			imagePosition="35% center"
 			title="VSDS"
 			lead={m.vsds_hero_lead()}

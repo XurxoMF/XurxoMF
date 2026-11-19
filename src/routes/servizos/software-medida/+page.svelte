@@ -85,13 +85,13 @@
 <SeoHead
 	title={`${m.service_custom_software_title()} | XurxoMF`}
 	description={m.service_custom_software_meta_description()}
-	image="/images/services/software-medida.png"
+	image="/images/services/software-medida.webp"
 	{structuredData}
 />
 
 <div class="overflow-x-clip">
 	<DetailHero.Root
-		image="/images/services/software-medida.png"
+		image="/images/services/software-medida.webp"
 		title={m.service_custom_software_title()}
 		lead={m.service_custom_software_lead()}
 		description={m.service_custom_software_hero_description()}

@@ -24,11 +24,11 @@
 	<a href="https://liporca.com/" target="_blank" rel="external noreferrer" class={Button.rootVariants({ size: "lg" })}>{m.liporca_action()}</a>
 {/snippet}
 
-<SeoHead title={m.liporca_meta_title()} description={m.liporca_meta_description()} image="/images/projects/liporca/botellas.jpg" />
+<SeoHead title={m.liporca_meta_title()} description={m.liporca_meta_description()} image="/images/projects/liporca/botellas.webp" />
 
 <div class="overflow-x-clip">
 	<DetailHero.Root
-		image="/images/projects/liporca/botellas.jpg"
+		image="/images/projects/liporca/botellas.webp"
 		imageAlt={m.liporca_hero_alt()}
 		imagePosition="35% center"
 		title="Liporca"
@@ -54,7 +54,7 @@
 			kicker={m.liporca_brand_kicker()}
 			title={m.liporca_brand_title()}
 			paragraphs={[m.liporca_brand_description_1(), m.liporca_brand_description_2()]}
-			image="/images/projects/liporca/brindis.jpg"
+			image="/images/projects/liporca/brindis.webp"
 			imageAlt={m.liporca_toast_alt()}
 		/>
 	</div>

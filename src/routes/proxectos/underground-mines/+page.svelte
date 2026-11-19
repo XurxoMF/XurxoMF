@@ -34,12 +34,12 @@
 <SeoHead
 	title={m.underground_mines_meta_title()}
 	description={m.underground_mines_meta_description()}
-	image="/images/projects/underground-mines/hero.png"
+	image="/images/projects/underground-mines/hero.webp"
 />
 
 <div class="overflow-x-clip">
 	<DetailHero.Root
-		image="/images/projects/underground-mines/hero.png"
+		image="/images/projects/underground-mines/hero.webp"
 		imagePosition="35% center"
 		title="Underground Mines"
 		lead={m.underground_mines_hero_lead()}
@@ -99,7 +99,7 @@
 			kicker={m.underground_mines_technical_kicker()}
 			title={m.underground_mines_technical_title()}
 			description={m.underground_mines_technical_description()}
-			image="/images/projects/underground-mines/mine-1.png"
+			image="/images/projects/underground-mines/mine-1.webp"
 			imageAlt={m.underground_mines_network_alt()}
 		>
 			<div class="flex flex-wrap gap-2">
@@ -117,8 +117,8 @@
 			title={m.underground_mines_gallery_title()}
 			description={m.underground_mines_gallery_description()}
 			images={[
-				{ src: "/images/projects/underground-mines/hero.png", alt: m.underground_mines_gallery_interior_alt() },
-				{ src: "/images/projects/underground-mines/mine-2.png", alt: m.underground_mines_gallery_network_alt() }
+				{ src: "/images/projects/underground-mines/hero.webp", alt: m.underground_mines_gallery_interior_alt() },
+				{ src: "/images/projects/underground-mines/mine-2.webp", alt: m.underground_mines_gallery_network_alt() }
 			]}
 		/>
 	</div>

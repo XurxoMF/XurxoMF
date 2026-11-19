@@ -39,7 +39,7 @@ When present, a project's `href` is typed as an existing SvelteKit route and mus
 
 ## Media
 
-Projects may provide an `image` with `src`, localized `alt`, and an optional `fit` value of `"cover"` or `"contain"`. Cover is the default and fills the card's 16:9 media area. Contain is intended for transparent artwork or cutouts that should remain fully visible. Media is the direct first child of Card, so it meets the outer top edges without an inset frame, matching service cards. When `image` is omitted, the card renders an edge-to-edge localized placeholder.
+Projects may provide an `image` with `src`, localized `alt`, intrinsic `width` and `height`, and an optional `fit` value of `"cover"` or `"contain"`. Cover is the default and fills the card's 16:9 media area. Contain is intended for transparent artwork or cutouts that should remain fully visible. Media is lazy-loaded below the fold and its intrinsic dimensions reserve space before decoding. It is the direct first child of Card, so it meets the outer top edges without an inset frame, matching service cards. When `image` is omitted, the card renders an edge-to-edge localized placeholder.
 
 ## Accessibility
 

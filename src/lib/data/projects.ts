@@ -14,6 +14,8 @@ export type Project = {
 	image?: {
 		src: string;
 		alt: string;
+		width: number;
+		height: number;
 		fit?: "cover" | "contain";
 	};
 	href?: RouteId;
@@ -27,8 +29,10 @@ export const projects: Project[] = [
 		description: m.project_vs_launcher_description(),
 		technologies: ["Electron", "React", "TypeScript", "Tailwind CSS", "i18next"],
 		image: {
-			src: "/images/projects/vs-launcher/main.png",
-			alt: m.vsl_hero_alt()
+			src: "/images/projects/vs-launcher/main.webp",
+			alt: m.vsl_hero_alt(),
+			width: 1277,
+			height: 750
 		},
 		href: "/proxectos/vs-launcher",
 		externalLinks: [
@@ -42,8 +46,10 @@ export const projects: Project[] = [
 		description: m.project_vsds_description(),
 		technologies: ["Docker", "Shell", "Docker Hub", "Linux"],
 		image: {
-			src: "/images/projects/vsds/banner.png",
-			alt: m.vsds_card_alt()
+			src: "/images/projects/vsds/banner.webp",
+			alt: m.vsds_card_alt(),
+			width: 1672,
+			height: 941
 		},
 		href: "/proxectos/vsds",
 		externalLinks: [
@@ -58,8 +64,10 @@ export const projects: Project[] = [
 		description: m.project_xvelte_description(),
 		technologies: ["Svelte 5", "SvelteKit", "TypeScript", "Tailwind CSS", "Tauri"],
 		image: {
-			src: "/images/projects/xvelte/banner.png",
-			alt: m.xvelte_hero_alt()
+			src: "/images/projects/xvelte/banner.webp",
+			alt: m.xvelte_hero_alt(),
+			width: 1919,
+			height: 1079
 		},
 		href: "/proxectos/xvelte",
 		externalLinks: [
@@ -73,8 +81,10 @@ export const projects: Project[] = [
 		description: m.project_gallaecia_description(),
 		technologies: ["Arch Linux", "Bash", "Hyprland", "Noctalia", "Gum"],
 		image: {
-			src: "/images/projects/gallaecia-dots/claro.jpg",
-			alt: m.gallaecia_gallery_light_alt()
+			src: "/images/projects/gallaecia-dots/claro.webp",
+			alt: m.gallaecia_gallery_light_alt(),
+			width: 1600,
+			height: 900
 		},
 		href: "/proxectos/gallaecia-dots",
 		externalLinks: [{ label: "GitHub", href: "https://github.com/XurxoMF/gallaecia-dots" }],
@@ -85,8 +95,10 @@ export const projects: Project[] = [
 		description: m.project_liporca_description(),
 		technologies: ["WordPress", "WooCommerce", "PHP", "JavaScript", "TranslatePress"],
 		image: {
-			src: "/images/projects/liporca/botellas.jpg",
-			alt: m.liporca_hero_alt()
+			src: "/images/projects/liporca/botellas.webp",
+			alt: m.liporca_hero_alt(),
+			width: 1919,
+			height: 1079
 		},
 		href: "/proxectos/liporca",
 		externalLinks: [{ label: "Web", href: "https://liporca.com/" }],
@@ -97,8 +109,10 @@ export const projects: Project[] = [
 		description: m.project_asergalicia_description(),
 		technologies: ["WordPress", m.project_custom_theme(), "PHP", "JavaScript"],
 		image: {
-			src: "/images/projects/asergalicia-formacion/hero.png",
-			alt: m.aser_hero_alt()
+			src: "/images/projects/asergalicia-formacion/hero.webp",
+			alt: m.aser_hero_alt(),
+			width: 1920,
+			height: 1080
 		},
 		href: "/proxectos/asergalicia-formacion",
 		externalLinks: [{ label: "Web", href: "https://asergaliciaformacion.com/" }],
@@ -109,8 +123,10 @@ export const projects: Project[] = [
 		description: m.project_power_natural_life_description(),
 		technologies: ["Shopify", "Liquid", "JavaScript", "CSS"],
 		image: {
-			src: "/images/projects/power-natural-life/hero.png",
-			alt: m.power_natural_life_image_alt()
+			src: "/images/projects/power-natural-life/hero.webp",
+			alt: m.power_natural_life_image_alt(),
+			width: 1919,
+			height: 1079
 		},
 		href: "/proxectos/power-natural-life",
 		externalLinks: [{ label: "Web", href: "https://powernaturallife.com/" }],
@@ -121,8 +137,10 @@ export const projects: Project[] = [
 		description: m.project_modereta_description(),
 		technologies: ["Bun", "TypeScript", "discord.js", "PostgreSQL", "Drizzle", "Docker"],
 		image: {
-			src: "/images/projects/modereta/banner.png",
-			alt: m.modereta_card_alt()
+			src: "/images/projects/modereta/banner.webp",
+			alt: m.modereta_card_alt(),
+			width: 1672,
+			height: 941
 		},
 		href: "/proxectos/modereta",
 		externalLinks: [{ label: "GitHub", href: "https://github.com/XurxoMF/modereta" }],
@@ -133,8 +151,10 @@ export const projects: Project[] = [
 		description: m.project_underground_mines_description(),
 		technologies: ["C#", ".NET", "Vintage Story API", "JSON"],
 		image: {
-			src: "/images/projects/underground-mines/hero.png",
-			alt: m.underground_mines_gallery_interior_alt()
+			src: "/images/projects/underground-mines/hero.webp",
+			alt: m.underground_mines_gallery_interior_alt(),
+			width: 1920,
+			height: 1080
 		},
 		href: "/proxectos/underground-mines",
 		externalLinks: [{ label: "GitHub", href: "https://github.com/XurxoMF/UndergroundMines" }],

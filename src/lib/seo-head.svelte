@@ -9,7 +9,7 @@
 	let {
 		title,
 		description,
-		image = "/images/services/desenvolvemento-web.png",
+		image = "/images/services/desenvolvemento-web.webp",
 		imageAlt = title,
 		type = "website",
 		structuredData,

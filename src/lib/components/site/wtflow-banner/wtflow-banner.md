@@ -51,7 +51,7 @@ O texto visible está actualmente escrito en galego. Cando as páxinas de proxec
 - `$lib/utils` para combinar clases e expoñer a referencia.
 - `$lib/components/ui/button` para o estilo da ligazón principal.
 - `$lib/components/ui/typography` para o título e o parágrafo.
-- `/static/images/brands/wtflow-logo.png` como recurso compartido da marca.
+- `/static/images/brands/wtflow-logo.webp` como recurso compartido da marca.
 
 ## Organización
 

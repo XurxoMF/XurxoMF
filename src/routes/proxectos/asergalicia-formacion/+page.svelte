@@ -27,11 +27,11 @@
 	</a>
 {/snippet}
 
-<SeoHead title={m.aser_meta_title()} description={m.aser_meta_description()} image="/images/projects/asergalicia-formacion/hero.png" />
+<SeoHead title={m.aser_meta_title()} description={m.aser_meta_description()} image="/images/projects/asergalicia-formacion/hero.webp" />
 
 <div class="overflow-x-clip">
 	<DetailHero.Root
-		image="/images/projects/asergalicia-formacion/hero.png"
+		image="/images/projects/asergalicia-formacion/hero.webp"
 		imagePosition="35% top"
 		title="AserGalicia Formación"
 		lead={m.aser_hero_lead()}

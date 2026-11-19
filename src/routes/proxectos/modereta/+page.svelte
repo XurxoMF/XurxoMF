@@ -25,11 +25,11 @@
 	<a href="#como-funciona" class={Button.rootVariants({ variant: "secondary", size: "lg" })}>{m.modereta_action_how()}</a>
 {/snippet}
 
-<SeoHead title={m.modereta_meta_title()} description={m.modereta_meta_description()} image="/images/projects/modereta/banner.png" />
+<SeoHead title={m.modereta_meta_title()} description={m.modereta_meta_description()} image="/images/projects/modereta/banner.webp" />
 
 <div class="overflow-x-clip">
 	<DetailHero.Root
-		image="/images/projects/modereta/banner.png"
+		image="/images/projects/modereta/banner.webp"
 		imagePosition="35% center"
 		title="Modereta"
 		lead={m.modereta_hero_lead()}
@@ -89,7 +89,7 @@
 			kicker={m.modereta_delivery_kicker()}
 			title={m.modereta_delivery_title()}
 			description={m.modereta_delivery_description()}
-			image="/images/projects/modereta/banner.png"
+			image="/images/projects/modereta/banner.webp"
 			imageAlt={m.modereta_card_alt()}
 		>
 			<div class="flex flex-wrap gap-2">

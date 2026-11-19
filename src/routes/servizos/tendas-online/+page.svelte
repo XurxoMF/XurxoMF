@@ -79,13 +79,13 @@
 <SeoHead
 	title={`${m.service_ecommerce_title()} | XurxoMF`}
 	description={m.service_ecommerce_meta_description()}
-	image="/images/services/tendas-online.png"
+	image="/images/services/tendas-online.webp"
 	{structuredData}
 />
 
 <div class="overflow-x-clip">
 	<DetailHero.Root
-		image="/images/services/tendas-online.png"
+		image="/images/services/tendas-online.webp"
 		title={m.service_ecommerce_title()}
 		lead={m.service_ecommerce_lead()}
 		description={m.service_ecommerce_hero_description()}

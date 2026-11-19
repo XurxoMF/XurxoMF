@@ -70,7 +70,7 @@
 
 {#snippet serviceCard(number: string, service: Service)}
 	<Card.Root class="h-full">
-		<img src={service.image} alt="" width="1672" height="941" loading="lazy" class="aspect-video w-full object-cover" />
+		<img src={service.image} alt="" width="1672" height="941" loading="lazy" decoding="async" class="aspect-video w-full object-cover" />
 		<Card.Header>
 			<Card.Action><span class="font-mono text-sm text-primary">{number}</span></Card.Action>
 			<Card.Title role="heading" aria-level={3}>{service.title}</Card.Title>
