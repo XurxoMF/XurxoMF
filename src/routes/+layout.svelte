@@ -9,14 +9,14 @@
 
 	import { contact } from "$lib/data/contact";
 
-	import { MoonIcon, SidebarIcon, SunIcon } from "$lib/icons";
+	import { CheckIcon, ChevronDownIcon, MoonIcon, SidebarIcon, SunIcon } from "$lib/icons";
 	import * as m from "$lib/paraglide/messages.js";
 	import { baseLocale, getLocale, localizeHref, locales } from "$lib/paraglide/runtime";
 
 	import { cn } from "$lib/utils";
 
 	import * as Button from "$lib/components/ui/button";
-	import * as ButtonGroup from "$lib/components/ui/button-group";
+	import * as DropdownMenu from "$lib/components/ui/dropdown-menu";
 	import * as Sheet from "$lib/components/ui/sheet";
 
 	let { children } = $props();
@@ -44,6 +44,12 @@
 	}
 </script>
 
+{#snippet languageFlag(locale: (typeof locales)[number])}
+	<span class="block h-4 w-6 shrink-0 overflow-hidden rounded-[3px] bg-white shadow-xs ring-1 ring-foreground/20 ring-inset" aria-hidden="true">
+		<img src="/images/flags/{locale}.svg" alt="" class="block size-full object-cover" />
+	</span>
+{/snippet}
+
 <svelte:head>
 	<link rel="canonical" href={new URL(localizeHref(page.url.pathname, { locale: getLocale() }), SITE_ORIGIN).href} />
 	{#each locales as locale (locale)}
@@ -54,54 +60,9 @@
 
 <ModeWatcher />
 
-<div class="fixed right-0 bottom-0 z-50 rounded-tl-lg border-t border-l bg-card p-1 shadow-lg">
-	<ButtonGroup.Root orientation="vertical">
-		<Button.Root
-			variant="ghost"
-			size="icon-sm"
-			class="relative overflow-hidden"
-			aria-label={mode.current === "dark" ? m.layout_theme_light() : m.layout_theme_dark()}
-			aria-pressed={mode.current === "dark"}
-			onclick={() => setMode(mode.current === "dark" ? "light" : "dark")}
-		>
-			<SunIcon
-				aria-hidden="true"
-				class={cn(
-					"absolute animation-duration-300 animation-ease-out animation-fill-both",
-					mode.current === "dark" ? "animate-out fade-out-0 zoom-out-0 -spin-out-90" : "animate-in fade-in-0 zoom-in-0 spin-in-90"
-				)}
-			/>
-
-			<MoonIcon
-				aria-hidden="true"
-				class={cn(
-					"absolute animation-duration-300 animation-ease-out animation-fill-both",
-					mode.current === "dark" ? "animate-in fade-in-0 zoom-in-0 spin-in-90" : "animate-out fade-out-0 zoom-out-0 -spin-out-90"
-				)}
-			/>
-		</Button.Root>
-
-		<nav class="contents" aria-label={m.layout_language_selector()}>
-			{#each locales as locale (locale)}
-				<a
-					href={resolve(localizeHref(page.url.pathname, { locale }) as Pathname)}
-					hreflang={locale}
-					lang={locale}
-					title={LOCALES[locale].name}
-					aria-current={locale === getLocale() ? "page" : undefined}
-					data-sveltekit-reload
-					class={Button.rootVariants({ variant: locale === getLocale() ? "secondary" : "ghost", size: "icon-sm" })}
-				>
-					{LOCALES[locale].code}
-				</a>
-			{/each}
-		</nav>
-	</ButtonGroup.Root>
-</div>
-
 <div class="flex min-h-svh flex-col">
 	<header class="sticky top-0 z-40 border-b bg-background/80 backdrop-blur-xl">
-		<div class="mx-auto grid h-16 w-full max-w-6xl grid-cols-[1fr_auto] items-center gap-4 px-6 md:grid-cols-[1fr_auto_1fr]">
+		<div class="mx-auto grid h-16 w-full max-w-6xl grid-cols-[1fr_auto] items-center gap-2 px-4 sm:px-6 md:grid-cols-[1fr_auto_1fr] md:gap-4">
 			<a href={resolve(localizeHref("/") as Pathname)} class="text-xl font-bold tracking-tight" aria-label={m.layout_home_label()}>
 				<span class="text-primary">X</span>urxo<span class="text-primary">MF</span>
 			</a>
@@ -119,53 +80,117 @@
 				>
 			</nav>
 
-			<div class="hidden items-center justify-end md:flex">
-				<a href={resolve(localizeHref("/#contacto") as Pathname)} class={Button.rootVariants({ size: "sm" })}>{m.nav_talk()}</a>
+			<div class="flex items-center justify-end gap-2">
+				<a href={resolve(localizeHref("/#contacto") as Pathname)} class={Button.rootVariants({ size: "sm", class: "hidden lg:inline-flex" })}
+					>{m.nav_talk()}</a
+				>
+
+				<div class="flex items-center rounded-lg border bg-card/90 p-1 shadow-sm backdrop-blur-xl">
+					<DropdownMenu.Root>
+						<DropdownMenu.Trigger>
+							{#snippet child({ props })}
+								<Button.Root {...props} variant="ghost" size="sm" class="gap-1 px-2" aria-label={m.layout_language_selector()}>
+									{@render languageFlag(getLocale())}
+									<span class="font-mono text-xs">{LOCALES[getLocale()].code}</span>
+									<ChevronDownIcon class="size-3 text-muted-foreground" aria-hidden="true" />
+								</Button.Root>
+							{/snippet}
+						</DropdownMenu.Trigger>
+
+						<DropdownMenu.Content align="end" class="w-44">
+							{#each locales as locale (locale)}
+								<DropdownMenu.Item textValue={LOCALES[locale].name}>
+									{#snippet child({ props })}
+										<a
+											{...props}
+											href={resolve(localizeHref(page.url.pathname, { locale }) as Pathname)}
+											hreflang={locale}
+											lang={locale}
+											aria-current={locale === getLocale() ? "page" : undefined}
+											data-sveltekit-reload
+										>
+											{@render languageFlag(locale)}
+											<span>{LOCALES[locale].name}</span>
+											{#if locale === getLocale()}<CheckIcon class="ml-auto size-4" aria-hidden="true" />{/if}
+										</a>
+									{/snippet}
+								</DropdownMenu.Item>
+							{/each}
+						</DropdownMenu.Content>
+					</DropdownMenu.Root>
+
+					<span class="mx-1 h-4 w-px bg-border" aria-hidden="true"></span>
+
+					<Button.Root
+						variant="ghost"
+						size="icon-sm"
+						class="relative overflow-hidden"
+						aria-label={mode.current === "dark" ? m.layout_theme_light() : m.layout_theme_dark()}
+						aria-pressed={mode.current === "dark"}
+						onclick={() => setMode(mode.current === "dark" ? "light" : "dark")}
+					>
+						<SunIcon
+							aria-hidden="true"
+							class={cn(
+								"absolute animation-duration-300 animation-ease-out animation-fill-both",
+								mode.current === "dark" ? "animate-out fade-out-0 zoom-out-0 -spin-out-90" : "animate-in fade-in-0 zoom-in-0 spin-in-90"
+							)}
+						/>
+
+						<MoonIcon
+							aria-hidden="true"
+							class={cn(
+								"absolute animation-duration-300 animation-ease-out animation-fill-both",
+								mode.current === "dark" ? "animate-in fade-in-0 zoom-in-0 spin-in-90" : "animate-out fade-out-0 zoom-out-0 -spin-out-90"
+							)}
+						/>
+					</Button.Root>
+				</div>
+
+				<Sheet.Root bind:open={navigationOpen}>
+					<Sheet.Trigger class={cn(Button.rootVariants({ variant: "ghost", size: "icon" }), "md:hidden")} aria-label={m.layout_open_navigation()}>
+						<SidebarIcon aria-hidden="true" />
+					</Sheet.Trigger>
+
+					<Sheet.Content side="top" class="max-h-svh overflow-y-auto">
+						<Sheet.Header class="items-start pr-12 text-left">
+							<Sheet.Title class="text-xl font-bold tracking-tight">
+								<span class="text-primary">X</span>urxo<span class="text-primary">MF</span>
+							</Sheet.Title>
+							<Sheet.Description>{m.layout_mobile_description()}</Sheet.Description>
+						</Sheet.Header>
+
+						<nav class="grid gap-1 px-4" aria-label={m.layout_mobile_navigation()}>
+							<a
+								href={resolve(localizeHref("/#sobre-min") as Pathname)}
+								class={Button.rootVariants({ variant: "ghost", size: "lg", class: "h-auto justify-between py-3" })}
+								onclick={() => (navigationOpen = false)}
+							>
+								{m.nav_about()} <span class="font-mono text-xs text-muted-foreground">01</span>
+							</a>
+							<a
+								href={resolve(localizeHref("/servizos") as Pathname)}
+								class={Button.rootVariants({ variant: "ghost", size: "lg", class: "h-auto justify-between py-3" })}
+								onclick={() => (navigationOpen = false)}
+							>
+								{m.nav_services()} <span class="font-mono text-xs text-muted-foreground">02</span>
+							</a>
+							<a
+								href={resolve(localizeHref("/proxectos") as Pathname)}
+								class={Button.rootVariants({ variant: "ghost", size: "lg", class: "h-auto justify-between py-3" })}
+								onclick={() => (navigationOpen = false)}
+							>
+								{m.nav_projects()} <span class="font-mono text-xs text-muted-foreground">03</span>
+							</a>
+							<a
+								href={resolve(localizeHref("/#contacto") as Pathname)}
+								class={Button.rootVariants({ size: "lg", class: "mt-2" })}
+								onclick={() => (navigationOpen = false)}>{m.nav_talk()}</a
+							>
+						</nav>
+					</Sheet.Content>
+				</Sheet.Root>
 			</div>
-
-			<Sheet.Root bind:open={navigationOpen}>
-				<Sheet.Trigger class={cn(Button.rootVariants({ variant: "ghost", size: "icon" }), "md:hidden")} aria-label={m.layout_open_navigation()}>
-					<SidebarIcon aria-hidden="true" />
-				</Sheet.Trigger>
-
-				<Sheet.Content side="top" class="max-h-svh overflow-y-auto">
-					<Sheet.Header class="items-start pr-12 text-left">
-						<Sheet.Title class="text-xl font-bold tracking-tight">
-							<span class="text-primary">X</span>urxo<span class="text-primary">MF</span>
-						</Sheet.Title>
-						<Sheet.Description>{m.layout_mobile_description()}</Sheet.Description>
-					</Sheet.Header>
-
-					<nav class="grid gap-1 px-4" aria-label={m.layout_mobile_navigation()}>
-						<a
-							href={resolve(localizeHref("/#sobre-min") as Pathname)}
-							class={Button.rootVariants({ variant: "ghost", size: "lg", class: "h-auto justify-between py-3" })}
-							onclick={() => (navigationOpen = false)}
-						>
-							{m.nav_about()} <span class="font-mono text-xs text-muted-foreground">01</span>
-						</a>
-						<a
-							href={resolve(localizeHref("/servizos") as Pathname)}
-							class={Button.rootVariants({ variant: "ghost", size: "lg", class: "h-auto justify-between py-3" })}
-							onclick={() => (navigationOpen = false)}
-						>
-							{m.nav_services()} <span class="font-mono text-xs text-muted-foreground">02</span>
-						</a>
-						<a
-							href={resolve(localizeHref("/proxectos") as Pathname)}
-							class={Button.rootVariants({ variant: "ghost", size: "lg", class: "h-auto justify-between py-3" })}
-							onclick={() => (navigationOpen = false)}
-						>
-							{m.nav_projects()} <span class="font-mono text-xs text-muted-foreground">03</span>
-						</a>
-						<a
-							href={resolve(localizeHref("/#contacto") as Pathname)}
-							class={Button.rootVariants({ size: "lg", class: "mt-2" })}
-							onclick={() => (navigationOpen = false)}>{m.nav_talk()}</a
-						>
-					</nav>
-				</Sheet.Content>
-			</Sheet.Root>
 		</div>
 	</header>
 
