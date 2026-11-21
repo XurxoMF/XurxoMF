@@ -4,7 +4,6 @@
 .vscode
 build
 node_modules
-src-tauri/target
 .env
 .env.*
 !.env.example

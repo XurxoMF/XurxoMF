@@ -1,7 +1,7 @@
 <script lang="ts" module>
 	import type { Snippet } from "svelte";
 
-	import * as ScrollArea from "$lib/components/ui/scroll-area";
+	import * as ScrollArea from "#lib/components/ui/scroll-area/index.ts";
 
 	/** Props accepted by the scrollable or wrapping Code Block content area. */
 	export type ContentProps = Omit<ScrollArea.RootProps, "children"> & {
@@ -19,7 +19,7 @@
 </script>
 
 <script lang="ts">
-	import { cn } from "$lib/utils";
+	import { cn } from "#lib/utils.ts";
 
 	import * as CodeBlock from ".";
 
@@ -74,7 +74,7 @@
 	data-code-block-content=""
 	data-wrap={wrap || undefined}
 	data-numbered={lineNumbers || undefined}
-	class={cn("min-h-0 min-w-0 overflow-hidden", className)}
+	class={cn("min-h-0 min-w-0", className)}
 	{...restProps}
 >
 	<ScrollArea.Viewport

@@ -6,13 +6,13 @@ A reusable project preview card aligned with the service-card anatomy: edge-to-e
 
 ```svelte
 <script lang="ts">
-	import * as ProjectCard from "$lib/components/site/project-card";
+	import * as ProjectCard from "#lib/components/site/project-card/index.ts";
 </script>
 ```
 
 ## Usage
 
-Pass one project from `$lib/data/projects` and its one-based display number:
+Pass one project from `#lib/data/projects.ts` and its one-based display number:
 
 ```svelte
 {#each projects as project, index (project.title)}
@@ -47,11 +47,11 @@ The title is exposed as a level-three heading for use inside a page or section h
 
 ## Localization
 
-The visible action, placeholder label, project copy, image alternative text, and internal destination use Paraglide. Project content comes from `$lib/data/projects`, which is re-evaluated when navigation changes the URL locale.
+The visible action, placeholder label, project copy, image alternative text, and internal destination use Paraglide. Project content comes from `#lib/data/projects.ts`, which is re-evaluated when navigation changes the URL locale.
 
 ## Dependencies
 
-Project Card composes the public Button and Card units, resolves its Paraglide-localized internal destination with SvelteKit `resolve()`, and merges classes with `$lib/utils`.
+Project Card composes the public Button and Card units, resolves its Paraglide-localized internal destination with SvelteKit `resolve()`, and merges classes with `#lib/utils.ts`.
 
 ## File organization
 

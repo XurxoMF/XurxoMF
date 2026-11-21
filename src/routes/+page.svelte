@@ -1,21 +1,21 @@
 <script lang="ts">
 	import { resolve } from "$app/paths";
-	import type { Pathname } from "$app/types";
 
-	import { contact } from "$lib/data/contact";
-	import { projects } from "$lib/data/projects";
-	import { services, type Service } from "$lib/data/services";
-	import SeoHead from "$lib/seo-head.svelte";
-	import * as m from "$lib/paraglide/messages.js";
-	import { localizeHref } from "$lib/paraglide/runtime";
+	import { contact } from "#lib/data/contact.ts";
+	import { projects } from "#lib/data/projects.ts";
+	import { services, type Service } from "#lib/data/services.ts";
+	import SeoHead from "#lib/seo-head.svelte";
+	import { toResolvablePath } from "#lib/site/routing.ts";
+	import * as m from "#lib/paraglide/messages.js";
+	import { localizeHref } from "#lib/paraglide/runtime.js";
 
-	import * as ContactBanner from "$lib/components/site/contact-banner";
-	import * as ProjectCard from "$lib/components/site/project-card";
-	import * as Badge from "$lib/components/ui/badge";
-	import * as Button from "$lib/components/ui/button";
-	import * as Card from "$lib/components/ui/card";
-	import * as Timeline from "$lib/components/ui/timeline";
-	import * as Typography from "$lib/components/ui/typography";
+	import * as ContactBanner from "#lib/components/site/contact-banner/index.ts";
+	import * as ProjectCard from "#lib/components/site/project-card/index.ts";
+	import * as Badge from "#lib/components/ui/badge/index.ts";
+	import * as Button from "#lib/components/ui/button/index.ts";
+	import * as Card from "#lib/components/ui/card/index.ts";
+	import * as Timeline from "#lib/components/ui/timeline/index.ts";
+	import * as Typography from "#lib/components/ui/typography/index.ts";
 
 	const serviceAreas = ["Salvaterra de Miño", "Salceda de Caselas", "Vigo", "O Porriño", "Tui", "Ponteareas", "Galicia"];
 	const featuredServices = services.filter((service) => service.featured).slice(0, 6);
@@ -77,7 +77,7 @@
 			<Card.Description>{service.shortDescription}</Card.Description>
 		</Card.Header>
 		<Card.Footer class="mt-auto justify-end">
-			<a href={resolve(localizeHref(service.href) as Pathname)} class={Button.rootVariants({ variant: "ghost", size: "sm" })}>
+			<a href={resolve(toResolvablePath(localizeHref(service.href)))} class={Button.rootVariants({ variant: "ghost", size: "sm" })}>
 				{m.service_card_action()}
 			</a>
 		</Card.Footer>
@@ -202,7 +202,9 @@
 				<Typography.P class="mt-4 text-muted-foreground">{m.home_services_description()}</Typography.P>
 			</div>
 
-			<a href={resolve(localizeHref("/servizos") as Pathname)} class={Button.rootVariants({ variant: "outline" })}>{m.home_all_services()}</a>
+			<a href={resolve(toResolvablePath(localizeHref("/servizos")))} class={Button.rootVariants({ variant: "outline" })}>
+				{m.home_all_services()}
+			</a>
 		</div>
 
 		<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -226,7 +228,9 @@
 				</Typography.P>
 			</div>
 
-			<a href={resolve(localizeHref("/proxectos") as Pathname)} class={Button.rootVariants({ variant: "outline" })}>{m.home_all_projects()}</a>
+			<a href={resolve(toResolvablePath(localizeHref("/proxectos")))} class={Button.rootVariants({ variant: "outline" })}>
+				{m.home_all_projects()}
+			</a>
 		</div>
 
 		<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">

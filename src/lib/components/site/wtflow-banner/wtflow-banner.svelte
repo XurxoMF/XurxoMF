@@ -1,17 +1,17 @@
 <script lang="ts" module>
 	import type { HTMLAttributes } from "svelte/elements";
-	import type { WithElementRef } from "$lib/utils";
+	import type { WithElementRef } from "#lib/utils.ts";
 
 	export type RootProps = WithElementRef<HTMLAttributes<HTMLElement>, HTMLElement>;
 </script>
 
 <script lang="ts">
-	import * as m from "$lib/paraglide/messages.js";
+	import * as m from "#lib/paraglide/messages.js";
 
-	import { cn } from "$lib/utils";
+	import { cn } from "#lib/utils.ts";
 
-	import * as Button from "$lib/components/ui/button";
-	import * as Typography from "$lib/components/ui/typography";
+	import * as Button from "#lib/components/ui/button/index.ts";
+	import * as Typography from "#lib/components/ui/typography/index.ts";
 
 	let { ref = $bindable(null), class: className, ...restProps }: RootProps = $props();
 </script>

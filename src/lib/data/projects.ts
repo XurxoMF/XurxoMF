@@ -1,6 +1,6 @@
 import type { RouteId } from "$app/types";
 
-import * as m from "$lib/paraglide/messages.js";
+import * as m from "#lib/paraglide/messages.js";
 
 export type ProjectLink = {
 	label: string;

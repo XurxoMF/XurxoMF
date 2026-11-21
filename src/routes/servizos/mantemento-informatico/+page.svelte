@@ -1,17 +1,17 @@
 <script lang="ts">
-	import SeoHead from "$lib/seo-head.svelte";
-	import * as m from "$lib/paraglide/messages.js";
-	import { localizeHref } from "$lib/paraglide/runtime";
+	import SeoHead from "#lib/seo-head.svelte";
+	import * as m from "#lib/paraglide/messages.js";
+	import { localizeHref } from "#lib/paraglide/runtime.js";
 
-	import * as ContactBanner from "$lib/components/site/contact-banner";
-	import * as DetailHero from "$lib/components/site/detail-hero";
-	import * as DualPathSection from "$lib/components/site/dual-path-section";
-	import * as FaqSection from "$lib/components/site/faq-section";
-	import * as ProblemSection from "$lib/components/site/problem-section";
-	import * as ServiceOverview from "$lib/components/site/service-overview";
-	import * as WorkflowSection from "$lib/components/site/workflow-section";
-	import * as Badge from "$lib/components/ui/badge";
-	import * as Card from "$lib/components/ui/card";
+	import * as ContactBanner from "#lib/components/site/contact-banner/index.ts";
+	import * as DetailHero from "#lib/components/site/detail-hero/index.ts";
+	import * as DualPathSection from "#lib/components/site/dual-path-section/index.ts";
+	import * as FaqSection from "#lib/components/site/faq-section/index.ts";
+	import * as ProblemSection from "#lib/components/site/problem-section/index.ts";
+	import * as ServiceOverview from "#lib/components/site/service-overview/index.ts";
+	import * as WorkflowSection from "#lib/components/site/workflow-section/index.ts";
+	import * as Badge from "#lib/components/ui/badge/index.ts";
+	import * as Card from "#lib/components/ui/card/index.ts";
 
 	const coverageItems = [
 		{ title: m.service_it_maintenance_coverage_inventory_title(), description: m.service_it_maintenance_coverage_inventory_description() },

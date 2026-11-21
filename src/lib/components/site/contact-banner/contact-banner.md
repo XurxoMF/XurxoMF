@@ -8,7 +8,7 @@ Import the component through its public entry point:
 
 ```svelte
 <script lang="ts">
-	import * as ContactBanner from "$lib/components/site/contact-banner";
+	import * as ContactBanner from "#lib/components/site/contact-banner/index.ts";
 </script>
 ```
 
@@ -30,7 +30,7 @@ Override native section attributes or layout classes when embedding it in anothe
 
 `ContactBanner.Root` renders a native `section` and accepts its standard HTML attributes, a merged `class`, an optional bindable `ref`, and an `id` that defaults to `contacto`. The stable styling hook is `data-slot="contact-banner"`.
 
-The component owns no mutable state. Contact destinations and the displayed location come from `$lib/data/contact`; changing that data updates every instance.
+The component owns no mutable state. Contact destinations and the displayed location come from `#lib/data/contact.ts`; changing that data updates every instance.
 
 ## Accessibility
 
@@ -42,7 +42,7 @@ All visible copy and accessible names use Paraglide messages in Galician, Spanis
 
 ## Dependencies
 
-Contact Banner composes the public Button, Card, and Typography units, semantic contact icons from `$lib/icons`, the shared `cn` utility, and `$lib/data/contact`. It requires the consuming application's existing theme tokens and global focus styles.
+Contact Banner composes the public Button, Card, and Typography units, semantic contact icons from `#lib/icons.ts`, the shared `cn` utility, and `#lib/data/contact.ts`. It requires the consuming application's existing theme tokens and global focus styles.
 
 ## File organization
 

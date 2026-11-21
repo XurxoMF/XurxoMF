@@ -6,7 +6,7 @@ Banner compartido para acreditar os proxectos deseñados por What The Flow e pro
 
 ```svelte
 <script lang="ts">
-	import * as WtflowBanner from "$lib/components/site/wtflow-banner";
+	import * as WtflowBanner from "#lib/components/site/wtflow-banner/index.ts";
 </script>
 ```
 
@@ -48,9 +48,9 @@ O texto visible está actualmente escrito en galego. Cando as páxinas de proxec
 
 ## Dependencias
 
-- `$lib/utils` para combinar clases e expoñer a referencia.
-- `$lib/components/ui/button` para o estilo da ligazón principal.
-- `$lib/components/ui/typography` para o título e o parágrafo.
+- `#lib/utils.ts` para combinar clases e expoñer a referencia.
+- `#lib/components/ui/button/index.ts` para o estilo da ligazón principal.
+- `#lib/components/ui/typography/index.ts` para o título e o parágrafo.
 - `/static/images/brands/wtflow-logo.webp` como recurso compartido da marca.
 
 ## Organización

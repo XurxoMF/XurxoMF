@@ -1,6 +1,6 @@
 <script lang="ts">
-	import SeoHead from "$lib/seo-head.svelte";
-	import * as m from "$lib/paraglide/messages.js";
+	import SeoHead from "#lib/seo-head.svelte";
+	import * as m from "#lib/paraglide/messages.js";
 </script>
 
 <SeoHead title={`${m.cookies_title()} | XurxoMF`} description={m.cookies_meta_description()} />

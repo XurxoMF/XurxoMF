@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { Snippet } from "svelte";
 
-	import * as Typography from "$lib/components/ui/typography";
+	import * as Typography from "#lib/components/ui/typography/index.ts";
 
 	let { kicker, title, description, children }: { kicker: string; title: string; description?: string; children: Snippet } = $props();
 </script>

@@ -1,17 +1,17 @@
 <script lang="ts">
 	import { resolve } from "$app/paths";
-	import type { Pathname } from "$app/types";
 
-	import { services } from "$lib/data/services";
-	import SeoHead from "$lib/seo-head.svelte";
-	import * as m from "$lib/paraglide/messages.js";
-	import { localizeHref } from "$lib/paraglide/runtime";
+	import { services } from "#lib/data/services.ts";
+	import SeoHead from "#lib/seo-head.svelte";
+	import { toResolvablePath } from "#lib/site/routing.ts";
+	import * as m from "#lib/paraglide/messages.js";
+	import { localizeHref } from "#lib/paraglide/runtime.js";
 
-	import * as ContactBanner from "$lib/components/site/contact-banner";
-	import * as Button from "$lib/components/ui/button";
-	import * as Card from "$lib/components/ui/card";
-	import * as Pagination from "$lib/components/ui/pagination";
-	import * as Typography from "$lib/components/ui/typography";
+	import * as ContactBanner from "#lib/components/site/contact-banner/index.ts";
+	import * as Button from "#lib/components/ui/button/index.ts";
+	import * as Card from "#lib/components/ui/card/index.ts";
+	import * as Pagination from "#lib/components/ui/pagination/index.ts";
+	import * as Typography from "#lib/components/ui/typography/index.ts";
 
 	const SERVICES_PER_PAGE = 9;
 	let page = $state(1);
@@ -36,14 +36,14 @@
 				<Card.Root class="h-full">
 					<img src={service.image} alt="" width="1672" height="941" loading="lazy" decoding="async" class="aspect-video w-full object-cover" />
 					<Card.Header>
-						<Card.Action
-							><span class="font-mono text-sm text-primary">{String((page - 1) * SERVICES_PER_PAGE + index + 1).padStart(2, "0")}</span></Card.Action
-						>
+						<Card.Action>
+							<span class="font-mono text-sm text-primary">{String((page - 1) * SERVICES_PER_PAGE + index + 1).padStart(2, "0")}</span>
+						</Card.Action>
 						<Card.Title role="heading" aria-level={2}>{service.title}</Card.Title>
 						<Card.Description>{service.shortDescription}</Card.Description>
 					</Card.Header>
 					<Card.Footer class="mt-auto justify-end">
-						<a href={resolve(localizeHref(service.href) as Pathname)} class={Button.rootVariants({ variant: "ghost", size: "sm" })}>
+						<a href={resolve(toResolvablePath(localizeHref(service.href)))} class={Button.rootVariants({ variant: "ghost", size: "sm" })}>
 							{m.service_card_action()}
 						</a>
 					</Card.Footer>

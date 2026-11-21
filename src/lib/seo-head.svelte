@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { page } from "$app/state";
 
-	import { getLocale, localizeHref, locales } from "$lib/paraglide/runtime";
+	import { getLocale, localizeHref, locales } from "#lib/paraglide/runtime.js";
 
 	type OpenGraphType = "website" | "article";
 	type Locale = (typeof locales)[number];

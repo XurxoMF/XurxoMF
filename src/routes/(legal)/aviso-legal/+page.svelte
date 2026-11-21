@@ -1,6 +1,6 @@
 <script lang="ts">
-	import SeoHead from "$lib/seo-head.svelte";
-	import * as m from "$lib/paraglide/messages.js";
+	import SeoHead from "#lib/seo-head.svelte";
+	import * as m from "#lib/paraglide/messages.js";
 </script>
 
 <SeoHead title={`${m.legal_notice_title()} | XurxoMF`} description={m.legal_notice_meta_description()} />

@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { AlertInfoIcon, CheckIcon } from "$lib/icons";
-	import * as m from "$lib/paraglide/messages.js";
+	import { AlertInfoIcon, CheckIcon } from "#lib/icons.ts";
+	import * as m from "#lib/paraglide/messages.js";
 
-	import * as FeatureCard from "$lib/components/site/feature-card";
-	import * as ProblemSection from "$lib/components/site/problem-section";
+	import * as FeatureCard from "#lib/components/site/feature-card/index.ts";
+	import * as ProblemSection from "#lib/components/site/problem-section/index.ts";
 
 	let { problem, audience, description }: { problem: string; audience: string; description?: string } = $props();
 </script>

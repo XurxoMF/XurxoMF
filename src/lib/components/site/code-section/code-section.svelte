@@ -1,6 +1,6 @@
 <script lang="ts">
-	import * as CodeBlock from "$lib/components/ui/code-block";
-	import * as Typography from "$lib/components/ui/typography";
+	import * as CodeBlock from "#lib/components/ui/code-block/index.ts";
+	import * as Typography from "#lib/components/ui/typography/index.ts";
 
 	let {
 		kicker,

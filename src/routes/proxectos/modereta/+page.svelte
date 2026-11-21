@@ -1,15 +1,15 @@
 <script lang="ts">
-	import SeoHead from "$lib/seo-head.svelte";
-	import * as m from "$lib/paraglide/messages.js";
+	import SeoHead from "#lib/seo-head.svelte";
+	import * as m from "#lib/paraglide/messages.js";
 
-	import * as ContactBanner from "$lib/components/site/contact-banner";
-	import * as DetailHero from "$lib/components/site/detail-hero";
-	import * as DualPathSection from "$lib/components/site/dual-path-section";
-	import * as FactsStrip from "$lib/components/site/facts-strip";
-	import * as TechnicalSection from "$lib/components/site/technical-section";
-	import * as WorkflowSection from "$lib/components/site/workflow-section";
-	import * as Badge from "$lib/components/ui/badge";
-	import * as Button from "$lib/components/ui/button";
+	import * as ContactBanner from "#lib/components/site/contact-banner/index.ts";
+	import * as DetailHero from "#lib/components/site/detail-hero/index.ts";
+	import * as DualPathSection from "#lib/components/site/dual-path-section/index.ts";
+	import * as FactsStrip from "#lib/components/site/facts-strip/index.ts";
+	import * as TechnicalSection from "#lib/components/site/technical-section/index.ts";
+	import * as WorkflowSection from "#lib/components/site/workflow-section/index.ts";
+	import * as Badge from "#lib/components/ui/badge/index.ts";
+	import * as Button from "#lib/components/ui/button/index.ts";
 </script>
 
 {#snippet heroBadges()}

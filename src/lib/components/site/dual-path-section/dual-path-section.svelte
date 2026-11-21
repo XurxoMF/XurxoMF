@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { CheckIcon } from "$lib/icons";
+	import { CheckIcon } from "#lib/icons.ts";
 
-	import * as Typography from "$lib/components/ui/typography";
+	import * as Typography from "#lib/components/ui/typography/index.ts";
 
 	type Path = { label: string; title: string; description: string; points: string[] };
 

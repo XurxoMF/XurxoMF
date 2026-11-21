@@ -1,12 +1,12 @@
 <script lang="ts">
-	import { projects } from "$lib/data/projects";
-	import SeoHead from "$lib/seo-head.svelte";
-	import * as m from "$lib/paraglide/messages.js";
+	import { projects } from "#lib/data/projects.ts";
+	import SeoHead from "#lib/seo-head.svelte";
+	import * as m from "#lib/paraglide/messages.js";
 
-	import * as ContactBanner from "$lib/components/site/contact-banner";
-	import * as ProjectCard from "$lib/components/site/project-card";
-	import * as Pagination from "$lib/components/ui/pagination";
-	import * as Typography from "$lib/components/ui/typography";
+	import * as ContactBanner from "#lib/components/site/contact-banner/index.ts";
+	import * as ProjectCard from "#lib/components/site/project-card/index.ts";
+	import * as Pagination from "#lib/components/ui/pagination/index.ts";
+	import * as Typography from "#lib/components/ui/typography/index.ts";
 
 	const PROJECTS_PER_PAGE = 9;
 

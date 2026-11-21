@@ -1,12 +1,12 @@
-import type { Pathname } from "$app/types";
+import type { ResolvedPathname } from "$app/types";
 
-import * as m from "$lib/paraglide/messages.js";
+import * as m from "#lib/paraglide/messages.js";
 
 export type Service = {
 	title: string;
 	shortDescription: string;
 	image: string;
-	href: Pathname;
+	href: ResolvedPathname;
 	featured: boolean;
 };
 

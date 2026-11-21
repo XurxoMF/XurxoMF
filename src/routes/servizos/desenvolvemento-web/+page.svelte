@@ -1,20 +1,20 @@
 <script lang="ts">
-	import { projects } from "$lib/data/projects";
-	import SeoHead from "$lib/seo-head.svelte";
-	import * as m from "$lib/paraglide/messages.js";
-	import { localizeHref } from "$lib/paraglide/runtime";
+	import { projects } from "#lib/data/projects.ts";
+	import SeoHead from "#lib/seo-head.svelte";
+	import * as m from "#lib/paraglide/messages.js";
+	import { localizeHref } from "#lib/paraglide/runtime.js";
 
-	import * as ContactBanner from "$lib/components/site/contact-banner";
-	import * as DetailHero from "$lib/components/site/detail-hero";
-	import * as DualPathSection from "$lib/components/site/dual-path-section";
-	import * as FaqSection from "$lib/components/site/faq-section";
-	import * as ProblemSection from "$lib/components/site/problem-section";
-	import * as ProjectCard from "$lib/components/site/project-card";
-	import * as ServiceOverview from "$lib/components/site/service-overview";
-	import * as WorkflowSection from "$lib/components/site/workflow-section";
-	import * as Badge from "$lib/components/ui/badge";
-	import * as Card from "$lib/components/ui/card";
-	import * as Typography from "$lib/components/ui/typography";
+	import * as ContactBanner from "#lib/components/site/contact-banner/index.ts";
+	import * as DetailHero from "#lib/components/site/detail-hero/index.ts";
+	import * as DualPathSection from "#lib/components/site/dual-path-section/index.ts";
+	import * as FaqSection from "#lib/components/site/faq-section/index.ts";
+	import * as ProblemSection from "#lib/components/site/problem-section/index.ts";
+	import * as ProjectCard from "#lib/components/site/project-card/index.ts";
+	import * as ServiceOverview from "#lib/components/site/service-overview/index.ts";
+	import * as WorkflowSection from "#lib/components/site/workflow-section/index.ts";
+	import * as Badge from "#lib/components/ui/badge/index.ts";
+	import * as Card from "#lib/components/ui/card/index.ts";
+	import * as Typography from "#lib/components/ui/typography/index.ts";
 
 	const includes = [
 		{ title: m.service_web_include_structure_title(), description: m.service_web_include_structure_description() },

@@ -10,9 +10,9 @@
 </script>
 
 <script lang="ts">
-	import * as m from "$lib/paraglide/messages.js";
+	import * as m from "#lib/paraglide/messages.js";
 
-	import * as ProblemSection from "$lib/components/site/problem-section";
+	import * as ProblemSection from "#lib/components/site/problem-section/index.ts";
 
 	let { faqs }: RootProps = $props();
 </script>

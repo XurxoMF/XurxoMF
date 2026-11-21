@@ -2,7 +2,7 @@
 	import type { Snippet } from "svelte";
 	import type { HTMLAttributes } from "svelte/elements";
 	import type { WidgetGridBreakpoint, WidgetGridItemState, WidgetGridMode } from "./widget-grid-types";
-	import type { WithElementRef, WithoutChildren } from "$lib/utils";
+	import type { WithElementRef, WithoutChildren } from "#lib/utils.ts";
 
 	/** Props for the responsive WidgetGrid layout root. */
 	export type RootProps = WithoutChildren<WithElementRef<HTMLAttributes<HTMLDivElement>>> & {
@@ -10,7 +10,7 @@
 		columns?: number | Partial<Record<WidgetGridBreakpoint, number>> | undefined;
 		/** Uniform horizontal and vertical gap in pixels. */
 		gap?: number | undefined;
-		/** Compacted dashboard or position-preserving layout behavior. */
+		/** Gravity, position-preserving, ordered-list, or gap-filling layout behavior. */
 		mode?: WidgetGridMode | undefined;
 		/** Disables all direct move and resize interaction. */
 		disabled?: boolean | undefined;
@@ -42,14 +42,14 @@
 
 	import { setWidgetGridContext } from "./widget-grid-context.svelte";
 
-	import { cn } from "$lib/utils";
+	import { cn } from "#lib/utils.ts";
 
 	let {
 		ref = $bindable(null),
 		class: className,
 		columns = 12,
 		gap = 16,
-		mode = "stack",
+		mode = "top",
 		disabled = false,
 		draggable = true,
 		resizable = true,

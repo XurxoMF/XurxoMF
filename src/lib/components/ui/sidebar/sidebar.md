@@ -24,8 +24,8 @@ Use Sidebar for persistent application navigation or tools that share the availa
 
 ```svelte
 <script lang="ts">
-	import * as Sidebar from "$lib/components/ui/sidebar";
-	import * as Tooltip from "$lib/components/ui/tooltip";
+	import * as Sidebar from "#lib/components/ui/sidebar/index.ts";
+	import * as Tooltip from "#lib/components/ui/tooltip/index.ts";
 </script>
 ```
 
@@ -56,7 +56,7 @@ On viewports below 768 pixels, Root renders its contents inside Sheet. On deskto
 
 ```svelte
 <script lang="ts">
-	import * as Sidebar from "$lib/components/ui/sidebar";
+	import * as Sidebar from "#lib/components/ui/sidebar/index.ts";
 
 	const links = [
 		{ href: "/dashboard", label: "Dashboard", icon: "D" },
@@ -118,7 +118,7 @@ Tooltip.Provider is required because Trigger and tooltip-enabled MenuButton use 
 
 ```svelte
 <script lang="ts">
-	import * as Sidebar from "$lib/components/ui/sidebar";
+	import * as Sidebar from "#lib/components/ui/sidebar/index.ts";
 
 	let open = $state(true);
 </script>
@@ -231,7 +231,7 @@ Sidebar.Input reuses the xvelte Input API and styles. Sidebar.Separator reuses x
 
 ```svelte
 <script lang="ts">
-	import { getSidebarContext } from "$lib/components/ui/sidebar";
+	import { getSidebarContext } from "#lib/components/ui/sidebar/index.ts";
 
 	const sidebar = getSidebarContext();
 </script>
@@ -379,7 +379,7 @@ Most sidebar-specific parts also expose `data-sidebar` with the shorter role nam
 
 Mobile Root exposes `data-mobile="true"`. MenuButton and MenuSubButton expose `data-size` and `data-active`. Step-specific named Tailwind groups and peers such as `group/sidebar-provider`, `group/menu-item`, and `peer/menu-button` coordinate sibling presentation and are part of the local styling contract.
 
-Provider defines `--sidebar-width` and `--sidebar-width-icon`; mobile Content replaces `--sidebar-width`. A descendant desktop Root with `data-position="viewport"` changes Provider from `h-full` to `h-auto min-h-svh`. The matching desktop sidebar container uses `fixed h-svh`; container positioning retains `h-full` without `fixed`. Inset uses a viewport-height minimum, reduced by `--spacing(4)` to account for its one-rem vertical margin in the inset variant. Classes use `cn()` except delegated prop objects, whose class is already built with `cn()` before being passed, and Trigger, which forwards its `class` prop to Button. Root's desktop outer state wrapper has fixed classes while caller class targets the container.
+Provider defines `--sidebar-width` and `--sidebar-width-icon`; mobile Content replaces `--sidebar-width`. A descendant desktop Root with `data-position="viewport"` changes Provider from `h-full` to `h-auto min-h-svh`. The matching desktop sidebar container uses `fixed h-svh`; container positioning retains `h-full` without `fixed`. Inset uses a viewport-height minimum, reduced by its one-rem vertical margin for the inset variant. Classes use `cn()` except delegated prop objects, whose class is already built with `cn()` before being passed, and Trigger, which forwards its `class` prop to Button. Root's desktop outer state wrapper has fixed classes while caller class targets the container.
 
 Keyboard-focusable labels, actions, menu buttons, and submenu buttons receive the shared three-pixel, 50%-opacity `ring` halo from the required global `*:focus-visible` rule.
 
@@ -596,7 +596,7 @@ Tooltip currently has no colocated guide; keep its complete folder together and 
 
 ```svelte
 <script lang="ts">
-	import * as Tooltip from "$lib/components/ui/tooltip";
+	import * as Tooltip from "#lib/components/ui/tooltip/index.ts";
 </script>
 
 <Tooltip.Provider delayDuration={500}>
@@ -606,7 +606,7 @@ Tooltip currently has no colocated guide; keep its complete folder together and 
 
 ### Localization setup
 
-Configure Paraglide so `$lib/paraglide/messages.js` is generated and add the three keys listed in [Localization](#localization) to `messages/en.json`. Their complete keys and values are already shown there.
+Configure Paraglide so `#lib/paraglide/messages.js` is generated and add the three keys listed in [Localization](#localization) to `messages/en.json`. Their complete keys and values are already shown there.
 
 ### Component files and other integration
 

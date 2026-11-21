@@ -1,8 +1,8 @@
 import type { RequestHandler } from "./$types";
 
-import { projects } from "$lib/data/projects";
-import { services } from "$lib/data/services";
-import { baseLocale, localizeHref, locales } from "$lib/paraglide/runtime";
+import { projects } from "#lib/data/projects.ts";
+import { services } from "#lib/data/services.ts";
+import { baseLocale, localizeHref, locales } from "#lib/paraglide/runtime.js";
 
 const siteOrigin = "https://xurxomf.xyz";
 const paths = [

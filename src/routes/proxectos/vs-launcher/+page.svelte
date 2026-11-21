@@ -1,17 +1,17 @@
 <script lang="ts">
-	import SeoHead from "$lib/seo-head.svelte";
-	import { FileIcon, FolderIcon, PreferencesIcon, ResetIcon } from "$lib/icons";
-	import * as m from "$lib/paraglide/messages.js";
+	import SeoHead from "#lib/seo-head.svelte";
+	import { FileIcon, FolderIcon, PreferencesIcon, ResetIcon } from "#lib/icons.ts";
+	import * as m from "#lib/paraglide/messages.js";
 
-	import * as ContactBanner from "$lib/components/site/contact-banner";
-	import * as DetailHero from "$lib/components/site/detail-hero";
-	import * as FactsStrip from "$lib/components/site/facts-strip";
-	import * as ProblemSection from "$lib/components/site/problem-section";
-	import * as TechnicalSection from "$lib/components/site/technical-section";
-	import * as WorkflowSection from "$lib/components/site/workflow-section";
-	import * as Badge from "$lib/components/ui/badge";
-	import * as Button from "$lib/components/ui/button";
-	import * as Card from "$lib/components/ui/card";
+	import * as ContactBanner from "#lib/components/site/contact-banner/index.ts";
+	import * as DetailHero from "#lib/components/site/detail-hero/index.ts";
+	import * as FactsStrip from "#lib/components/site/facts-strip/index.ts";
+	import * as ProblemSection from "#lib/components/site/problem-section/index.ts";
+	import * as TechnicalSection from "#lib/components/site/technical-section/index.ts";
+	import * as WorkflowSection from "#lib/components/site/workflow-section/index.ts";
+	import * as Badge from "#lib/components/ui/badge/index.ts";
+	import * as Button from "#lib/components/ui/button/index.ts";
+	import * as Card from "#lib/components/ui/card/index.ts";
 </script>
 
 {#snippet heroBadges()}
@@ -21,12 +21,12 @@
 {/snippet}
 
 {#snippet heroActions()}
-	<a href="https://github.com/XurxoMF/vs-launcher" target="_blank" rel="external noreferrer" class={Button.rootVariants({ size: "lg" })}
-		>{m.vsl_action_code()}</a
-	>
-	<a href="https://vsldocs.xurxomf.xyz/" target="_blank" rel="external noreferrer" class={Button.rootVariants({ variant: "secondary", size: "lg" })}
-		>{m.vsl_action_docs()}</a
-	>
+	<a href="https://github.com/XurxoMF/vs-launcher" target="_blank" rel="external noreferrer" class={Button.rootVariants({ size: "lg" })}>
+		{m.vsl_action_code()}
+	</a>
+	<a href="https://vsldocs.xurxomf.xyz/" target="_blank" rel="external noreferrer" class={Button.rootVariants({ variant: "secondary", size: "lg" })}>
+		{m.vsl_action_docs()}
+	</a>
 {/snippet}
 
 <SeoHead title={m.vsl_meta_title()} description={m.vsl_meta_description()} image="/images/projects/vs-launcher/main.webp" />

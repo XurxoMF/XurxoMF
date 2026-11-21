@@ -1,6 +1,6 @@
 <script lang="ts">
-	import * as Timeline from "$lib/components/ui/timeline";
-	import * as Typography from "$lib/components/ui/typography";
+	import * as Timeline from "#lib/components/ui/timeline/index.ts";
+	import * as Typography from "#lib/components/ui/typography/index.ts";
 
 	type Event = { date: string; title: string; description: string };
 

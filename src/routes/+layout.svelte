@@ -1,23 +1,23 @@
 <script lang="ts">
 	import { resolve } from "$app/paths";
 	import { page } from "$app/state";
-	import type { Pathname } from "$app/types";
 	import { ModeWatcher, mode, setMode } from "mode-watcher";
 	import { onMount } from "svelte";
 
 	import "./layout.css";
 
-	import { contact } from "$lib/data/contact";
+	import { contact } from "#lib/data/contact.ts";
+	import { toResolvablePath } from "#lib/site/routing.ts";
 
-	import { CheckIcon, ChevronDownIcon, MoonIcon, SidebarIcon, SunIcon } from "$lib/icons";
-	import * as m from "$lib/paraglide/messages.js";
-	import { baseLocale, getLocale, localizeHref, locales } from "$lib/paraglide/runtime";
+	import { CheckIcon, ChevronDownIcon, MoonIcon, SidebarIcon, SunIcon } from "#lib/icons.ts";
+	import * as m from "#lib/paraglide/messages.js";
+	import { baseLocale, getLocale, localizeHref, locales } from "#lib/paraglide/runtime.js";
 
-	import { cn } from "$lib/utils";
+	import { cn } from "#lib/utils.ts";
 
-	import * as Button from "$lib/components/ui/button";
-	import * as DropdownMenu from "$lib/components/ui/dropdown-menu";
-	import * as Sheet from "$lib/components/ui/sheet";
+	import * as Button from "#lib/components/ui/button/index.ts";
+	import * as DropdownMenu from "#lib/components/ui/dropdown-menu/index.ts";
+	import * as Sheet from "#lib/components/ui/sheet/index.ts";
 
 	let { children } = $props();
 	let navigationOpen = $state(false);
@@ -47,7 +47,7 @@
 <!-- Used so SvelteKit generates the required pages for this locales -->
 <nav aria-hidden="true" class="hidden">
 	{#each locales as locale (locale)}
-		<a href={resolve(localizeHref(page.url.pathname, { locale }) as Pathname)} tabindex="-1">
+		<a href={resolve(toResolvablePath(localizeHref(page.url.pathname, { locale })))} tabindex="-1">
 			{locale}
 		</a>
 	{/each}
@@ -72,27 +72,35 @@
 <div class="flex min-h-svh flex-col">
 	<header class="sticky top-0 z-40 border-b bg-background/80 backdrop-blur-xl">
 		<div class="mx-auto grid h-16 w-full max-w-6xl grid-cols-[1fr_auto] items-center gap-2 px-4 sm:px-6 md:grid-cols-[1fr_auto_1fr] md:gap-4">
-			<a href={resolve(localizeHref("/") as Pathname)} class="text-xl font-bold tracking-tight" aria-label={m.layout_home_label()}>
+			<a href={resolve(toResolvablePath(localizeHref("/")))} class="text-xl font-bold tracking-tight" aria-label={m.layout_home_label()}>
 				<span class="text-primary">X</span>urxo<span class="text-primary">MF</span>
 			</a>
 
 			<nav class="hidden items-center gap-1 rounded-full border bg-card/80 p-1 shadow-sm md:flex" aria-label={m.layout_main_navigation()}>
 				<a
-					href={resolve(localizeHref("/#sobre-min") as Pathname)}
-					class={Button.rootVariants({ variant: "ghost", size: "sm", class: "rounded-full" })}>{m.nav_about()}</a
+					href={resolve(toResolvablePath(localizeHref("/#sobre-min")))}
+					class={Button.rootVariants({ variant: "ghost", size: "sm", class: "rounded-full" })}
 				>
-				<a href={resolve(localizeHref("/servizos") as Pathname)} class={Button.rootVariants({ variant: "ghost", size: "sm", class: "rounded-full" })}
-					>{m.nav_services()}</a
+					{m.nav_about()}
+				</a>
+				<a
+					href={resolve(toResolvablePath(localizeHref("/servizos")))}
+					class={Button.rootVariants({ variant: "ghost", size: "sm", class: "rounded-full" })}
 				>
-				<a href={resolve(localizeHref("/proxectos") as Pathname)} class={Button.rootVariants({ variant: "ghost", size: "sm", class: "rounded-full" })}
-					>{m.nav_projects()}</a
+					{m.nav_services()}
+				</a>
+				<a
+					href={resolve(toResolvablePath(localizeHref("/proxectos")))}
+					class={Button.rootVariants({ variant: "ghost", size: "sm", class: "rounded-full" })}
 				>
+					{m.nav_projects()}
+				</a>
 			</nav>
 
 			<div class="flex items-center justify-end gap-2">
-				<a href={resolve(localizeHref("/#contacto") as Pathname)} class={Button.rootVariants({ size: "sm", class: "hidden lg:inline-flex" })}
-					>{m.nav_talk()}</a
-				>
+				<a href={resolve(toResolvablePath(localizeHref("/#contacto")))} class={Button.rootVariants({ size: "sm", class: "hidden lg:inline-flex" })}>
+					{m.nav_talk()}
+				</a>
 
 				<div class="flex items-center rounded-lg border bg-card/90 p-1 shadow-sm backdrop-blur-xl">
 					<DropdownMenu.Root>
@@ -112,7 +120,7 @@
 									{#snippet child({ props })}
 										<a
 											{...props}
-											href={resolve(localizeHref(page.url.pathname, { locale }) as Pathname)}
+											href={resolve(toResolvablePath(localizeHref(page.url.pathname, { locale })))}
 											hreflang={locale}
 											lang={locale}
 											aria-current={locale === getLocale() ? "page" : undefined}
@@ -171,31 +179,33 @@
 
 						<nav class="grid gap-1 px-4" aria-label={m.layout_mobile_navigation()}>
 							<a
-								href={resolve(localizeHref("/#sobre-min") as Pathname)}
+								href={resolve(toResolvablePath(localizeHref("/#sobre-min")))}
 								class={Button.rootVariants({ variant: "ghost", size: "lg", class: "h-auto justify-between py-3" })}
 								onclick={() => (navigationOpen = false)}
 							>
 								{m.nav_about()} <span class="font-mono text-xs text-muted-foreground">01</span>
 							</a>
 							<a
-								href={resolve(localizeHref("/servizos") as Pathname)}
+								href={resolve(toResolvablePath(localizeHref("/servizos")))}
 								class={Button.rootVariants({ variant: "ghost", size: "lg", class: "h-auto justify-between py-3" })}
 								onclick={() => (navigationOpen = false)}
 							>
 								{m.nav_services()} <span class="font-mono text-xs text-muted-foreground">02</span>
 							</a>
 							<a
-								href={resolve(localizeHref("/proxectos") as Pathname)}
+								href={resolve(toResolvablePath(localizeHref("/proxectos")))}
 								class={Button.rootVariants({ variant: "ghost", size: "lg", class: "h-auto justify-between py-3" })}
 								onclick={() => (navigationOpen = false)}
 							>
 								{m.nav_projects()} <span class="font-mono text-xs text-muted-foreground">03</span>
 							</a>
 							<a
-								href={resolve(localizeHref("/#contacto") as Pathname)}
+								href={resolve(toResolvablePath(localizeHref("/#contacto")))}
 								class={Button.rootVariants({ size: "lg", class: "mt-2" })}
-								onclick={() => (navigationOpen = false)}>{m.nav_talk()}</a
+								onclick={() => (navigationOpen = false)}
 							>
+								{m.nav_talk()}
+							</a>
 						</nav>
 					</Sheet.Content>
 				</Sheet.Root>
@@ -212,7 +222,7 @@
 			<div class="grid gap-10 py-14 md:grid-cols-2 lg:grid-cols-[1.5fr_0.75fr_1fr] lg:gap-16">
 				<div>
 					<a
-						href={resolve(localizeHref("/#sobre-min") as Pathname)}
+						href={resolve(toResolvablePath(localizeHref("/#sobre-min")))}
 						class="inline-block text-2xl font-bold tracking-tight"
 						aria-label={m.layout_home_label()}
 					>
@@ -230,26 +240,39 @@
 				<nav aria-label={m.layout_sitemap()}>
 					<p class="text-sm font-semibold tracking-widest text-primary uppercase">{m.layout_navigation()}</p>
 					<div class="mt-4 grid gap-3 text-sm">
-						<a class="w-fit text-muted-foreground transition-colors hover:text-foreground" href={resolve(localizeHref("/#sobre-min") as Pathname)}
-							>{m.nav_about()}</a
+						<a
+							class="w-fit text-muted-foreground transition-colors hover:text-foreground"
+							href={resolve(toResolvablePath(localizeHref("/#sobre-min")))}
 						>
-						<a class="w-fit text-muted-foreground transition-colors hover:text-foreground" href={resolve(localizeHref("/servizos") as Pathname)}
-							>{m.nav_services()}</a
+							{m.nav_about()}
+						</a>
+						<a
+							class="w-fit text-muted-foreground transition-colors hover:text-foreground"
+							href={resolve(toResolvablePath(localizeHref("/servizos")))}
 						>
-						<a class="w-fit text-muted-foreground transition-colors hover:text-foreground" href={resolve(localizeHref("/proxectos") as Pathname)}
-							>{m.nav_projects()}</a
+							{m.nav_services()}
+						</a>
+						<a
+							class="w-fit text-muted-foreground transition-colors hover:text-foreground"
+							href={resolve(toResolvablePath(localizeHref("/proxectos")))}
 						>
-						<a class="w-fit text-muted-foreground transition-colors hover:text-foreground" href={resolve(localizeHref("/#contacto") as Pathname)}
-							>{m.nav_contact()}</a
+							{m.nav_projects()}
+						</a>
+						<a
+							class="w-fit text-muted-foreground transition-colors hover:text-foreground"
+							href={resolve(toResolvablePath(localizeHref("/#contacto")))}
 						>
+							{m.nav_contact()}
+						</a>
 					</div>
 				</nav>
 
 				<div>
 					<p class="text-sm font-semibold tracking-widest text-primary uppercase">{m.nav_contact()}</p>
 					<div class="mt-4 grid gap-3 text-sm">
-						<a class="w-fit font-medium text-muted-foreground hover:text-foreground" href={contact.email.href} rel="external">{contact.email.label}</a
-						>
+						<a class="w-fit font-medium text-muted-foreground hover:text-foreground" href={contact.email.href} rel="external">
+							{contact.email.label}
+						</a>
 						<a class="w-fit text-muted-foreground transition-colors hover:text-foreground" href={contact.phone.href} rel="external">
 							{contact.phone.label}
 						</a>
@@ -257,8 +280,10 @@
 							class="w-fit text-muted-foreground transition-colors hover:text-foreground"
 							href={contact.socials.whatsapp.href}
 							target="_blank"
-							rel="external noreferrer">{contact.socials.whatsapp.label}</a
+							rel="external noreferrer"
 						>
+							{contact.socials.whatsapp.label}
+						</a>
 						<p class="text-muted-foreground">{contact.location}</p>
 					</div>
 				</div>
@@ -268,9 +293,15 @@
 				<p>© {currentYear} XurxoMF. {m.layout_copyright()}</p>
 
 				<div class="flex flex-wrap gap-x-5 gap-y-2">
-					<a class="transition-colors hover:text-foreground" href={resolve(localizeHref("/privacidade") as Pathname)}>{m.layout_privacy()}</a>
-					<a class="transition-colors hover:text-foreground" href={resolve(localizeHref("/cookies") as Pathname)}>{m.layout_cookies()}</a>
-					<a class="transition-colors hover:text-foreground" href={resolve(localizeHref("/aviso-legal") as Pathname)}>{m.layout_legal()}</a>
+					<a class="transition-colors hover:text-foreground" href={resolve(toResolvablePath(localizeHref("/privacidade")))}>
+						{m.layout_privacy()}
+					</a>
+					<a class="transition-colors hover:text-foreground" href={resolve(toResolvablePath(localizeHref("/cookies")))}>
+						{m.layout_cookies()}
+					</a>
+					<a class="transition-colors hover:text-foreground" href={resolve(toResolvablePath(localizeHref("/aviso-legal")))}>
+						{m.layout_legal()}
+					</a>
 				</div>
 			</div>
 		</div>
@@ -285,7 +316,7 @@
 		</Sheet.Header>
 		<Sheet.Footer class="flex-row flex-wrap justify-end">
 			<a
-				href={resolve(localizeHref("/cookies") as Pathname)}
+				href={resolve(toResolvablePath(localizeHref("/cookies")))}
 				class={Button.rootVariants({ variant: "outline" })}
 				onclick={() => (cookieNoticeOpen = false)}
 			>

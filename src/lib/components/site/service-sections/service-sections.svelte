@@ -1,13 +1,13 @@
 <script lang="ts">
-	import type { Project } from "$lib/data/projects";
-	import * as m from "$lib/paraglide/messages.js";
+	import type { Project } from "#lib/data/projects.ts";
+	import * as m from "#lib/paraglide/messages.js";
 
-	import * as FaqSection from "$lib/components/site/faq-section";
-	import * as ProjectCard from "$lib/components/site/project-card";
-	import * as ProblemSection from "$lib/components/site/problem-section";
-	import * as WorkflowSection from "$lib/components/site/workflow-section";
+	import * as FaqSection from "#lib/components/site/faq-section/index.ts";
+	import * as ProjectCard from "#lib/components/site/project-card/index.ts";
+	import * as ProblemSection from "#lib/components/site/problem-section/index.ts";
+	import * as WorkflowSection from "#lib/components/site/workflow-section/index.ts";
 
-	import * as Card from "$lib/components/ui/card";
+	import * as Card from "#lib/components/ui/card/index.ts";
 
 	type Step = { title: string; description: string };
 

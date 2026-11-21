@@ -2,11 +2,11 @@
 
 A semantic facade for the Tabler icons used by xvelte components and application interfaces.
 
-Import named icons from `$lib/icons` instead of importing the upstream package directly. This keeps icon choices consistent and gives application code stable, meaningful names.
+Import named icons from `#lib/icons.ts` instead of importing the upstream package directly. This keeps icon choices consistent and gives application code stable, meaningful names.
 
 ```svelte
 <script lang="ts">
-	import { MoonIcon, SunIcon } from "$lib/icons";
+	import { MoonIcon, SunIcon } from "#lib/icons.ts";
 </script>
 
 <SunIcon aria-hidden="true" />

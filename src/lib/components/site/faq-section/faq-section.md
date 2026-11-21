@@ -6,7 +6,7 @@ Sección compartida de preguntas frecuentes para as páxinas de servizo. Mantén
 
 ```svelte
 <script lang="ts">
-	import * as FaqSection from "$lib/components/site/faq-section";
+	import * as FaqSection from "#lib/components/site/faq-section/index.ts";
 </script>
 ```
 

@@ -1,13 +1,13 @@
 <script lang="ts">
 	import { resolve } from "$app/paths";
-	import type { Pathname } from "$app/types";
 
-	import SeoHead from "$lib/seo-head.svelte";
-	import * as m from "$lib/paraglide/messages.js";
-	import { localizeHref } from "$lib/paraglide/runtime";
+	import SeoHead from "#lib/seo-head.svelte";
+	import { toResolvablePath } from "#lib/site/routing.ts";
+	import * as m from "#lib/paraglide/messages.js";
+	import { localizeHref } from "#lib/paraglide/runtime.js";
 
-	import * as Button from "$lib/components/ui/button";
-	import * as Typography from "$lib/components/ui/typography";
+	import * as Button from "#lib/components/ui/button/index.ts";
+	import * as Typography from "#lib/components/ui/typography/index.ts";
 
 	let { status }: { status: number } = $props();
 
@@ -30,7 +30,7 @@
 		<Typography.Leading class="mx-auto mt-6 max-w-2xl">{description}</Typography.Leading>
 
 		<div class="mt-10 flex justify-center">
-			<a href={resolve(localizeHref("/") as Pathname)} class={Button.rootVariants({ size: "lg" })}>{m.error_back_home()}</a>
+			<a href={resolve(toResolvablePath(localizeHref("/")))} class={Button.rootVariants({ size: "lg" })}>{m.error_back_home()}</a>
 		</div>
 	</div>
 </section>

@@ -1,17 +1,17 @@
 <script lang="ts">
-	import SeoHead from "$lib/seo-head.svelte";
-	import { FileIcon, FolderIcon, PreferencesIcon } from "$lib/icons";
-	import * as m from "$lib/paraglide/messages.js";
+	import SeoHead from "#lib/seo-head.svelte";
+	import { FileIcon, FolderIcon, PreferencesIcon } from "#lib/icons.ts";
+	import * as m from "#lib/paraglide/messages.js";
 
-	import * as ContactBanner from "$lib/components/site/contact-banner";
-	import * as DetailHero from "$lib/components/site/detail-hero";
-	import * as DualPathSection from "$lib/components/site/dual-path-section";
-	import * as FactsStrip from "$lib/components/site/facts-strip";
-	import * as ProblemSection from "$lib/components/site/problem-section";
-	import * as WorkflowSection from "$lib/components/site/workflow-section";
-	import * as Badge from "$lib/components/ui/badge";
-	import * as Button from "$lib/components/ui/button";
-	import * as Card from "$lib/components/ui/card";
+	import * as ContactBanner from "#lib/components/site/contact-banner/index.ts";
+	import * as DetailHero from "#lib/components/site/detail-hero/index.ts";
+	import * as DualPathSection from "#lib/components/site/dual-path-section/index.ts";
+	import * as FactsStrip from "#lib/components/site/facts-strip/index.ts";
+	import * as ProblemSection from "#lib/components/site/problem-section/index.ts";
+	import * as WorkflowSection from "#lib/components/site/workflow-section/index.ts";
+	import * as Badge from "#lib/components/ui/badge/index.ts";
+	import * as Button from "#lib/components/ui/button/index.ts";
+	import * as Card from "#lib/components/ui/card/index.ts";
 </script>
 
 {#snippet heroBadges()}

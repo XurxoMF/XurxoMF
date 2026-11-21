@@ -1,18 +1,18 @@
 <script lang="ts">
-	import SeoHead from "$lib/seo-head.svelte";
-	import { LiveIcon } from "$lib/icons";
-	import * as m from "$lib/paraglide/messages.js";
+	import SeoHead from "#lib/seo-head.svelte";
+	import { LiveIcon } from "#lib/icons.ts";
+	import * as m from "#lib/paraglide/messages.js";
 
-	import * as CodeSection from "$lib/components/site/code-section";
-	import * as ContactBanner from "$lib/components/site/contact-banner";
-	import * as DetailHero from "$lib/components/site/detail-hero";
-	import * as DualPathSection from "$lib/components/site/dual-path-section";
-	import * as FactsStrip from "$lib/components/site/facts-strip";
-	import * as GallerySection from "$lib/components/site/gallery-section";
-	import * as NarrativeSection from "$lib/components/site/narrative-section";
-	import * as WorkflowSection from "$lib/components/site/workflow-section";
-	import * as Badge from "$lib/components/ui/badge";
-	import * as Button from "$lib/components/ui/button";
+	import * as CodeSection from "#lib/components/site/code-section/index.ts";
+	import * as ContactBanner from "#lib/components/site/contact-banner/index.ts";
+	import * as DetailHero from "#lib/components/site/detail-hero/index.ts";
+	import * as DualPathSection from "#lib/components/site/dual-path-section/index.ts";
+	import * as FactsStrip from "#lib/components/site/facts-strip/index.ts";
+	import * as GallerySection from "#lib/components/site/gallery-section/index.ts";
+	import * as NarrativeSection from "#lib/components/site/narrative-section/index.ts";
+	import * as WorkflowSection from "#lib/components/site/workflow-section/index.ts";
+	import * as Badge from "#lib/components/ui/badge/index.ts";
+	import * as Button from "#lib/components/ui/button/index.ts";
 
 	const installCommand = "bash <(curl -fsSL https://raw.githubusercontent.com/XurxoMF/gallaecia-dots/release/install.sh)";
 </script>
@@ -24,9 +24,9 @@
 {/snippet}
 
 {#snippet heroActions()}
-	<a href="https://github.com/XurxoMF/gallaecia-dots" target="_blank" rel="external noreferrer" class={Button.rootVariants({ size: "lg" })}
-		>{m.gallaecia_action_repo()}</a
-	>
+	<a href="https://github.com/XurxoMF/gallaecia-dots" target="_blank" rel="external noreferrer" class={Button.rootVariants({ size: "lg" })}>
+		{m.gallaecia_action_repo()}
+	</a>
 	<a href="#instalacion" class={Button.rootVariants({ variant: "secondary", size: "lg" })}>{m.gallaecia_action_install()}</a>
 {/snippet}
 

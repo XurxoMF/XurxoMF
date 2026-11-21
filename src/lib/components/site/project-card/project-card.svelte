@@ -1,7 +1,7 @@
 <script lang="ts" module>
 	import type { HTMLAttributes } from "svelte/elements";
-	import type { Project } from "$lib/data/projects";
-	import type { WithElementRef } from "$lib/utils";
+	import type { Project } from "#lib/data/projects.ts";
+	import type { WithElementRef } from "#lib/utils.ts";
 
 	export type RootProps = WithElementRef<HTMLAttributes<HTMLDivElement>, HTMLDivElement> & {
 		project: Project;
@@ -11,14 +11,16 @@
 
 <script lang="ts">
 	import { resolve } from "$app/paths";
-	import type { Pathname } from "$app/types";
-	import * as m from "$lib/paraglide/messages.js";
-	import { localizeHref } from "$lib/paraglide/runtime";
 
-	import { cn } from "$lib/utils";
+	import { toResolvablePath } from "#lib/site/routing.ts";
 
-	import * as Button from "$lib/components/ui/button";
-	import * as Card from "$lib/components/ui/card";
+	import * as m from "#lib/paraglide/messages.js";
+	import { localizeHref } from "#lib/paraglide/runtime.js";
+
+	import { cn } from "#lib/utils.ts";
+
+	import * as Button from "#lib/components/ui/button/index.ts";
+	import * as Card from "#lib/components/ui/card/index.ts";
 
 	let { ref = $bindable(null), project, number, class: className, ...restProps }: RootProps = $props();
 </script>
@@ -52,13 +54,13 @@
 
 	<Card.Footer class="mt-auto justify-end">
 		{#if project.href}
-			<a href={resolve(localizeHref(project.href) as Pathname)} class={Button.rootVariants({ variant: "ghost", size: "sm" })}
-				>{m.project_card_view()}</a
-			>
+			<a href={resolve(toResolvablePath(localizeHref(project.href)))} class={Button.rootVariants({ variant: "ghost", size: "sm" })}>
+				{m.project_card_view()}
+			</a>
 		{:else}
-			<span class={Button.rootVariants({ variant: "ghost", size: "sm", class: "pointer-events-none text-muted-foreground" })}
-				>{m.project_card_preparing()}</span
-			>
+			<span class={Button.rootVariants({ variant: "ghost", size: "sm", class: "pointer-events-none text-muted-foreground" })}>
+				{m.project_card_preparing()}
+			</span>
 		{/if}
 	</Card.Footer>
 </Card.Root>

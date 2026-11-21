@@ -23,7 +23,6 @@ export { default as FolderOpenIcon } from "@tabler/icons-svelte/icons/folder-ope
 export { default as LiveIcon } from "@tabler/icons-svelte/icons/radio";
 export { default as LoaderIcon } from "@tabler/icons-svelte/icons/loader";
 export { default as MinusIcon } from "@tabler/icons-svelte/icons/minus";
-export { default as MoonIcon } from "@tabler/icons-svelte/icons/moon";
 export { default as PauseIcon } from "@tabler/icons-svelte/icons/player-pause";
 export { default as PlaybackSpeedIcon } from "@tabler/icons-svelte/icons/gauge";
 export { default as PlayIcon } from "@tabler/icons-svelte/icons/player-play";
@@ -41,7 +40,6 @@ export { default as ShuffleIcon } from "@tabler/icons-svelte/icons/arrows-shuffl
 export { default as SidebarIcon } from "@tabler/icons-svelte/icons/layout-sidebar";
 export { default as StarHalfIcon } from "@tabler/icons-svelte/icons/star-half";
 export { default as StarIcon } from "@tabler/icons-svelte/icons/star";
-export { default as SunIcon } from "@tabler/icons-svelte/icons/sun";
 export { default as SkipBackIcon } from "@tabler/icons-svelte/icons/player-track-prev";
 export { default as SkipForwardIcon } from "@tabler/icons-svelte/icons/player-track-next";
 export { default as TrackIcon } from "@tabler/icons-svelte/icons/music";
@@ -50,10 +48,12 @@ export { default as VolumeIcon } from "@tabler/icons-svelte/icons/volume";
 export { default as VolumeLowIcon } from "@tabler/icons-svelte/icons/volume-2";
 export { default as VolumeMutedIcon } from "@tabler/icons-svelte/icons/volume-off";
 
-// Custom icons
+// Application icons
 export { default as WhatsAppIcon } from "@tabler/icons-svelte/icons/brand-whatsapp";
 export { default as FacebookIcon } from "@tabler/icons-svelte/icons/brand-facebook";
 export { default as InstagramIcon } from "@tabler/icons-svelte/icons/brand-instagram";
 export { default as LinkedInIcon } from "@tabler/icons-svelte/icons/brand-linkedin";
 export { default as MailIcon } from "@tabler/icons-svelte/icons/mail";
+export { default as MoonIcon } from "@tabler/icons-svelte/icons/moon";
 export { default as PhoneIcon } from "@tabler/icons-svelte/icons/phone";
+export { default as SunIcon } from "@tabler/icons-svelte/icons/sun";

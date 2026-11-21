@@ -1,17 +1,17 @@
 <script lang="ts">
-	import SeoHead from "$lib/seo-head.svelte";
-	import { LiveIcon } from "$lib/icons";
-	import * as m from "$lib/paraglide/messages.js";
+	import SeoHead from "#lib/seo-head.svelte";
+	import { LiveIcon } from "#lib/icons.ts";
+	import * as m from "#lib/paraglide/messages.js";
 
-	import * as ContactBanner from "$lib/components/site/contact-banner";
-	import * as DetailHero from "$lib/components/site/detail-hero";
-	import * as DualPathSection from "$lib/components/site/dual-path-section";
-	import * as FactsStrip from "$lib/components/site/facts-strip";
-	import * as NarrativeSection from "$lib/components/site/narrative-section";
-	import * as WorkflowSection from "$lib/components/site/workflow-section";
-	import * as WtflowBanner from "$lib/components/site/wtflow-banner";
-	import * as Badge from "$lib/components/ui/badge";
-	import * as Button from "$lib/components/ui/button";
+	import * as ContactBanner from "#lib/components/site/contact-banner/index.ts";
+	import * as DetailHero from "#lib/components/site/detail-hero/index.ts";
+	import * as DualPathSection from "#lib/components/site/dual-path-section/index.ts";
+	import * as FactsStrip from "#lib/components/site/facts-strip/index.ts";
+	import * as NarrativeSection from "#lib/components/site/narrative-section/index.ts";
+	import * as WorkflowSection from "#lib/components/site/workflow-section/index.ts";
+	import * as WtflowBanner from "#lib/components/site/wtflow-banner/index.ts";
+	import * as Badge from "#lib/components/ui/badge/index.ts";
+	import * as Button from "#lib/components/ui/button/index.ts";
 </script>
 
 {#snippet heroBadges()}

@@ -1,17 +1,17 @@
 <script lang="ts">
-	import SeoHead from "$lib/seo-head.svelte";
-	import { FolderIcon, LiveIcon, PreferencesIcon } from "$lib/icons";
-	import * as m from "$lib/paraglide/messages.js";
+	import SeoHead from "#lib/seo-head.svelte";
+	import { FolderIcon, LiveIcon, PreferencesIcon } from "#lib/icons.ts";
+	import * as m from "#lib/paraglide/messages.js";
 
-	import * as CodeSection from "$lib/components/site/code-section";
-	import * as ContactBanner from "$lib/components/site/contact-banner";
-	import * as DetailHero from "$lib/components/site/detail-hero";
-	import * as FactsStrip from "$lib/components/site/facts-strip";
-	import * as ProblemSection from "$lib/components/site/problem-section";
-	import * as WorkflowSection from "$lib/components/site/workflow-section";
-	import * as Badge from "$lib/components/ui/badge";
-	import * as Button from "$lib/components/ui/button";
-	import * as Card from "$lib/components/ui/card";
+	import * as CodeSection from "#lib/components/site/code-section/index.ts";
+	import * as ContactBanner from "#lib/components/site/contact-banner/index.ts";
+	import * as DetailHero from "#lib/components/site/detail-hero/index.ts";
+	import * as FactsStrip from "#lib/components/site/facts-strip/index.ts";
+	import * as ProblemSection from "#lib/components/site/problem-section/index.ts";
+	import * as WorkflowSection from "#lib/components/site/workflow-section/index.ts";
+	import * as Badge from "#lib/components/ui/badge/index.ts";
+	import * as Button from "#lib/components/ui/button/index.ts";
+	import * as Card from "#lib/components/ui/card/index.ts";
 
 	const deployCommand = `docker run -dit --name <container_name> \\
   -e UID=$(id -u) -e GID=$(id -g) \\
@@ -29,15 +29,17 @@
 {/snippet}
 
 {#snippet heroActions()}
-	<a href="https://hub.docker.com/r/xurxomf/vsds" target="_blank" rel="external noreferrer" class={Button.rootVariants({ size: "lg" })}
-		>{m.vsds_action_docker()}</a
-	>
+	<a href="https://hub.docker.com/r/xurxomf/vsds" target="_blank" rel="external noreferrer" class={Button.rootVariants({ size: "lg" })}>
+		{m.vsds_action_docker()}
+	</a>
 	<a
 		href="https://github.com/XurxoMF/vsds"
 		target="_blank"
 		rel="external noreferrer"
-		class={Button.rootVariants({ variant: "secondary", size: "lg" })}>{m.vsds_action_repo()}</a
+		class={Button.rootVariants({ variant: "secondary", size: "lg" })}
 	>
+		{m.vsds_action_repo()}
+	</a>
 {/snippet}
 
 <SeoHead title={m.vsds_meta_title()} description={m.vsds_meta_description()} image="/images/projects/vsds/banner.webp" />
