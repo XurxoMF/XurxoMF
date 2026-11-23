@@ -8,7 +8,7 @@
 <script lang="ts">
 	import { contact } from "#lib/data/contact.ts";
 
-	import { FacebookIcon, InstagramIcon, LinkedInIcon, MailIcon, PhoneIcon, WhatsAppIcon } from "#lib/icons.ts";
+	import { FacebookIcon, InstagramIcon, LinkedInIcon } from "#lib/icons.ts";
 	import * as m from "#lib/paraglide/messages.js";
 
 	import { cn } from "#lib/utils.ts";
@@ -22,91 +22,70 @@
 
 <section bind:this={ref} {id} data-slot="contact-banner" class={cn("scroll-mt-20 py-20 lg:py-28", className)} {...restProps}>
 	<Card.Root class="overflow-hidden bg-muted/60 dark:bg-muted/40">
-		<Card.Content class="grid gap-10 py-8 md:px-10 md:py-12 lg:grid-cols-[1.2fr_0.8fr] lg:items-center lg:gap-16">
+		<Card.Content class="grid gap-10 py-8 md:px-10 md:py-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-16">
 			<div class="max-w-2xl">
 				<p class="text-sm font-semibold tracking-widest text-primary uppercase">{m.nav_contact()}</p>
 				<Typography.H2 class="mt-4 border-0">{m.contact_banner_title()}</Typography.H2>
 				<Typography.P class="mt-4 text-muted-foreground">
 					{m.contact_banner_description()}
 				</Typography.P>
+			</div>
 
-				<div class="mt-8 flex flex-wrap gap-3">
-					<a
-						href={contact.email.href}
-						rel="external"
-						class={Button.rootVariants({ variant: "outline", size: "icon-lg", class: "rounded-full" })}
-						aria-label={m.contact_email_label()}
-						title={m.contact_email_title()}
-					>
-						<MailIcon aria-hidden="true" />
+			<div>
+				<p class="text-sm font-semibold tracking-widest text-muted-foreground uppercase">{m.layout_direct_contact()}</p>
+				<div class="mt-3 border-y">
+					<a class="group flex flex-col gap-1 py-4" href={contact.email.href} rel="external">
+						<span class="text-xs font-medium text-muted-foreground">{m.contact_email_title()}</span>
+						<span class="w-fit font-medium underline-offset-4 group-hover:text-primary group-hover:underline">{contact.email.label}</span>
 					</a>
-					<a
-						href={contact.phone.href}
-						rel="external"
-						class={Button.rootVariants({ variant: "outline", size: "icon-lg", class: "rounded-full" })}
-						aria-label={m.contact_phone_label()}
-						title={m.contact_phone_title()}
-					>
-						<PhoneIcon aria-hidden="true" />
+					<a class="group flex flex-col gap-1 border-t py-4" href={contact.phone.href} rel="external">
+						<span class="text-xs font-medium text-muted-foreground">{m.contact_phone_title()}</span>
+						<span class="w-fit font-medium underline-offset-4 group-hover:text-primary group-hover:underline">{contact.phone.label}</span>
 					</a>
-					<a
-						href={contact.socials.whatsapp.href}
-						target="_blank"
-						rel="external noreferrer"
-						class={Button.rootVariants({ variant: "outline", size: "icon-lg", class: "rounded-full" })}
-						aria-label={m.contact_whatsapp_label()}
-						title="WhatsApp"
-					>
-						<WhatsAppIcon aria-hidden="true" />
+					<a class="group flex flex-col gap-1 border-t py-4" href={contact.socials.whatsapp.href} target="_blank" rel="external noreferrer">
+						<span class="text-xs font-medium text-muted-foreground">WhatsApp</span>
+						<span class="w-fit font-medium underline-offset-4 group-hover:text-primary group-hover:underline">{contact.phone.label}</span>
 					</a>
+				</div>
+			</div>
+		</Card.Content>
+
+		<Card.Footer class="px-6 py-5 md:px-10">
+			<div class="flex w-full flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+				<p class="text-sm font-medium">{m.contact_socials_title()}</p>
+				<div class="flex flex-wrap gap-2">
 					<a
 						href={contact.socials.linkedin.href}
 						target="_blank"
 						rel="external noreferrer"
-						class={Button.rootVariants({ variant: "outline", size: "icon-lg", class: "rounded-full" })}
+						class={Button.rootVariants({ variant: "outline", size: "sm", class: "rounded-full" })}
 						aria-label={m.contact_linkedin_label()}
-						title="LinkedIn"
 					>
 						<LinkedInIcon aria-hidden="true" />
+						{contact.socials.linkedin.label}
 					</a>
 					<a
 						href={contact.socials.instagram.href}
 						target="_blank"
 						rel="external noreferrer"
-						class={Button.rootVariants({ variant: "outline", size: "icon-lg", class: "rounded-full" })}
+						class={Button.rootVariants({ variant: "outline", size: "sm", class: "rounded-full" })}
 						aria-label={m.contact_instagram_label()}
-						title="Instagram"
 					>
 						<InstagramIcon aria-hidden="true" />
+						{contact.socials.instagram.label}
 					</a>
 					<a
 						href={contact.socials.facebook.href}
 						target="_blank"
 						rel="external noreferrer"
-						class={Button.rootVariants({ variant: "outline", size: "icon-lg", class: "rounded-full" })}
+						class={Button.rootVariants({ variant: "outline", size: "sm", class: "rounded-full" })}
 						aria-label={m.contact_facebook_label()}
-						title="Facebook"
 					>
 						<FacebookIcon aria-hidden="true" />
+						{contact.socials.facebook.label}
 					</a>
 				</div>
 			</div>
-
-			<div class="rounded-2xl border bg-background/70 p-6 backdrop-blur-sm">
-				<p class="font-medium">{m.contact_now()}</p>
-				<p class="mt-2 text-sm leading-6 text-muted-foreground">{m.contact_availability()}</p>
-
-				<dl class="mt-6 grid gap-4 border-t pt-6 text-sm">
-					<div class="flex items-center justify-between gap-4">
-						<dt class="text-muted-foreground">{m.contact_response_label()}</dt>
-						<dd class="font-medium">{m.contact_response_value()}</dd>
-					</div>
-					<div class="flex items-center justify-between gap-4">
-						<dt class="text-muted-foreground">{m.contact_location_label()}</dt>
-						<dd class="text-right font-medium">{contact.location}</dd>
-					</div>
-				</dl>
-			</div>
-		</Card.Content>
+		</Card.Footer>
 	</Card.Root>
 </section>

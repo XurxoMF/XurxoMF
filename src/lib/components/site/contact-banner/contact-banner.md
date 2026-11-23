@@ -1,6 +1,6 @@
 # Contact Banner
 
-A reusable contact callout that presents the project's primary contact channels, current availability, response time, and location in a responsive card.
+A reusable contact callout that separates visible direct contact details from social profiles in a responsive card.
 
 ## Import
 
@@ -30,11 +30,11 @@ Override native section attributes or layout classes when embedding it in anothe
 
 `ContactBanner.Root` renders a native `section` and accepts its standard HTML attributes, a merged `class`, an optional bindable `ref`, and an `id` that defaults to `contacto`. The stable styling hook is `data-slot="contact-banner"`.
 
-The component owns no mutable state. Contact destinations and the displayed location come from `#lib/data/contact.ts`; changing that data updates every instance.
+The component owns no mutable state. Contact destinations and visible email and telephone values come from `#lib/data/contact.ts`; changing that data updates every instance.
 
 ## Accessibility
 
-The heading preserves the surrounding page's level-two hierarchy. Icon-only contact links include accessible names and decorative icons are hidden from assistive technology. The primary actions are ordered as email, telephone, and WhatsApp before the social profiles. External web destinations open in a new tab and use `rel="external noreferrer"`; email and telephone stay in the current context and use `rel="external"`.
+The heading preserves the surrounding page's level-two hierarchy. Email, telephone, and WhatsApp are exposed as full-width links with their destination visible as text. Social links pair their brand icon with a visible name and include accessible names; decorative icons are hidden from assistive technology. External web destinations open in a new tab and use `rel="external noreferrer"`; email and telephone stay in the current context and use `rel="external"`.
 
 ## Localization
 
