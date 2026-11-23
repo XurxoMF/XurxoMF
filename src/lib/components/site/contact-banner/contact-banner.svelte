@@ -8,7 +8,7 @@
 <script lang="ts">
 	import { contact } from "#lib/data/contact.ts";
 
-	import { FacebookIcon, InstagramIcon, LinkedInIcon } from "#lib/icons.ts";
+	import { FacebookIcon, GitHubIcon, InstagramIcon, LinkedInIcon } from "#lib/icons.ts";
 	import * as m from "#lib/paraglide/messages.js";
 
 	import { cn } from "#lib/utils.ts";
@@ -83,6 +83,16 @@
 					>
 						<FacebookIcon aria-hidden="true" />
 						{contact.socials.facebook.label}
+					</a>
+					<a
+						href={contact.socials.github.href}
+						target="_blank"
+						rel="external noreferrer"
+						class={Button.rootVariants({ variant: "outline", size: "sm", class: "rounded-full" })}
+						aria-label={m.contact_github_label()}
+					>
+						<GitHubIcon aria-hidden="true" />
+						{contact.socials.github.label}
 					</a>
 				</div>
 			</div>

@@ -51,6 +51,7 @@ export { default as VolumeMutedIcon } from "@tabler/icons-svelte/icons/volume-of
 // Application icons
 export { default as WhatsAppIcon } from "@tabler/icons-svelte/icons/brand-whatsapp";
 export { default as FacebookIcon } from "@tabler/icons-svelte/icons/brand-facebook";
+export { default as GitHubIcon } from "@tabler/icons-svelte/icons/brand-github";
 export { default as InstagramIcon } from "@tabler/icons-svelte/icons/brand-instagram";
 export { default as LinkedInIcon } from "@tabler/icons-svelte/icons/brand-linkedin";
 export { default as MailIcon } from "@tabler/icons-svelte/icons/mail";

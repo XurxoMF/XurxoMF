@@ -26,6 +26,10 @@ export const contact = {
 		facebook: {
 			label: "Facebook",
 			href: "https://www.facebook.com/xurxomf"
+		},
+		github: {
+			label: "GitHub",
+			href: "https://github.com/XurxoMF"
 		}
 	}
 } as const;

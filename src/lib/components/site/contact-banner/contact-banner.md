@@ -1,6 +1,6 @@
 # Contact Banner
 
-A reusable contact callout that separates visible direct contact details from social profiles in a responsive card.
+A reusable contact callout that separates visible direct contact details from LinkedIn, Instagram, Facebook, and GitHub profiles in a responsive card.
 
 ## Import
 
