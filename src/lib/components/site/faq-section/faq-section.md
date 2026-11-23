@@ -27,6 +27,8 @@ Sección compartida de preguntas frecuentes para as páxinas de servizo. Mantén
 
 As preguntas renderízanse con `details` e `summary` nativos. Isto mantén a apertura accesible mediante rato, teclado e tecnoloxías de asistencia sen estado JavaScript adicional.
 
+Cada despregable ten o seu propio trigger de entrada. As preguntas posteriores permanecen ocultas ata chegar á zona visible, en lugar de reproducirse todas cando entra a primeira.
+
 ## Ficheiros
 
 - `faq-section.svelte`: estrutura, textos comúns e lista despregable.

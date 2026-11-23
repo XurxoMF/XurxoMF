@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { projects } from "#lib/data/projects.ts";
 	import SeoHead from "#lib/seo-head.svelte";
+	import { contentReveal, contentRevealEach } from "#lib/motion/content-reveal.ts";
 	import * as m from "#lib/paraglide/messages.js";
 
 	import * as ContactBanner from "#lib/components/site/contact-banner/index.ts";
@@ -20,7 +21,7 @@
 
 <div class="mx-auto w-full max-w-6xl px-6">
 	<section class="py-20 lg:py-28" aria-labelledby="projects-heading">
-		<div class="max-w-3xl">
+		<div {@attach contentReveal({ steps: [{ target: "children", direction: "left", stagger: 0.1 }], start: "top 92%" })} class="max-w-3xl">
 			<p class="text-sm font-semibold tracking-widest text-primary uppercase">{m.projects_kicker()}</p>
 			<Typography.H1 id="projects-heading" class="mt-4">{m.projects_title()}</Typography.H1>
 			<Typography.Leading class="mt-5 max-w-2xl text-muted-foreground">
@@ -30,14 +31,20 @@
 		</div>
 
 		{#if projects.length > 0}
-			<div id="lista-proxectos" class="mt-12 grid scroll-mt-24 gap-6 md:grid-cols-2 lg:grid-cols-3">
-				{#each visibleProjects as project, index (project.title)}
-					<ProjectCard.Root {project} number={(page - 1) * PROJECTS_PER_PAGE + index + 1} />
-				{/each}
-			</div>
+			{#key page}
+				<div
+					id="lista-proxectos"
+					{@attach contentRevealEach({ target: "children", stagger: 0.08 })}
+					class="mt-12 grid scroll-mt-24 gap-6 md:grid-cols-2 lg:grid-cols-3"
+				>
+					{#each visibleProjects as project, index (project.title)}
+						<ProjectCard.Root {project} number={(page - 1) * PROJECTS_PER_PAGE + index + 1} />
+					{/each}
+				</div>
+			{/key}
 
 			{#if projects.length > PROJECTS_PER_PAGE}
-				<div class="mt-12 grid gap-4 border-t pt-8">
+				<div {@attach contentReveal({ steps: [{ target: "children", stagger: 0.08 }] })} class="mt-12 grid gap-4 border-t pt-8">
 					<p class="text-center text-sm text-muted-foreground" aria-live="polite">
 						{m.projects_range({ start: rangeStart, end: rangeEnd, total: projects.length })}
 					</p>

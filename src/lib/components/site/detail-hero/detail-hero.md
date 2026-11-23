@@ -5,3 +5,5 @@ Banner principal compartido polas fichas de proxectos e servizos, cunha imaxe de
 Impórtase desde `#lib/components/site/detail-hero/index.ts` e úsase como `DetailHero.Root`. Require `image`, `title`, `lead` e `description`; admite `imageAlt`, `imagePosition` e os snippets opcionais `badges` e `actions`.
 
 Os badges deben limitarse a categoría, tipo e estado, nesa orde. A imaxe pode ser decorativa con texto alternativo baleiro cando o seu contido xa está explicado na páxina.
+
+O contido entra unha soa vez mediante o preset editorial compartido: badges, título, entradiña, descrición e accións aparecen de maneira graduada desde a esquerda en escritorio e desde abaixo en pantallas compactas. Con movemento reducido aplícase directamente o estado final.

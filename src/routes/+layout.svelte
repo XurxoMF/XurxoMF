@@ -213,7 +213,7 @@
 		</div>
 	</header>
 
-	<main class="flex-1">
+	<main class="flex-1 overflow-x-clip">
 		{@render children()}
 	</main>
 

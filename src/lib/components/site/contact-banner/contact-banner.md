@@ -32,6 +32,8 @@ Override native section attributes or layout classes when embedding it in anothe
 
 The component owns no mutable state. Contact destinations and visible email and telephone values come from `#lib/data/contact.ts`; changing that data updates every instance.
 
+The editorial copy, direct contact rows, and social links reveal as three coordinated groups. Desktop content enters from its visual side, compact layouts use a short upward motion, and reduced-motion users receive the completed state immediately.
+
 ## Accessibility
 
 The heading preserves the surrounding page's level-two hierarchy. Email, telephone, and WhatsApp are exposed as full-width links with their destination visible as text. Social links pair their brand icon with a visible name and include accessible names; decorative icons are hidden from assistive technology. External web destinations open in a new tab and use `rel="external noreferrer"`; email and telephone stay in the current context and use `rel="external"`.
@@ -42,7 +44,7 @@ All visible copy and accessible names use Paraglide messages in Galician, Spanis
 
 ## Dependencies
 
-Contact Banner composes the public Button, Card, and Typography units, semantic contact icons from `#lib/icons.ts`, the shared `cn` utility, and `#lib/data/contact.ts`. It requires the consuming application's existing theme tokens and global focus styles.
+Contact Banner composes the public Button, Card, and Typography units, semantic contact icons from `#lib/icons.ts`, the shared `cn` utility, `#lib/data/contact.ts`, and the application content-reveal preset. It requires the consuming application's existing theme tokens and global focus styles.
 
 ## File organization
 

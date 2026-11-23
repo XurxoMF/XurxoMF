@@ -4,6 +4,7 @@
 	import { services } from "#lib/data/services.ts";
 	import SeoHead from "#lib/seo-head.svelte";
 	import { toResolvablePath } from "#lib/site/routing.ts";
+	import { contentReveal, contentRevealEach } from "#lib/motion/content-reveal.ts";
 	import * as m from "#lib/paraglide/messages.js";
 	import { localizeHref } from "#lib/paraglide/runtime.js";
 
@@ -24,35 +25,41 @@
 
 <div class="mx-auto w-full max-w-6xl px-6">
 	<section class="py-20 lg:py-28" aria-labelledby="services-heading">
-		<div class="max-w-3xl">
+		<div {@attach contentReveal({ steps: [{ target: "children", direction: "left", stagger: 0.1 }], start: "top 92%" })} class="max-w-3xl">
 			<p class="text-sm font-semibold tracking-widest text-primary uppercase">{m.services_kicker()}</p>
 			<Typography.H1 id="services-heading" class="mt-4">{m.services_title()}</Typography.H1>
 			<Typography.Leading class="mt-5 max-w-2xl text-muted-foreground">{m.services_description()}</Typography.Leading>
 			<p class="mt-6 text-sm font-medium text-muted-foreground">{m.services_count({ count: services.length })}</p>
 		</div>
 
-		<div id="lista-servizos" class="mt-12 grid scroll-mt-24 gap-6 md:grid-cols-2 lg:grid-cols-3">
-			{#each visibleServices as service, index (service.href)}
-				<Card.Root class="h-full">
-					<img src={service.image} alt="" width="1672" height="941" loading="lazy" decoding="async" class="aspect-video w-full object-cover" />
-					<Card.Header>
-						<Card.Action>
-							<span class="font-mono text-sm text-primary">{String((page - 1) * SERVICES_PER_PAGE + index + 1).padStart(2, "0")}</span>
-						</Card.Action>
-						<Card.Title role="heading" aria-level={2}>{service.title}</Card.Title>
-						<Card.Description>{service.shortDescription}</Card.Description>
-					</Card.Header>
-					<Card.Footer class="mt-auto justify-end">
-						<a href={resolve(toResolvablePath(localizeHref(service.href)))} class={Button.rootVariants({ variant: "ghost", size: "sm" })}>
-							{m.service_card_action()}
-						</a>
-					</Card.Footer>
-				</Card.Root>
-			{/each}
-		</div>
+		{#key page}
+			<div
+				id="lista-servizos"
+				{@attach contentRevealEach({ target: "children", stagger: 0.08 })}
+				class="mt-12 grid scroll-mt-24 gap-6 md:grid-cols-2 lg:grid-cols-3"
+			>
+				{#each visibleServices as service, index (service.href)}
+					<Card.Root class="h-full">
+						<img src={service.image} alt="" width="1672" height="941" loading="lazy" decoding="async" class="aspect-video w-full object-cover" />
+						<Card.Header>
+							<Card.Action>
+								<span class="font-mono text-sm text-primary">{String((page - 1) * SERVICES_PER_PAGE + index + 1).padStart(2, "0")}</span>
+							</Card.Action>
+							<Card.Title role="heading" aria-level={2}>{service.title}</Card.Title>
+							<Card.Description>{service.shortDescription}</Card.Description>
+						</Card.Header>
+						<Card.Footer class="mt-auto justify-end">
+							<a href={resolve(toResolvablePath(localizeHref(service.href)))} class={Button.rootVariants({ variant: "ghost", size: "sm" })}>
+								{m.service_card_action()}
+							</a>
+						</Card.Footer>
+					</Card.Root>
+				{/each}
+			</div>
+		{/key}
 
 		{#if services.length > SERVICES_PER_PAGE}
-			<div class="mt-12 grid gap-4 border-t pt-8">
+			<div {@attach contentReveal({ steps: [{ target: "children", stagger: 0.08 }] })} class="mt-12 grid gap-4 border-t pt-8">
 				<p class="text-center text-sm text-muted-foreground" aria-live="polite">
 					{m.services_range({ start: rangeStart, end: rangeEnd, total: services.length })}
 				</p>

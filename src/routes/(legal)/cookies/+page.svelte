@@ -1,12 +1,16 @@
 <script lang="ts">
 	import SeoHead from "#lib/seo-head.svelte";
+	import { contentReveal } from "#lib/motion/content-reveal.ts";
 	import * as m from "#lib/paraglide/messages.js";
 </script>
 
 <SeoHead title={`${m.cookies_title()} | XurxoMF`} description={m.cookies_meta_description()} />
 
 <article>
-	<header class="max-w-3xl border-b pb-10">
+	<header
+		{@attach contentReveal({ steps: [{ target: "children", direction: "left", stagger: 0.1 }], start: "top 92%" })}
+		class="max-w-3xl border-b pb-10"
+	>
 		<p class="text-sm font-semibold tracking-widest text-primary uppercase">{m.legal_information_kicker()}</p>
 		<h1 class="mt-4 text-4xl font-bold tracking-tight sm:text-5xl">{m.cookies_title()}</h1>
 		<p class="mt-6 text-lg leading-8 text-muted-foreground">{m.cookies_intro()}</p>
@@ -18,12 +22,12 @@
 	<div
 		class="mt-12 space-y-12 leading-7 [&_a]:font-medium [&_a]:text-primary [&_a]:underline-offset-4 [&_a:hover]:underline [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:tracking-tight [&_li]:text-muted-foreground [&_p]:text-muted-foreground"
 	>
-		<section>
+		<section {@attach contentReveal({ steps: [{ target: "children", stagger: 0.08 }] })}>
 			<h2>{m.cookies_definition_title()}</h2>
 			<p class="mt-4">{m.cookies_definition_description()}</p>
 		</section>
 
-		<section>
+		<section {@attach contentReveal({ steps: [{ target: "children", stagger: 0.08 }] })}>
 			<h2>{m.cookies_current_title()}</h2>
 			<p class="mt-4">{m.cookies_current_description()}</p>
 			<div class="mt-5 overflow-x-auto rounded-xl border">
@@ -60,27 +64,27 @@
 			</div>
 		</section>
 
-		<section>
+		<section {@attach contentReveal({ steps: [{ target: "children", stagger: 0.08 }] })}>
 			<h2>{m.cookies_analytics_title()}</h2>
 			<p class="mt-4">{m.cookies_analytics_description()}</p>
 		</section>
 
-		<section>
+		<section {@attach contentReveal({ steps: [{ target: "children", stagger: 0.08 }] })}>
 			<h2>{m.cookies_legal_basis_title()}</h2>
 			<p class="mt-4">{m.cookies_legal_basis_description()}</p>
 		</section>
 
-		<section>
+		<section {@attach contentReveal({ steps: [{ target: "children", stagger: 0.08 }] })}>
 			<h2>{m.cookies_management_title()}</h2>
 			<p class="mt-4">{m.cookies_management_description()}</p>
 		</section>
 
-		<section>
+		<section {@attach contentReveal({ steps: [{ target: "children", stagger: 0.08 }] })}>
 			<h2>{m.cookies_changes_title()}</h2>
 			<p class="mt-4">{m.cookies_changes_description()}</p>
 		</section>
 
-		<section>
+		<section {@attach contentReveal({ steps: [{ target: "children", stagger: 0.08 }] })}>
 			<h2>{m.cookies_contact_title()}</h2>
 			<p class="mt-4">{m.cookies_contact_description()} <a href="mailto:xurxomf@xurxomf.xyz">xurxomf@xurxomf.xyz</a>.</p>
 		</section>

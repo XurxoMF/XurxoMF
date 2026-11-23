@@ -10,6 +10,7 @@
 </script>
 
 <script lang="ts">
+	import { contentRevealEach } from "#lib/motion/content-reveal.ts";
 	import * as m from "#lib/paraglide/messages.js";
 
 	import * as ProblemSection from "#lib/components/site/problem-section/index.ts";
@@ -17,8 +18,8 @@
 	let { faqs }: RootProps = $props();
 </script>
 
-<ProblemSection.Root kicker={m.service_page_faq_kicker()} title={m.service_page_faq_title()}>
-	<div class="grid gap-3">
+<ProblemSection.Root kicker={m.service_page_faq_kicker()} title={m.service_page_faq_title()} animateBody={false}>
+	<div {@attach contentRevealEach({ target: "children", direction: "right", stagger: 0 })} class="grid gap-3">
 		{#each faqs as faq (faq.question)}
 			<details class="rounded-xl border bg-card px-5 py-4 open:pb-5">
 				<summary class="cursor-pointer font-semibold">{faq.question}</summary>

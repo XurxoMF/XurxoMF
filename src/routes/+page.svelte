@@ -6,6 +6,7 @@
 	import { services, type Service } from "#lib/data/services.ts";
 	import SeoHead from "#lib/seo-head.svelte";
 	import { toResolvablePath } from "#lib/site/routing.ts";
+	import { contentReveal, contentRevealEach } from "#lib/motion/content-reveal.ts";
 	import * as m from "#lib/paraglide/messages.js";
 	import { localizeHref } from "#lib/paraglide/runtime.js";
 
@@ -42,7 +43,10 @@
 </script>
 
 {#snippet heroService(number: string, title: string, detail: string)}
-	<div class="grid grid-cols-[auto_1fr] gap-4 rounded-2xl border bg-card p-5 text-card-foreground shadow-sm lg:min-h-28 lg:items-center">
+	<div
+		data-home-hero-service
+		class="grid grid-cols-[auto_1fr] gap-4 rounded-2xl border bg-card p-5 text-card-foreground shadow-sm lg:min-h-28 lg:items-center"
+	>
 		<span class="font-mono text-sm text-primary">{number}</span>
 		<div>
 			<p class="font-semibold tracking-tight">{title}</p>
@@ -88,23 +92,32 @@
 
 <div class="mx-auto w-full max-w-6xl px-6">
 	<section id="sobre-min" class="scroll-mt-20">
-		<div class="grid min-h-[calc(100svh-7rem)] items-center gap-14 py-16 lg:grid-cols-[1.15fr_0.85fr] lg:gap-20 lg:py-24">
+		<div
+			{@attach contentReveal({
+				steps: [
+					{ target: "[data-home-hero-copy], [data-home-hero-actions] > *", direction: "left", stagger: 0.1 },
+					{ target: "[data-home-hero-service]", direction: "right", stagger: 0.1 }
+				],
+				start: "top 92%"
+			})}
+			class="grid min-h-[calc(100svh-7rem)] items-center gap-14 py-16 lg:grid-cols-[1.15fr_0.85fr] lg:gap-20 lg:py-24"
+		>
 			<div class="max-w-3xl">
-				<Badge.Root variant="success" class="mb-6">{m.common_available()}</Badge.Root>
+				<Badge.Root data-home-hero-copy variant="success" class="mb-6">{m.common_available()}</Badge.Root>
 
-				<Typography.H1 class="text-5xl tracking-[-0.06em] sm:text-6xl lg:text-7xl">{m.home_hero_title()}</Typography.H1>
+				<Typography.H1 data-home-hero-copy class="text-5xl tracking-[-0.06em] sm:text-6xl lg:text-7xl">{m.home_hero_title()}</Typography.H1>
 
-				<Typography.Leading class="mt-5 max-w-2xl text-2xl font-semibold text-foreground sm:text-3xl">
+				<Typography.Leading data-home-hero-copy class="mt-5 max-w-2xl text-2xl font-semibold text-foreground sm:text-3xl">
 					{m.home_hero_lead()}
 				</Typography.Leading>
 
-				<Typography.P class="mt-6 max-w-2xl text-lg text-muted-foreground">
+				<Typography.P data-home-hero-copy class="mt-6 max-w-2xl text-lg text-muted-foreground">
 					{m.home_hero_description()}
 				</Typography.P>
 
-				<div class="mt-8 flex flex-wrap gap-3">
+				<div data-home-hero-actions class="mt-8 flex flex-wrap gap-3">
 					<a href="#servizos" class={Button.rootVariants({ size: "lg" })}>{m.home_view_services()}</a>
-					<a href={contact.email.href} rel="external" class={Button.rootVariants({ variant: "outline", size: "lg" })}>{m.home_contact_me()}</a>
+					<a href="#contacto" rel="external" class={Button.rootVariants({ variant: "outline", size: "lg" })}>{m.home_contact_me()}</a>
 				</div>
 			</div>
 
@@ -115,12 +128,21 @@
 			</div>
 		</div>
 
-		<div class="grid gap-10 py-20 lg:grid-cols-[0.7fr_1.3fr] lg:gap-20 lg:py-28">
+		<div
+			{@attach contentReveal({
+				steps: [
+					{ target: "[data-home-about-heading]", direction: "left", stagger: 0.11 },
+					{ target: "[data-home-about-badges] > *", direction: "left", stagger: 0.07 },
+					{ target: "[data-home-about-copy]", direction: "right", stagger: 0.1 }
+				]
+			})}
+			class="grid gap-10 py-20 lg:grid-cols-[0.7fr_1.3fr] lg:gap-20 lg:py-28"
+		>
 			<div class="lg:sticky lg:top-24 lg:self-start">
-				<p class="text-sm font-semibold tracking-widest text-primary uppercase">{m.nav_about()}</p>
-				<Typography.H2 class="mt-4 border-0">{m.home_about_title()}</Typography.H2>
+				<p data-home-about-heading class="text-sm font-semibold tracking-widest text-primary uppercase">{m.nav_about()}</p>
+				<Typography.H2 data-home-about-heading class="mt-4 border-0">{m.home_about_title()}</Typography.H2>
 
-				<div class="mt-8 flex flex-wrap gap-2" aria-label={m.home_work_style()}>
+				<div data-home-about-badges class="mt-8 flex flex-wrap gap-2" aria-label={m.home_work_style()}>
 					<Badge.Root>{m.home_badge_experience()}</Badge.Root>
 					<Badge.Root variant="secondary">{m.home_badge_platforms()}</Badge.Root>
 					<Badge.Root variant="secondary">{m.home_badge_clients()}</Badge.Root>
@@ -128,112 +150,138 @@
 			</div>
 
 			<div class="max-w-2xl">
-				<Typography.P class="mt-5 text-muted-foreground">
+				<Typography.P data-home-about-copy class="mt-5 text-muted-foreground">
 					{m.home_about_paragraph_1()}
 				</Typography.P>
-				<Typography.P class="mt-4 text-muted-foreground">
+				<Typography.P data-home-about-copy class="mt-4 text-muted-foreground">
 					{m.home_about_paragraph_2()}
 				</Typography.P>
-				<Typography.P class="mt-4 text-muted-foreground">
+				<Typography.P data-home-about-copy class="mt-4 text-muted-foreground">
 					{m.home_about_paragraph_3()}
 				</Typography.P>
 			</div>
 		</div>
 
-		<div class="grid gap-12 py-20 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20 lg:py-28">
+		<div
+			{@attach contentReveal({
+				steps: [{ target: "[data-home-career-heading]", direction: "left", stagger: 0.1 }]
+			})}
+			class="grid gap-12 py-20 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20 lg:py-28"
+		>
 			<div class="lg:sticky lg:top-24 lg:self-start">
-				<p class="text-sm font-semibold tracking-widest text-primary uppercase">{m.home_career_kicker()}</p>
-				<Typography.H2 class="mt-4 border-0">{m.home_career_title()}</Typography.H2>
-				<Typography.P class="mt-4 text-muted-foreground">
+				<p data-home-career-heading class="text-sm font-semibold tracking-widest text-primary uppercase">{m.home_career_kicker()}</p>
+				<Typography.H2 data-home-career-heading class="mt-4 border-0">{m.home_career_title()}</Typography.H2>
+				<Typography.P data-home-career-heading class="mt-4 text-muted-foreground">
 					{m.home_career_description()}
 				</Typography.P>
 			</div>
 
-			<Timeline.Root role="list" aria-label={m.home_career_label()}>
-				{@render careerEntry(
-					m.career_freelance_date(),
-					m.career_freelance_title(),
-					"XurxoMF",
-					"https://xurxomf.xyz",
-					m.career_freelance_description(),
-					m.career_experience()
-				)}
-				{@render careerEntry(
-					m.career_power_date(),
-					m.career_it_web_title(),
-					"Power Natural Life",
-					"https://powernaturallife.com",
-					m.career_power_description(),
-					m.career_experience()
-				)}
-				{@render careerEntry(
-					m.career_atlantic_date(),
-					m.career_it_web_title(),
-					"Atlantic C&C — AC2",
-					"https://ac2.es",
-					m.career_atlantic_description(),
-					m.career_experience()
-				)}
-				{@render careerEntry(
-					m.career_daw_date(),
-					m.career_daw_title(),
-					"IES Pazo da Mercé",
-					"https://www.edu.xunta.gal/centros/iespazomerce/",
-					m.career_daw_description(),
-					m.career_education()
-				)}
-				{@render careerEntry(
-					m.career_smr_date(),
-					m.career_smr_title(),
-					"IES Pazo da Mercé",
-					"https://www.edu.xunta.gal/centros/iespazomerce/",
-					m.career_smr_description(),
-					m.career_education()
-				)}
-			</Timeline.Root>
+			<div {@attach contentRevealEach({ target: "[data-slot=timeline-item]", direction: "right" })}>
+				<Timeline.Root role="list" aria-label={m.home_career_label()}>
+					{@render careerEntry(
+						m.career_freelance_date(),
+						m.career_freelance_title(),
+						"XurxoMF",
+						"https://xurxomf.xyz",
+						m.career_freelance_description(),
+						m.career_experience()
+					)}
+					{@render careerEntry(
+						m.career_power_date(),
+						m.career_it_web_title(),
+						"Power Natural Life",
+						"https://powernaturallife.com",
+						m.career_power_description(),
+						m.career_experience()
+					)}
+					{@render careerEntry(
+						m.career_atlantic_date(),
+						m.career_it_web_title(),
+						"Atlantic C&C — AC2",
+						"https://ac2.es",
+						m.career_atlantic_description(),
+						m.career_experience()
+					)}
+					{@render careerEntry(
+						m.career_daw_date(),
+						m.career_daw_title(),
+						"IES Pazo da Mercé",
+						"https://www.edu.xunta.gal/centros/iespazomerce/",
+						m.career_daw_description(),
+						m.career_education()
+					)}
+					{@render careerEntry(
+						m.career_smr_date(),
+						m.career_smr_title(),
+						"IES Pazo da Mercé",
+						"https://www.edu.xunta.gal/centros/iespazomerce/",
+						m.career_smr_description(),
+						m.career_education()
+					)}
+				</Timeline.Root>
+			</div>
 		</div>
 	</section>
 
-	<section id="servizos" class="scroll-mt-20 py-20 lg:py-28">
+	<section
+		id="servizos"
+		{@attach contentReveal({
+			steps: [
+				{ target: "[data-home-services-heading]", direction: "left", stagger: 0.1 },
+				{ target: "[data-home-services-action]", direction: "right" },
+				{ target: "[data-home-services-area]" }
+			]
+		})}
+		class="scroll-mt-20 py-20 lg:py-28"
+	>
 		<div class="mb-10 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
 			<div class="max-w-2xl">
-				<p class="text-sm font-semibold tracking-widest text-primary uppercase">{m.nav_services()}</p>
-				<Typography.H2 class="mt-4 border-0">{m.home_services_title()}</Typography.H2>
-				<Typography.P class="mt-4 text-muted-foreground">{m.home_services_description()}</Typography.P>
+				<p data-home-services-heading class="text-sm font-semibold tracking-widest text-primary uppercase">{m.nav_services()}</p>
+				<Typography.H2 data-home-services-heading class="mt-4 border-0">{m.home_services_title()}</Typography.H2>
+				<Typography.P data-home-services-heading class="mt-4 text-muted-foreground">{m.home_services_description()}</Typography.P>
 			</div>
 
-			<a href={resolve(toResolvablePath(localizeHref("/servizos")))} class={Button.rootVariants({ variant: "outline" })}>
+			<a data-home-services-action href={resolve(toResolvablePath(localizeHref("/servizos")))} class={Button.rootVariants({ variant: "outline" })}>
 				{m.home_all_services()}
 			</a>
 		</div>
 
-		<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+		<div data-home-services-grid {@attach contentRevealEach({ target: "children", stagger: 0.08 })} class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 			{#each featuredServices as service, index (service.href)}
 				{@render serviceCard(String(index + 1).padStart(2, "0"), service)}
 			{/each}
 		</div>
 
-		<Typography.P class="mt-8 max-w-4xl text-muted-foreground">
+		<Typography.P data-home-services-area class="mt-8 max-w-4xl text-muted-foreground">
 			{m.home_service_area()}
 		</Typography.P>
 	</section>
 
-	<section id="proxectos" class="scroll-mt-20 py-20 lg:py-28">
+	<section
+		id="proxectos"
+		{@attach contentReveal({
+			steps: [
+				{ target: "[data-home-projects-heading]", direction: "left", stagger: 0.1 },
+				{ target: "[data-home-projects-action]", direction: "right" }
+			]
+		})}
+		class="scroll-mt-20 py-20 lg:py-28"
+	>
 		<div class="mb-10 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
 			<div class="max-w-2xl">
-				<p class="text-sm font-semibold tracking-widest text-primary uppercase">{m.nav_projects()}</p>
-				<Typography.H2 class="mt-4 border-0">{m.home_projects_title()}</Typography.H2>
-				<Typography.P class="mt-4 text-muted-foreground">
+				<p data-home-projects-heading class="text-sm font-semibold tracking-widest text-primary uppercase">{m.nav_projects()}</p>
+				<Typography.H2 data-home-projects-heading class="mt-4 border-0">{m.home_projects_title()}</Typography.H2>
+				<Typography.P data-home-projects-heading class="mt-4 text-muted-foreground">
 					{m.home_projects_description()}
 				</Typography.P>
 			</div>
 
-			<a href={resolve(toResolvablePath(localizeHref("/proxectos")))} class={Button.rootVariants({ variant: "outline" })}>
+			<a data-home-projects-action href={resolve(toResolvablePath(localizeHref("/proxectos")))} class={Button.rootVariants({ variant: "outline" })}>
 				{m.home_all_projects()}
 			</a>
 		</div>
 
-		<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+		<div data-home-projects-grid {@attach contentRevealEach({ target: "children", stagger: 0.08 })} class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
 			{#each projects.filter((project) => project.featured).slice(0, 6) as project, index (project.title)}
 				<ProjectCard.Root {project} number={index + 1} />
 			{/each}

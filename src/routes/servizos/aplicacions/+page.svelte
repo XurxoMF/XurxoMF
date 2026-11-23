@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { projects } from "#lib/data/projects.ts";
 	import SeoHead from "#lib/seo-head.svelte";
+	import { contentReveal, contentRevealEach } from "#lib/motion/content-reveal.ts";
 	import * as m from "#lib/paraglide/messages.js";
 	import { localizeHref } from "#lib/paraglide/runtime.js";
 
@@ -129,13 +130,22 @@
 			{steps}
 		/>
 
-		<section class="py-20 lg:py-28">
-			<div class="mx-auto max-w-3xl text-center">
+		<section
+			{@attach contentReveal({
+				steps: [{ target: "[data-projects-heading] > *", stagger: 0.1 }]
+			})}
+			class="py-20 lg:py-28"
+		>
+			<div data-projects-heading class="mx-auto max-w-3xl text-center">
 				<p class="text-sm font-semibold tracking-widest text-primary uppercase">{m.service_apps_projects_kicker()}</p>
 				<Typography.H2 class="mt-4 border-0">{m.service_apps_projects_title()}</Typography.H2>
 				<Typography.P class="mx-auto mt-5 max-w-2xl text-muted-foreground">{m.service_apps_projects_description()}</Typography.P>
 			</div>
-			<div class="mx-auto mt-12 grid max-w-4xl gap-6 md:grid-cols-2">
+			<div
+				data-projects-grid
+				{@attach contentRevealEach({ target: "children", stagger: 0.08 })}
+				class="mx-auto mt-12 grid max-w-4xl gap-6 md:grid-cols-2"
+			>
 				{#each relatedProjects as project, index (project.title)}
 					<ProjectCard.Root {project} number={index + 1} />
 				{/each}

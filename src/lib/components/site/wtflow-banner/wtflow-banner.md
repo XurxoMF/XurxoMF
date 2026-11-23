@@ -37,6 +37,7 @@ O compoñente inclúe o ancho máximo e o espazado superior das páxinas de prox
 - Emprega o amarelo, o logo e a ligazón oficial de What The Flow porque o bloque representa explicitamente a súa marca.
 - Mantén o logo nunha columna e os créditos noutra a partir de escritorio; en pantallas pequenas apílaos.
 - O botón reutiliza `Button.rootVariants` e os textos usan os compoñentes públicos de Typography.
+- O logo entra desde a esquerda e os textos desde a dereita mediante o preset compartido; en pantallas compactas ambas as columnas aparecen desde abaixo.
 
 ## Accesibilidade
 
@@ -51,6 +52,7 @@ O texto visible está actualmente escrito en galego. Cando as páxinas de proxec
 - `#lib/utils.ts` para combinar clases e expoñer a referencia.
 - `#lib/components/ui/button/index.ts` para o estilo da ligazón principal.
 - `#lib/components/ui/typography/index.ts` para o título e o parágrafo.
+- `#lib/motion/content-reveal.ts` para a entrada responsive e o tratamento de movemento reducido.
 - `/static/images/brands/wtflow-logo.webp` como recurso compartido da marca.
 
 ## Organización

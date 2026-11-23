@@ -1,12 +1,16 @@
 <script lang="ts">
 	import SeoHead from "#lib/seo-head.svelte";
+	import { contentReveal } from "#lib/motion/content-reveal.ts";
 	import * as m from "#lib/paraglide/messages.js";
 </script>
 
 <SeoHead title={`${m.privacy_title()} | XurxoMF`} description={m.privacy_meta_description()} />
 
 <article>
-	<header class="max-w-3xl border-b pb-10">
+	<header
+		{@attach contentReveal({ steps: [{ target: "children", direction: "left", stagger: 0.1 }], start: "top 92%" })}
+		class="max-w-3xl border-b pb-10"
+	>
 		<p class="text-sm font-semibold tracking-widest text-primary uppercase">{m.legal_information_kicker()}</p>
 		<h1 class="mt-4 text-4xl font-bold tracking-tight sm:text-5xl">{m.privacy_title()}</h1>
 		<p class="mt-6 text-lg leading-8 text-muted-foreground">{m.privacy_intro()}</p>
@@ -18,7 +22,7 @@
 	<div
 		class="mt-12 space-y-12 leading-7 [&_a]:font-medium [&_a]:text-primary [&_a]:underline-offset-4 [&_a:hover]:underline [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:tracking-tight [&_li]:text-muted-foreground [&_p]:text-muted-foreground"
 	>
-		<section>
+		<section {@attach contentReveal({ steps: [{ target: "children", stagger: 0.08 }] })}>
 			<h2>{m.privacy_controller_title()}</h2>
 			<p class="mt-4">{m.privacy_controller_intro()}</p>
 			<dl class="mt-5 grid gap-3 rounded-xl border bg-card p-5 sm:grid-cols-[10rem_1fr]">
@@ -37,7 +41,7 @@
 			</dl>
 		</section>
 
-		<section>
+		<section {@attach contentReveal({ steps: [{ target: "children", stagger: 0.08 }] })}>
 			<h2>{m.privacy_data_title()}</h2>
 			<p class="mt-4">{m.privacy_data_description()}</p>
 			<ul class="mt-4 list-disc space-y-2 pl-5">
@@ -47,7 +51,7 @@
 			</ul>
 		</section>
 
-		<section>
+		<section {@attach contentReveal({ steps: [{ target: "children", stagger: 0.08 }] })}>
 			<h2>{m.privacy_purposes_title()}</h2>
 			<ul class="mt-4 list-disc space-y-3 pl-5">
 				<li>{m.privacy_purpose_inquiries()}</li>
@@ -58,7 +62,7 @@
 			<p class="mt-4">{m.privacy_newsletter_notice()}</p>
 		</section>
 
-		<section>
+		<section {@attach contentReveal({ steps: [{ target: "children", stagger: 0.08 }] })}>
 			<h2>{m.privacy_recipients_title()}</h2>
 			<p class="mt-4">{m.privacy_recipients_intro()}</p>
 			<ul class="mt-4 list-disc space-y-2 pl-5">
@@ -69,17 +73,17 @@
 			</ul>
 		</section>
 
-		<section>
+		<section {@attach contentReveal({ steps: [{ target: "children", stagger: 0.08 }] })}>
 			<h2>{m.privacy_transfers_title()}</h2>
 			<p class="mt-4">{m.privacy_transfers_description()}</p>
 		</section>
 
-		<section>
+		<section {@attach contentReveal({ steps: [{ target: "children", stagger: 0.08 }] })}>
 			<h2>{m.privacy_retention_title()}</h2>
 			<p class="mt-4">{m.privacy_retention_description()}</p>
 		</section>
 
-		<section>
+		<section {@attach contentReveal({ steps: [{ target: "children", stagger: 0.08 }] })}>
 			<h2>{m.privacy_rights_title()}</h2>
 			<p class="mt-4">{m.privacy_rights_description()}</p>
 			<p class="mt-4">{m.privacy_rights_contact()}</p>
@@ -88,12 +92,12 @@
 			</p>
 		</section>
 
-		<section>
+		<section {@attach contentReveal({ steps: [{ target: "children", stagger: 0.08 }] })}>
 			<h2>{m.privacy_security_title()}</h2>
 			<p class="mt-4">{m.privacy_security_description()}</p>
 		</section>
 
-		<section>
+		<section {@attach contentReveal({ steps: [{ target: "children", stagger: 0.08 }] })}>
 			<h2>{m.privacy_changes_title()}</h2>
 			<p class="mt-4">{m.privacy_changes_description()}</p>
 		</section>
