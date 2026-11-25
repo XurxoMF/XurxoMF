@@ -72,8 +72,13 @@
 <div class="flex min-h-svh flex-col">
 	<header class="sticky top-0 z-40 border-b bg-background/80 backdrop-blur-xl">
 		<div class="mx-auto grid h-16 w-full max-w-6xl grid-cols-[1fr_auto] items-center gap-2 px-4 sm:px-6 md:grid-cols-[1fr_auto_1fr] md:gap-4">
-			<a href={resolve(toResolvablePath(localizeHref("/")))} class="text-xl font-bold tracking-tight" aria-label={m.layout_home_label()}>
-				<span class="text-primary">X</span>urxo<span class="text-primary">MF</span>
+			<a
+				href={resolve(toResolvablePath(localizeHref("/")))}
+				class="flex items-center gap-2 text-xl font-bold tracking-tight"
+				aria-label={m.layout_home_label()}
+			>
+				<img src="/images/brands/xurxomf-logo.webp" alt="" width="32" height="32" class="size-8 object-contain" />
+				<span><span class="text-primary">X</span>urxo<span class="text-primary">MF</span></span>
 			</a>
 
 			<nav class="hidden items-center gap-1 rounded-full border bg-card/80 p-1 shadow-sm md:flex" aria-label={m.layout_main_navigation()}>
@@ -171,8 +176,9 @@
 
 					<Sheet.Content side="top" class="max-h-svh overflow-y-auto">
 						<Sheet.Header class="items-start pr-12 text-left">
-							<Sheet.Title class="text-xl font-bold tracking-tight">
-								<span class="text-primary">X</span>urxo<span class="text-primary">MF</span>
+							<Sheet.Title class="flex items-center gap-2 text-xl font-bold tracking-tight">
+								<img src="/images/brands/xurxomf-logo.webp" alt="" width="32" height="32" class="size-8 object-contain" />
+								<span><span class="text-primary">X</span>urxo<span class="text-primary">MF</span></span>
 							</Sheet.Title>
 							<Sheet.Description>{m.layout_mobile_description()}</Sheet.Description>
 						</Sheet.Header>
