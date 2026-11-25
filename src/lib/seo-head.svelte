@@ -24,7 +24,7 @@
 		noIndex?: boolean;
 	} = $props();
 
-	const SITE_ORIGIN = "https://xurxomf.xyz";
+	const SITE_ORIGIN = "https://xurxomf.com";
 	const OPEN_GRAPH_LOCALES: Record<Locale, string> = {
 		gl: "gl_ES",
 		es: "es_ES",

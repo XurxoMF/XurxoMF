@@ -86,7 +86,7 @@
 
 		<section {@attach contentReveal({ steps: [{ target: "children", stagger: 0.08 }] })}>
 			<h2>{m.cookies_contact_title()}</h2>
-			<p class="mt-4">{m.cookies_contact_description()} <a href="mailto:xurxomf@xurxomf.xyz">xurxomf@xurxomf.xyz</a>.</p>
+			<p class="mt-4">{m.cookies_contact_description()} <a href="mailto:xurxomf@xurxomf.com">xurxomf@xurxomf.com</a>.</p>
 		</section>
 	</div>
 </article>

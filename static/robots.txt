@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://xurxomf.xyz/sitemap.xml
+Sitemap: https://xurxomf.com/sitemap.xml

@@ -23,10 +23,10 @@
 	const professionalServiceSchema = {
 		"@context": "https://schema.org",
 		"@type": "ProfessionalService",
-		"@id": "https://xurxomf.xyz/#business",
+		"@id": "https://xurxomf.com/#business",
 		name: "XurxoMF",
-		url: "https://xurxomf.xyz",
-		email: "xurxomf@xurxomf.xyz",
+		url: "https://xurxomf.com",
+		email: "xurxomf@xurxomf.com",
 		telephone: "+34686571921",
 		description: m.home_meta_description(),
 		address: {
@@ -182,7 +182,7 @@
 						m.career_freelance_date(),
 						m.career_freelance_title(),
 						"XurxoMF",
-						"https://xurxomf.xyz",
+						"https://xurxomf.com",
 						m.career_freelance_description(),
 						m.career_experience()
 					)}

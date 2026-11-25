@@ -27,7 +27,7 @@
 {/snippet}
 
 {#snippet heroActions()}
-	<a href="https://xvelte.xurxomf.xyz/" target="_blank" rel="external noreferrer" class={Button.rootVariants({ size: "lg" })}>
+	<a href="https://xvelte.xurxomf.com/" target="_blank" rel="external noreferrer" class={Button.rootVariants({ size: "lg" })}>
 		{m.xvelte_action_docs()}
 	</a>
 	<a

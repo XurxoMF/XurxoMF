@@ -2,8 +2,8 @@ import * as m from "#lib/paraglide/messages.js";
 
 export const contact = {
 	email: {
-		label: "xurxomf@xurxomf.xyz",
-		href: "mailto:xurxomf@xurxomf.xyz"
+		label: "xurxomf@xurxomf.com",
+		href: "mailto:xurxomf@xurxomf.com"
 	},
 	phone: {
 		label: "+34 686 57 19 21",

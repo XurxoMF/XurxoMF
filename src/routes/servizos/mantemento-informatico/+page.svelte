@@ -54,8 +54,8 @@
 				"@type": "Service",
 				name: m.service_maintenance_title(),
 				description: m.service_it_maintenance_meta_description(),
-				url: new URL(localizeHref("/servizos/mantemento-informatico"), "https://xurxomf.xyz").href,
-				provider: { "@type": "ProfessionalService", "@id": "https://xurxomf.xyz/#business", name: "XurxoMF", telephone: "+34686571921" },
+				url: new URL(localizeHref("/servizos/mantemento-informatico"), "https://xurxomf.com").href,
+				provider: { "@type": "ProfessionalService", "@id": "https://xurxomf.com/#business", name: "XurxoMF", telephone: "+34686571921" },
 				areaServed: m.service_area_it()
 			},
 			{

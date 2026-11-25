@@ -24,7 +24,7 @@
 	<a href="https://github.com/XurxoMF/vs-launcher" target="_blank" rel="external noreferrer" class={Button.rootVariants({ size: "lg" })}>
 		{m.vsl_action_code()}
 	</a>
-	<a href="https://vsldocs.xurxomf.xyz/" target="_blank" rel="external noreferrer" class={Button.rootVariants({ variant: "secondary", size: "lg" })}>
+	<a href="https://vsldocs.xurxomf.com/" target="_blank" rel="external noreferrer" class={Button.rootVariants({ variant: "secondary", size: "lg" })}>
 		{m.vsl_action_docs()}
 	</a>
 {/snippet}

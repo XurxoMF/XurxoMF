@@ -37,7 +37,7 @@ export const projects: Project[] = [
 		href: "/proxectos/vs-launcher",
 		externalLinks: [
 			{ label: "GitHub", href: "https://github.com/XurxoMF/vs-launcher" },
-			{ label: m.project_link_documentation(), href: "https://vsldocs.xurxomf.xyz/" }
+			{ label: m.project_link_documentation(), href: "https://vsldocs.xurxomf.com/" }
 		],
 		featured: true
 	},
@@ -71,7 +71,7 @@ export const projects: Project[] = [
 		},
 		href: "/proxectos/xvelte",
 		externalLinks: [
-			{ label: m.project_link_documentation(), href: "https://xvelte.xurxomf.xyz/" },
+			{ label: m.project_link_documentation(), href: "https://xvelte.xurxomf.com/" },
 			{ label: "GitHub", href: "https://github.com/XurxoMF/xvelte" }
 		],
 		featured: true

@@ -54,8 +54,8 @@
 				"@type": "Service",
 				name: m.service_it_title(),
 				description: m.service_it_meta_description(),
-				url: new URL(localizeHref("/servizos/soporte-informatico"), "https://xurxomf.xyz").href,
-				provider: { "@type": "ProfessionalService", "@id": "https://xurxomf.xyz/#business", name: "XurxoMF", telephone: "+34686571921" },
+				url: new URL(localizeHref("/servizos/soporte-informatico"), "https://xurxomf.com").href,
+				provider: { "@type": "ProfessionalService", "@id": "https://xurxomf.com/#business", name: "XurxoMF", telephone: "+34686571921" },
 				areaServed: ["Salvaterra de Miño", "Salceda de Caselas", "Vigo", "O Porriño", "Tui", "Ponteareas"]
 			},
 			{

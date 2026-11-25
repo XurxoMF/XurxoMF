@@ -65,8 +65,8 @@
 				"@type": "Service",
 				name: m.service_custom_software_title(),
 				description: m.service_custom_software_meta_description(),
-				url: new URL(localizeHref("/servizos/software-medida"), "https://xurxomf.xyz").href,
-				provider: { "@type": "ProfessionalService", "@id": "https://xurxomf.xyz/#business", name: "XurxoMF" },
+				url: new URL(localizeHref("/servizos/software-medida"), "https://xurxomf.com").href,
+				provider: { "@type": "ProfessionalService", "@id": "https://xurxomf.com/#business", name: "XurxoMF" },
 				areaServed: m.service_area_development()
 			},
 			{

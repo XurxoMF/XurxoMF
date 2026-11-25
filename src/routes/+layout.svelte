@@ -23,7 +23,7 @@
 	let navigationOpen = $state(false);
 	let cookieNoticeOpen = $state(false);
 
-	const SITE_ORIGIN = "https://xurxomf.xyz";
+	const SITE_ORIGIN = "https://xurxomf.com";
 	const COOKIE_NOTICE_KEY = "xurxomf-cookie-notice";
 
 	const LOCALES: Record<(typeof locales)[number], { name: string; code: string }> = {

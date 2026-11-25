@@ -4,7 +4,7 @@ import { projects } from "#lib/data/projects.ts";
 import { services } from "#lib/data/services.ts";
 import { baseLocale, localizeHref, locales } from "#lib/paraglide/runtime.js";
 
-const siteOrigin = "https://xurxomf.xyz";
+const siteOrigin = "https://xurxomf.com";
 const paths = [
 	"/",
 	"/servizos",

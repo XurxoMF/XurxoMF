@@ -8,7 +8,7 @@
 
 Creo experiencias web, aplicacións e solucións tecnolóxicas que buscan ser útiles, rápidas e fáciles de manter.
 
-[![Web persoal](https://img.shields.io/badge/Web-xurxomf.xyz-267D8D?style=for-the-badge)](https://xurxomf.xyz)
+[![Web persoal](https://img.shields.io/badge/Web-xurxomf.com-267D8D?style=for-the-badge)](https://xurxomf.com)
 [![GitHub](https://img.shields.io/badge/GitHub-XurxoMF-24292F?style=for-the-badge&logo=github&logoColor=white)](https://github.com/XurxoMF)
 
 </div>
@@ -37,7 +37,7 @@ Interésame especialmente crear solucións prácticas e ben construídas, desde 
 
 Se queres coñecer o meu traballo ou tes unha idea na que poidamos colaborar, podes atoparme aquí:
 
-- 🌍 **Web:** [xurxomf.xyz](https://xurxomf.xyz)
+- 🌍 **Web:** [xurxomf.com](https://xurxomf.com)
 - 💻 **GitHub:** [@XurxoMF](https://github.com/XurxoMF)
 
 <!--

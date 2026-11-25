@@ -22,6 +22,6 @@ export default defineConfig({
 		})
 	],
 	preview: {
-		allowedHosts: ["xurxomf.xyz"]
+		allowedHosts: ["xurxomf.com"]
 	}
 });

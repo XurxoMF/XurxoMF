@@ -34,11 +34,11 @@
 				<dt class="font-semibold">{m.privacy_controller_address_label()}</dt>
 				<dd>Laxe 7, Cabreira, Salvaterra de Miño, 36458, Pontevedra, España</dd>
 				<dt class="font-semibold">{m.privacy_controller_email_label()}</dt>
-				<dd><a href="mailto:xurxomf@xurxomf.xyz">xurxomf@xurxomf.xyz</a></dd>
+				<dd><a href="mailto:xurxomf@xurxomf.com">xurxomf@xurxomf.com</a></dd>
 				<dt class="font-semibold">{m.privacy_controller_phone_label()}</dt>
 				<dd><a href="tel:0034686571921">+34 686 57 19 21</a></dd>
 				<dt class="font-semibold">{m.legal_notice_domain_label()}</dt>
-				<dd><a href="https://xurxomf.xyz">xurxomf.xyz</a></dd>
+				<dd><a href="https://xurxomf.com">xurxomf.com</a></dd>
 			</dl>
 			<p class="mt-4">{m.legal_notice_registry()}</p>
 		</section>
